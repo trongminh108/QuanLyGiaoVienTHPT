@@ -69,5 +69,15 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap simplebutton {
+            get {
+                object obj = ResourceManager.GetObject("simplebutton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
