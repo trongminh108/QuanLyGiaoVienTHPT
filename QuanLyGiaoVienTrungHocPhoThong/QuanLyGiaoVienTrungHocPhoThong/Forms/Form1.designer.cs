@@ -1,6 +1,6 @@
 ﻿namespace QuanLyGiaoVienTrungHocPhoThong
 {
-    partial class FormDangNhap
+    partial class FormDangNhap1
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // FormDangNhap
+            // FormDangNhap1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.BackgroundImage = global::QuanLyGiaoVienTrungHocPhoThong.Properties.Resources.background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(581, 344);
-            this.Name = "FormDangNhap";
+            this.ClientSize = new System.Drawing.Size(914, 489);
+            this.Name = "FormDangNhap1";
             this.Text = "Quản Lý Giáo Viên";
             this.ResumeLayout(false);
 

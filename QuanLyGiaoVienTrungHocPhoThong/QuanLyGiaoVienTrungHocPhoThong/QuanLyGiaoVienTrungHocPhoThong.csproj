@@ -49,6 +49,61 @@
     <Compile Include="Customdesign\RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DSGiaoVien.cs" />
+    <Compile Include="Forms2\FormDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms2\FormDangNhap.Designer.cs">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms2\FormDanhSachGiaoVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms2\FormDanhSachGiaoVien.Designer.cs">
+      <DependentUpon>FormDanhSachGiaoVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms2\FormDoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms2\FormDoiMatKhau.Designer.cs">
+      <DependentUpon>FormDoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms2\FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms2\FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms2\FormQuenMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms2\FormQuenMatKhau.Designer.cs">
+      <DependentUpon>FormQuenMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms2\FormSuaThongTinGiaoVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms2\FormSuaThongTinGiaoVien.Designer.cs">
+      <DependentUpon>FormSuaThongTinGiaoVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms2\FormThemThongTinGiaoVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms2\FormThemThongTinGiaoVien.Designer.cs">
+      <DependentUpon>FormThemThongTinGiaoVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms2\FormThongKe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms2\FormThongKe.Designer.cs">
+      <DependentUpon>FormThongKe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms2\FormThongTinGiaoVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms2\FormThongTinGiaoVien.Designer.cs">
+      <DependentUpon>FormThongTinGiaoVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormDangNhapHeThong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +154,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms2\FormDangNhap.resx">
+      <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms2\FormDoiMatKhau.resx">
+      <DependentUpon>FormDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms2\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms2\FormDanhSachGiaoVien.resx">
+      <DependentUpon>FormDanhSachGiaoVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms2\FormQuenMatKhau.resx">
+      <DependentUpon>FormQuenMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms2\FormSuaThongTinGiaoVien.resx">
+      <DependentUpon>FormSuaThongTinGiaoVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms2\FormThemThongTinGiaoVien.resx">
+      <DependentUpon>FormThemThongTinGiaoVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms2\FormThongTinGiaoVien.resx">
+      <DependentUpon>FormThongTinGiaoVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormDangNhapHeThong.resx">
       <DependentUpon>FormDangNhapHeThong.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,7 +232,10 @@
     <None Include="Resources\simplebutton.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\id-card.png" />
+    <None Include="Resources\background-xanh-duong.jpg" />
     <Content Include="Resources\logoAGU.jpg" />
+    <None Include="Resources\return %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

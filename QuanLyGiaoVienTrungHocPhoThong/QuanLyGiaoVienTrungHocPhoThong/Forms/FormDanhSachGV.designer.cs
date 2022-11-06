@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDanhSachGV));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.hệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,16 +43,20 @@
             this.hướngDẫnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinPhầnMềmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.dgvDSGV = new System.Windows.Forms.DataGridView();
+            this.btnThem = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
+            this.btnDangXuat = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnXoa = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
+            this.btnSua = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
+            this.btnSapXep = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSGV)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hệThốngToolStripMenuItem,
@@ -61,7 +66,7 @@
             this.hỗTrợToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(982, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -149,78 +154,145 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 130);
+            this.textBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox1.Location = new System.Drawing.Point(12, 60);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 38);
+            this.textBox1.Size = new System.Drawing.Size(173, 26);
             this.textBox1.TabIndex = 1;
             // 
-            // button1
+            // dgvDSGV
             // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(254, 113);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 55);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dgvDSGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDSGV.GridColor = System.Drawing.SystemColors.Highlight;
+            this.dgvDSGV.Location = new System.Drawing.Point(12, 99);
+            this.dgvDSGV.Name = "dgvDSGV";
+            this.dgvDSGV.RowHeadersWidth = 51;
+            this.dgvDSGV.RowTemplate.Height = 24;
+            this.dgvDSGV.Size = new System.Drawing.Size(776, 284);
+            this.dgvDSGV.TabIndex = 7;
             // 
-            // button2
+            // btnThem
             // 
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(341, 113);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(81, 55);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Xóa ";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnThem.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnThem.BackgroundColor = System.Drawing.Color.ForestGreen;
+            this.btnThem.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnThem.BorderRadius = 20;
+            this.btnThem.BorderSize = 0;
+            this.btnThem.FlatAppearance.BorderSize = 0;
+            this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThem.ForeColor = System.Drawing.Color.White;
+            this.btnThem.Location = new System.Drawing.Point(191, 49);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(110, 44);
+            this.btnThem.TabIndex = 8;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.TextColor = System.Drawing.Color.White;
+            this.btnThem.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnDangXuat
             // 
-            this.button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(428, 113);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(81, 55);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Sửa";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(707, 113);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(81, 55);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Sắp xếp";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnDangXuat.BackColor = System.Drawing.Color.Red;
+            this.btnDangXuat.BackgroundColor = System.Drawing.Color.Red;
+            this.btnDangXuat.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDangXuat.BorderRadius = 20;
+            this.btnDangXuat.BorderSize = 0;
+            this.btnDangXuat.FlatAppearance.BorderSize = 0;
+            this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangXuat.ForeColor = System.Drawing.Color.White;
+            this.btnDangXuat.Location = new System.Drawing.Point(307, 389);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Size = new System.Drawing.Size(159, 49);
+            this.btnDangXuat.TabIndex = 12;
+            this.btnDangXuat.Text = "Đăng xuất";
+            this.btnDangXuat.TextColor = System.Drawing.Color.White;
+            this.btnDangXuat.UseVisualStyleBackColor = false;
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.IntegralHeight = false;
-            this.comboBox1.Location = new System.Drawing.Point(524, 130);
+            this.comboBox1.Location = new System.Drawing.Point(539, 60);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(177, 24);
+            this.comboBox1.Size = new System.Drawing.Size(133, 24);
             this.comboBox1.TabIndex = 6;
             // 
-            // DanhsachGV
+            // btnXoa
+            // 
+            this.btnXoa.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnXoa.BackgroundColor = System.Drawing.Color.ForestGreen;
+            this.btnXoa.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnXoa.BorderRadius = 20;
+            this.btnXoa.BorderSize = 0;
+            this.btnXoa.FlatAppearance.BorderSize = 0;
+            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoa.ForeColor = System.Drawing.Color.White;
+            this.btnXoa.Location = new System.Drawing.Point(307, 49);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(110, 44);
+            this.btnXoa.TabIndex = 13;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.TextColor = System.Drawing.Color.White;
+            this.btnXoa.UseVisualStyleBackColor = false;
+            // 
+            // btnSua
+            // 
+            this.btnSua.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnSua.BackgroundColor = System.Drawing.Color.ForestGreen;
+            this.btnSua.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSua.BorderRadius = 20;
+            this.btnSua.BorderSize = 0;
+            this.btnSua.FlatAppearance.BorderSize = 0;
+            this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSua.ForeColor = System.Drawing.Color.White;
+            this.btnSua.Location = new System.Drawing.Point(423, 49);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(110, 44);
+            this.btnSua.TabIndex = 14;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.TextColor = System.Drawing.Color.White;
+            this.btnSua.UseVisualStyleBackColor = false;
+            // 
+            // btnSapXep
+            // 
+            this.btnSapXep.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnSapXep.BackgroundColor = System.Drawing.Color.ForestGreen;
+            this.btnSapXep.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSapXep.BorderRadius = 20;
+            this.btnSapXep.BorderSize = 0;
+            this.btnSapXep.FlatAppearance.BorderSize = 0;
+            this.btnSapXep.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSapXep.ForeColor = System.Drawing.Color.White;
+            this.btnSapXep.Location = new System.Drawing.Point(678, 49);
+            this.btnSapXep.Name = "btnSapXep";
+            this.btnSapXep.Size = new System.Drawing.Size(110, 44);
+            this.btnSapXep.TabIndex = 15;
+            this.btnSapXep.Text = "Sắp xếp";
+            this.btnSapXep.TextColor = System.Drawing.Color.White;
+            this.btnSapXep.UseVisualStyleBackColor = false;
+            // 
+            // FormDanhSachGV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(982, 553);
+            this.Controls.Add(this.btnSapXep);
+            this.Controls.Add(this.btnSua);
+            this.Controls.Add(this.btnXoa);
+            this.Controls.Add(this.btnDangXuat);
+            this.Controls.Add(this.btnThem);
+            this.Controls.Add(this.dgvDSGV);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "DanhsachGV";
+            this.Name = "FormDanhSachGV";
             this.Text = "Danh Sách Giáo Viên";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDSGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,10 +314,12 @@
         private System.Windows.Forms.ToolStripMenuItem hướngDẫnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thôngTinPhầnMềmToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DataGridView dgvDSGV;
+        private QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton btnThem;
+        private QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton btnDangXuat;
         private System.Windows.Forms.ComboBox comboBox1;
+        private QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton btnXoa;
+        private QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton btnSua;
+        private QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton btnSapXep;
     }
 }
