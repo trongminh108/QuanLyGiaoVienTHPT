@@ -15,6 +15,9 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         public FormSuaThongTinGiaoVien()
         {
             InitializeComponent();
+
+            dtpNamSinh.Format = DateTimePickerFormat.Custom;
+            dtpNamSinh.CustomFormat = " dd/ MM/ yyyy";
         }
     }
 }

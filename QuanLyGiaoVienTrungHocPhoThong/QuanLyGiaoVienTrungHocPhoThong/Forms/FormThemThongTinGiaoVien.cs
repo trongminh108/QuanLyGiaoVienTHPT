@@ -20,6 +20,9 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             txtNgayNhanLop.Enabled = false;
             rbtnKhong.Checked = true;
             rbtnNam.Checked = true;
+
+            dtpNamSinh.Format = DateTimePickerFormat.Custom;  
+            dtpNamSinh.CustomFormat = " dd/ MM/ yyyy";
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -57,8 +60,8 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             value += getValue(txtMaGV.Text, c);
             value += getValue(txtHoten.Text, c);
             //sửa lại thành date time picker - mm/dd/yyyy
-            value += getValue(txtNamSinh.Text, c);
-            value += getValue(txtBoMon.Text, c);
+            //value += getValue(txtNamSinh.Text, c);
+            //value += getValue(txtBoMon.Text, c);
             if (rbtnNam.Checked)
                 value += getValue("Nam", c);
             else
