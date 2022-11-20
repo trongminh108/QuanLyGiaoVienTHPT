@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Project_QLGV_QLMK
+namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 {
     public partial class FormDoiMatKhau : Form
     {
         public FormDoiMatKhau()
         {
             InitializeComponent();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

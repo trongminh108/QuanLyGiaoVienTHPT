@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Project_QLGV_QLMK
+namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 {
     public partial class FormSuaThongTinGiaoVien : Form
     {
