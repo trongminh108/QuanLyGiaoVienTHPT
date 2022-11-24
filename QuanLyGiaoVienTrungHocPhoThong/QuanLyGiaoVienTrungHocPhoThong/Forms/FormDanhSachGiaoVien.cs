@@ -17,12 +17,24 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         {
             InitializeComponent();
             dgvDSGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvDSGV.ReadOnly = true;
+        }
+
+        public string ConvertDate(string date)
+        {
+            string res = "";
+            string[] arr = date.Split('/');
+            res = arr[1] + "/" + arr[0] + "/" + arr[2];
+            return res;
         }
 
         private void LoadData()
         {
-            string query = "SELECT * FROM giaovien";
+            string query = "SELECT magv, hoten, " +
+                "FORMAT (namsinh, 'dd/MM/yyyy') as date, " +
+                "mamon, gioitinh, luong, matruongbm, sdt, email FROM giaovien";
             Modify modify = new Modify();
+            DataTable dt = modify.getDataTable(query);
             dgvDSGV.DataSource = modify.getDataTable(query);
             int numCol = dgvDSGV.ColumnCount;
             string[] dsgv = {"Mã GV", "Họ và tên", "Năm sinh",
