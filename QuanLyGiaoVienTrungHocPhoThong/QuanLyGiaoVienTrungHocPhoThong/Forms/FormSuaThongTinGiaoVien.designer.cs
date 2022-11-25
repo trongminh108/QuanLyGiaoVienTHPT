@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSuaThongTinGiaoVien));
             this.gpbThongTin2 = new System.Windows.Forms.GroupBox();
+            this.cbBoMon = new System.Windows.Forms.ComboBox();
             this.radKhong = new System.Windows.Forms.RadioButton();
             this.label12 = new System.Windows.Forms.Label();
             this.radCo = new System.Windows.Forms.RadioButton();
@@ -44,10 +45,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.picHinhThe = new System.Windows.Forms.PictureBox();
             this.gpbThongTin1 = new System.Windows.Forms.GroupBox();
-            this.btnLuu = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
-            this.btnThemHinhThe = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.cbBoMon = new System.Windows.Forms.ComboBox();
             this.dtpNamSinh = new System.Windows.Forms.DateTimePicker();
             this.rbtnNu = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,6 +58,9 @@
             this.txtMaGV = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnLuu = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
+            this.btnThemHinhThe = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.gpbThongTin2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHinhThe)).BeginInit();
             this.gpbThongTin1.SuspendLayout();
@@ -88,6 +88,15 @@
             this.gpbThongTin2.TabIndex = 0;
             this.gpbThongTin2.TabStop = false;
             this.gpbThongTin2.Text = "Điền thông tin cá nhân";
+            // 
+            // cbBoMon
+            // 
+            this.cbBoMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbBoMon.FormattingEnabled = true;
+            this.cbBoMon.Location = new System.Drawing.Point(131, 29);
+            this.cbBoMon.Name = "cbBoMon";
+            this.cbBoMon.Size = new System.Drawing.Size(201, 28);
+            this.cbBoMon.TabIndex = 79;
             // 
             // radKhong
             // 
@@ -261,64 +270,6 @@
             this.gpbThongTin1.TabStop = false;
             this.gpbThongTin1.Text = "Điền thông tin cá nhân";
             // 
-            // btnLuu
-            // 
-            this.btnLuu.BackColor = System.Drawing.Color.Blue;
-            this.btnLuu.BackgroundColor = System.Drawing.Color.Blue;
-            this.btnLuu.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnLuu.BorderRadius = 10;
-            this.btnLuu.BorderSize = 0;
-            this.btnLuu.FlatAppearance.BorderSize = 0;
-            this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
-            this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLuu.Location = new System.Drawing.Point(522, 327);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(106, 71);
-            this.btnLuu.TabIndex = 70;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLuu.TextColor = System.Drawing.Color.White;
-            this.btnLuu.UseVisualStyleBackColor = false;
-            // 
-            // btnThemHinhThe
-            // 
-            this.btnThemHinhThe.BackColor = System.Drawing.Color.Blue;
-            this.btnThemHinhThe.BackgroundColor = System.Drawing.Color.Blue;
-            this.btnThemHinhThe.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnThemHinhThe.BorderRadius = 20;
-            this.btnThemHinhThe.BorderSize = 0;
-            this.btnThemHinhThe.FlatAppearance.BorderSize = 0;
-            this.btnThemHinhThe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThemHinhThe.ForeColor = System.Drawing.Color.White;
-            this.btnThemHinhThe.Image = ((System.Drawing.Image)(resources.GetObject("btnThemHinhThe.Image")));
-            this.btnThemHinhThe.Location = new System.Drawing.Point(47, 125);
-            this.btnThemHinhThe.Name = "btnThemHinhThe";
-            this.btnThemHinhThe.Size = new System.Drawing.Size(58, 55);
-            this.btnThemHinhThe.TabIndex = 69;
-            this.btnThemHinhThe.TextColor = System.Drawing.Color.White;
-            this.btnThemHinhThe.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.panel1.Controls.Add(this.picHinhThe);
-            this.panel1.Location = new System.Drawing.Point(133, 11);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(149, 169);
-            this.panel1.TabIndex = 71;
-            // 
-            // cbBoMon
-            // 
-            this.cbBoMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbBoMon.FormattingEnabled = true;
-            this.cbBoMon.Location = new System.Drawing.Point(131, 29);
-            this.cbBoMon.Name = "cbBoMon";
-            this.cbBoMon.Size = new System.Drawing.Size(201, 28);
-            this.cbBoMon.TabIndex = 79;
-            // 
             // dtpNamSinh
             // 
             this.dtpNamSinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -469,6 +420,55 @@
             this.label6.TabIndex = 83;
             this.label6.Text = "Năm sinh";
             // 
+            // btnLuu
+            // 
+            this.btnLuu.BackColor = System.Drawing.Color.Blue;
+            this.btnLuu.BackgroundColor = System.Drawing.Color.Blue;
+            this.btnLuu.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnLuu.BorderRadius = 10;
+            this.btnLuu.BorderSize = 0;
+            this.btnLuu.FlatAppearance.BorderSize = 0;
+            this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.ForeColor = System.Drawing.Color.White;
+            this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
+            this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLuu.Location = new System.Drawing.Point(522, 327);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(106, 71);
+            this.btnLuu.TabIndex = 70;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLuu.TextColor = System.Drawing.Color.White;
+            this.btnLuu.UseVisualStyleBackColor = false;
+            // 
+            // btnThemHinhThe
+            // 
+            this.btnThemHinhThe.BackColor = System.Drawing.Color.Blue;
+            this.btnThemHinhThe.BackgroundColor = System.Drawing.Color.Blue;
+            this.btnThemHinhThe.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnThemHinhThe.BorderRadius = 20;
+            this.btnThemHinhThe.BorderSize = 0;
+            this.btnThemHinhThe.FlatAppearance.BorderSize = 0;
+            this.btnThemHinhThe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThemHinhThe.ForeColor = System.Drawing.Color.White;
+            this.btnThemHinhThe.Image = ((System.Drawing.Image)(resources.GetObject("btnThemHinhThe.Image")));
+            this.btnThemHinhThe.Location = new System.Drawing.Point(47, 125);
+            this.btnThemHinhThe.Name = "btnThemHinhThe";
+            this.btnThemHinhThe.Size = new System.Drawing.Size(58, 55);
+            this.btnThemHinhThe.TabIndex = 69;
+            this.btnThemHinhThe.TextColor = System.Drawing.Color.White;
+            this.btnThemHinhThe.UseVisualStyleBackColor = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.Controls.Add(this.picHinhThe);
+            this.panel1.Location = new System.Drawing.Point(133, 11);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(149, 169);
+            this.panel1.TabIndex = 71;
+            // 
             // FormSuaThongTinGiaoVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -480,6 +480,7 @@
             this.Controls.Add(this.gpbThongTin1);
             this.Controls.Add(this.gpbThongTin2);
             this.Name = "FormSuaThongTinGiaoVien";
+            this.Text = "Sửa thông tin giáo viên";
             this.gpbThongTin2.ResumeLayout(false);
             this.gpbThongTin2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHinhThe)).EndInit();

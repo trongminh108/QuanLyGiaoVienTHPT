@@ -52,3 +52,4 @@ D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGi
 D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.csproj.CoreCompileInputs.cache
 D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.exe
 D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.pdb
+E:\ProjectGit\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.Forms2.FormThongKe.resources

@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDangNhap));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblQuenMK = new System.Windows.Forms.Label();
             this.txtMK = new System.Windows.Forms.TextBox();
-            this.txtNhap = new System.Windows.Forms.TextBox();
+            this.txtTK = new System.Windows.Forms.TextBox();
             this.radGhiNho = new System.Windows.Forms.RadioButton();
-            this.btnDangNhap = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblDoiMatKhau = new System.Windows.Forms.Label();
+            this.btnDangNhap = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -53,18 +53,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // lblQuenMK
-            // 
-            this.lblQuenMK.AutoSize = true;
-            this.lblQuenMK.BackColor = System.Drawing.Color.Transparent;
-            this.lblQuenMK.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuenMK.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblQuenMK.Location = new System.Drawing.Point(274, 324);
-            this.lblQuenMK.Name = "lblQuenMK";
-            this.lblQuenMK.Size = new System.Drawing.Size(142, 22);
-            this.lblQuenMK.TabIndex = 20;
-            this.lblQuenMK.Text = "Quên mật khẩu?";
-            // 
             // txtMK
             // 
             this.txtMK.BackColor = System.Drawing.SystemColors.Window;
@@ -79,17 +67,17 @@
             this.txtMK.Tag = "";
             this.txtMK.WordWrap = false;
             // 
-            // txtNhap
+            // txtTK
             // 
-            this.txtNhap.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNhap.CausesValidation = false;
-            this.txtNhap.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNhap.Location = new System.Drawing.Point(136, 213);
-            this.txtNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNhap.Multiline = true;
-            this.txtNhap.Name = "txtNhap";
-            this.txtNhap.Size = new System.Drawing.Size(280, 32);
-            this.txtNhap.TabIndex = 17;
+            this.txtTK.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTK.CausesValidation = false;
+            this.txtTK.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTK.Location = new System.Drawing.Point(136, 213);
+            this.txtTK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTK.Multiline = true;
+            this.txtTK.Name = "txtTK";
+            this.txtTK.Size = new System.Drawing.Size(280, 32);
+            this.txtTK.TabIndex = 17;
             // 
             // radGhiNho
             // 
@@ -105,26 +93,6 @@
             this.radGhiNho.TabStop = true;
             this.radGhiNho.Text = "Ghi nhớ";
             this.radGhiNho.UseVisualStyleBackColor = false;
-            // 
-            // btnDangNhap
-            // 
-            this.btnDangNhap.BackColor = System.Drawing.Color.MediumBlue;
-            this.btnDangNhap.BackgroundColor = System.Drawing.Color.MediumBlue;
-            this.btnDangNhap.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnDangNhap.BorderRadius = 5;
-            this.btnDangNhap.BorderSize = 0;
-            this.btnDangNhap.FlatAppearance.BorderSize = 0;
-            this.btnDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangNhap.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDangNhap.ForeColor = System.Drawing.Color.Snow;
-            this.btnDangNhap.Location = new System.Drawing.Point(136, 378);
-            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(234, 60);
-            this.btnDangNhap.TabIndex = 23;
-            this.btnDangNhap.Text = "Đăng nhập";
-            this.btnDangNhap.TextColor = System.Drawing.Color.Snow;
-            this.btnDangNhap.UseVisualStyleBackColor = false;
             // 
             // pictureBox2
             // 
@@ -146,6 +114,40 @@
             this.pictureBox3.TabIndex = 25;
             this.pictureBox3.TabStop = false;
             // 
+            // lblDoiMatKhau
+            // 
+            this.lblDoiMatKhau.AutoSize = true;
+            this.lblDoiMatKhau.BackColor = System.Drawing.Color.Transparent;
+            this.lblDoiMatKhau.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDoiMatKhau.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblDoiMatKhau.Location = new System.Drawing.Point(274, 320);
+            this.lblDoiMatKhau.Name = "lblDoiMatKhau";
+            this.lblDoiMatKhau.Size = new System.Drawing.Size(142, 22);
+            this.lblDoiMatKhau.TabIndex = 26;
+            this.lblDoiMatKhau.Text = "Quên mật khẩu?";
+            this.lblDoiMatKhau.Click += new System.EventHandler(this.lblDoiMatKhau_Click);
+            // 
+            // btnDangNhap
+            // 
+            this.btnDangNhap.BackColor = System.Drawing.Color.MediumBlue;
+            this.btnDangNhap.BackgroundColor = System.Drawing.Color.MediumBlue;
+            this.btnDangNhap.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnDangNhap.BorderRadius = 5;
+            this.btnDangNhap.BorderSize = 0;
+            this.btnDangNhap.FlatAppearance.BorderSize = 0;
+            this.btnDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangNhap.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangNhap.ForeColor = System.Drawing.Color.Snow;
+            this.btnDangNhap.Location = new System.Drawing.Point(136, 409);
+            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDangNhap.Name = "btnDangNhap";
+            this.btnDangNhap.Size = new System.Drawing.Size(234, 60);
+            this.btnDangNhap.TabIndex = 23;
+            this.btnDangNhap.Text = "Đăng nhập";
+            this.btnDangNhap.TextColor = System.Drawing.Color.Snow;
+            this.btnDangNhap.UseVisualStyleBackColor = false;
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
+            // 
             // FormDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -154,13 +156,13 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(473, 516);
+            this.Controls.Add(this.lblDoiMatKhau);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnDangNhap);
-            this.Controls.Add(this.lblQuenMK);
             this.Controls.Add(this.radGhiNho);
             this.Controls.Add(this.txtMK);
-            this.Controls.Add(this.txtNhap);
+            this.Controls.Add(this.txtTK);
             this.Controls.Add(this.pictureBox1);
             this.ForeColor = System.Drawing.Color.YellowGreen;
             this.Name = "FormDangNhap";
@@ -176,12 +178,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblQuenMK;
         private System.Windows.Forms.TextBox txtMK;
-        private System.Windows.Forms.TextBox txtNhap;
+        private System.Windows.Forms.TextBox txtTK;
         private System.Windows.Forms.RadioButton radGhiNho;
         private Customdesign.RoundedButton btnDangNhap;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label lblDoiMatKhau;
     }
 }

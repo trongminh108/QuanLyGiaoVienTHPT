@@ -16,5 +16,10 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         {
             InitializeComponent();
         }
+
+        private void btnDoiMK_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

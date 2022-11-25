@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.SqlClient;// tai khoan
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,7 +16,30 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
         SqlConnection connect;
         DataTable dataTable = new DataTable();
 
-        public Modify() { }
+        public Modify() 
+        {
+        }
+        SqlCommand sqlCommand; // đùng để truy vấn các câu lệnh insert, update, delet,...
+        SqlDataReader dataReader; // dùng để đọc dử liệu trong bảng
+
+        public List<TaiKhoan> TaiKhoans(string query)
+        {
+            List<TaiKhoan> taiKhoans = new List<TaiKhoan>();
+
+            using (SqlConnection sqlConnection = Connection.getConnection())
+            {
+                sqlConnection.Open();
+                sqlCommand = new SqlCommand(query, sqlConnection);
+                dataReader = sqlCommand.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    taiKhoans.Add(new TaiKhoan(dataReader.GetString(0), dataReader.GetString(1)));
+                }
+                sqlConnection.Close();
+
+            }
+            return taiKhoans;
+        }       
 
         public void Command(string query)
         {

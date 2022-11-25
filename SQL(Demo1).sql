@@ -1,6 +1,16 @@
 ﻿CREATE DATABASE QLGV
 go
 
+-- Bang Tai Khoan
+CREATE TABLE TaiKhoan
+(
+	TenTaiKhoan char(20),
+	MatKhau char (20),
+	email varchar(50),
+
+	primary key (TenTaiKhoan)
+)
+
 -- Bang 1: Giao Vien
 CREATE TABLE GiaoVien
 (

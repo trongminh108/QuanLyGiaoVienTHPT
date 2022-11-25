@@ -41,20 +41,20 @@
             // 
             this.txtTimKiem.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimKiem.Location = new System.Drawing.Point(17, 33);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTimKiem.Location = new System.Drawing.Point(23, 41);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTimKiem.Multiline = true;
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(200, 29);
+            this.txtTimKiem.Size = new System.Drawing.Size(265, 35);
             this.txtTimKiem.TabIndex = 16;
             // 
             // cmbSapXep
             // 
             this.cmbSapXep.FormattingEnabled = true;
-            this.cmbSapXep.Location = new System.Drawing.Point(326, 37);
-            this.cmbSapXep.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbSapXep.Location = new System.Drawing.Point(435, 46);
+            this.cmbSapXep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbSapXep.Name = "cmbSapXep";
-            this.cmbSapXep.Size = new System.Drawing.Size(121, 21);
+            this.cmbSapXep.Size = new System.Drawing.Size(160, 24);
             this.cmbSapXep.TabIndex = 20;
             // 
             // btnTimKiem
@@ -69,10 +69,10 @@
             this.btnTimKiem.ForeColor = System.Drawing.Color.White;
             this.btnTimKiem.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.Image")));
             this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTimKiem.Location = new System.Drawing.Point(221, 29);
-            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTimKiem.Location = new System.Drawing.Point(295, 36);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(93, 32);
+            this.btnTimKiem.Size = new System.Drawing.Size(124, 39);
             this.btnTimKiem.TabIndex = 21;
             this.btnTimKiem.Text = "Tìm Kiếm";
             this.btnTimKiem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -91,10 +91,10 @@
             this.btnSapXep.ForeColor = System.Drawing.Color.White;
             this.btnSapXep.Image = ((System.Drawing.Image)(resources.GetObject("btnSapXep.Image")));
             this.btnSapXep.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSapXep.Location = new System.Drawing.Point(451, 29);
-            this.btnSapXep.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSapXep.Location = new System.Drawing.Point(601, 36);
+            this.btnSapXep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSapXep.Name = "btnSapXep";
-            this.btnSapXep.Size = new System.Drawing.Size(94, 32);
+            this.btnSapXep.Size = new System.Drawing.Size(125, 39);
             this.btnSapXep.TabIndex = 17;
             this.btnSapXep.Text = "Sắp xếp";
             this.btnSapXep.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -104,24 +104,26 @@
             // dgvDSGV
             // 
             this.dgvDSGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDSGV.Location = new System.Drawing.Point(17, 100);
+            this.dgvDSGV.Location = new System.Drawing.Point(23, 123);
+            this.dgvDSGV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvDSGV.Name = "dgvDSGV";
-            this.dgvDSGV.Size = new System.Drawing.Size(528, 258);
+            this.dgvDSGV.RowHeadersWidth = 51;
+            this.dgvDSGV.Size = new System.Drawing.Size(704, 318);
             this.dgvDSGV.TabIndex = 22;
             // 
             // FormDanhSachGiaoVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 370);
+            this.ClientSize = new System.Drawing.Size(752, 455);
             this.Controls.Add(this.dgvDSGV);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.cmbSapXep);
             this.Controls.Add(this.btnSapXep);
             this.Controls.Add(this.txtTimKiem);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormDanhSachGiaoVien";
-            this.Text = "FormDanhSachGiaoVien";
+            this.Text = "Danh sách giáo viên";
             this.Load += new System.EventHandler(this.FormDanhSachGiaoVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSGV)).EndInit();
             this.ResumeLayout(false);

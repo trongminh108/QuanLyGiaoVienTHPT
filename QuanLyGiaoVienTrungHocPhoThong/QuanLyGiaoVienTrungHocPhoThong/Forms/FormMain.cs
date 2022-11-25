@@ -74,5 +74,17 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             }
             lblTitle.Text = "Trường THPT Long Xuyên";
         }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            DialogResult traloi = MessageBox.Show("Bạn có muốn đăng xuất không?", "Thông báo", MessageBoxButtons.YesNo);
+            if(traloi == DialogResult.Yes)
+            {
+                this.Hide();
+                FormDangNhap fdn = new FormDangNhap();
+                fdn.ShowDialog();
+                this.Close();
+            }
+        }
     }
 }
