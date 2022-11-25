@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="ConnectSQL\Connection.cs" />
     <Compile Include="ConnectSQL\Modify.cs" />
+    <Compile Include="ConnectSQL\SQLcmd.cs" />
     <Compile Include="ConstraintCheck\CheckInfor.cs" />
     <Compile Include="Customdesign\RoundedButton.cs">
       <SubType>Component</SubType>
@@ -109,8 +110,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="ChuyenDoiSQLThoiGian.cs" />
     <Compile Include="TaiKhoan.cs" />
+=======
+    <Compile Include="Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
+>>>>>>> a5ffcb07a8408cc433ecb8148a1aa36fb0ca6497
     <EmbeddedResource Include="Forms\FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +158,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

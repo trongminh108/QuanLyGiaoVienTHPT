@@ -75,7 +75,7 @@ CREATE TABLE GiangDay
 )
 
 INSERT INTO BoMon VALUES 
-	('MAT', 'Toán'),
+('MAT', 'Toán'),
 	('PHY', 'Lý'),
 	('CHE', 'Hóa'),
 	('LEC', 'Văn'),
@@ -87,6 +87,11 @@ INSERT INTO GiaoVien
 INSERT INTO GiaoVien 
 	VALUES('M002', 'Luu Minh Trong', '18/12/2002','MAT', 'Nam', '1000', null, '0772104719', 'lmtrong.ctc2020@gmail.com');
 
+INSERT INTO GiaoVien 
+	VALUES('L002', 'Luu Kim Minh', '12/12/2002','LEC', N'Nữ', '1000', null, '0682108619', 'lmtrong.ctc2020@gmail.com');
+
 SELECT * FROM GiaoVien
+
+SELECT * FROM BoMon
 
 

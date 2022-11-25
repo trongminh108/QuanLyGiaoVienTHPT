@@ -12,8 +12,8 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
     internal class Modify
     {
         public static string insert = "INSERT INTO {0} VALUES ({1})";
+        public static string select = "SELECT * FROM {0}";
         SqlCommand command;
-        SqlConnection connect;
         DataTable dataTable = new DataTable();
 
         public Modify() 
@@ -43,7 +43,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
 
         public void Command(string query)
         {
-            using (connect = Connection.getConnection())
+            using (SqlConnection connect = Connection.getConnection())
             {
                 connect.Open();
                 command = new SqlCommand(query, connect);
@@ -62,5 +62,6 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
                 return dataTable;
             }
         }
+
     }
 }
