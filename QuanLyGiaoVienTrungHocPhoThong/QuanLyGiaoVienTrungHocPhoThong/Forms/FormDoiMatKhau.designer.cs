@@ -31,10 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDoiMatKhau));
             this.txtNhapMKmoi = new System.Windows.Forms.TextBox();
             this.txtMKmoi = new System.Windows.Forms.TextBox();
-            this.txtTenDangNhap = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnDoiMK = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
             this.SuspendLayout();
             // 
@@ -43,7 +41,7 @@
             this.txtNhapMKmoi.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtNhapMKmoi.CausesValidation = false;
             this.txtNhapMKmoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNhapMKmoi.Location = new System.Drawing.Point(236, 159);
+            this.txtNhapMKmoi.Location = new System.Drawing.Point(235, 74);
             this.txtNhapMKmoi.Multiline = true;
             this.txtNhapMKmoi.Name = "txtNhapMKmoi";
             this.txtNhapMKmoi.PasswordChar = '*';
@@ -55,24 +53,12 @@
             this.txtMKmoi.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtMKmoi.CausesValidation = false;
             this.txtMKmoi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMKmoi.Location = new System.Drawing.Point(236, 107);
+            this.txtMKmoi.Location = new System.Drawing.Point(235, 22);
             this.txtMKmoi.Multiline = true;
             this.txtMKmoi.Name = "txtMKmoi";
             this.txtMKmoi.PasswordChar = '*';
             this.txtMKmoi.Size = new System.Drawing.Size(214, 30);
             this.txtMKmoi.TabIndex = 29;
-            // 
-            // txtTenDangNhap
-            // 
-            this.txtTenDangNhap.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtTenDangNhap.CausesValidation = false;
-            this.txtTenDangNhap.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenDangNhap.Location = new System.Drawing.Point(236, 52);
-            this.txtTenDangNhap.Multiline = true;
-            this.txtTenDangNhap.Name = "txtTenDangNhap";
-            this.txtTenDangNhap.PasswordChar = '*';
-            this.txtTenDangNhap.Size = new System.Drawing.Size(214, 30);
-            this.txtTenDangNhap.TabIndex = 28;
             // 
             // label4
             // 
@@ -80,7 +66,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(27, 167);
+            this.label4.Location = new System.Drawing.Point(26, 82);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(188, 22);
             this.label4.TabIndex = 27;
@@ -92,23 +78,11 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(27, 115);
+            this.label3.Location = new System.Drawing.Point(26, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 22);
             this.label3.TabIndex = 26;
             this.label3.Text = "Mật khẩu mới";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(27, 60);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 22);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Tên đăng nhập";
             // 
             // btnDoiMK
             // 
@@ -121,7 +95,7 @@
             this.btnDoiMK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDoiMK.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDoiMK.ForeColor = System.Drawing.Color.Snow;
-            this.btnDoiMK.Location = new System.Drawing.Point(117, 232);
+            this.btnDoiMK.Location = new System.Drawing.Point(136, 151);
             this.btnDoiMK.Margin = new System.Windows.Forms.Padding(4);
             this.btnDoiMK.Name = "btnDoiMK";
             this.btnDoiMK.Size = new System.Drawing.Size(234, 60);
@@ -129,7 +103,6 @@
             this.btnDoiMK.Text = "Đổi mật khẩu";
             this.btnDoiMK.TextColor = System.Drawing.Color.Snow;
             this.btnDoiMK.UseVisualStyleBackColor = false;
-            this.btnDoiMK.Click += new System.EventHandler(this.btnDoiMK_Click);
             // 
             // FormDoiMatKhau
             // 
@@ -137,14 +110,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(473, 333);
+            this.ClientSize = new System.Drawing.Size(473, 233);
             this.Controls.Add(this.btnDoiMK);
             this.Controls.Add(this.txtNhapMKmoi);
             this.Controls.Add(this.txtMKmoi);
-            this.Controls.Add(this.txtTenDangNhap);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
             this.Name = "FormDoiMatKhau";
             this.Text = "Đổi mật khẩu";
             this.ResumeLayout(false);
@@ -155,10 +126,8 @@
         #endregion
         private System.Windows.Forms.TextBox txtNhapMKmoi;
         private System.Windows.Forms.TextBox txtMKmoi;
-        private System.Windows.Forms.TextBox txtTenDangNhap;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
         private Customdesign.RoundedButton btnDoiMK;
     }
 }

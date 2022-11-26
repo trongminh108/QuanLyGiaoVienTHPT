@@ -12,7 +12,6 @@ namespace QuanLyGiaoVienTrungHocPhoThong
         private string matKhau;
         public TaiKhoan()
         {
-
         }
 
         public TaiKhoan(string taiKhoan, string matKhau)

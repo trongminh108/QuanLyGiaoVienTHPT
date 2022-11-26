@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChuyenDoiSQLThoiGian.cs" />
     <Compile Include="ConnectSQL\Connection.cs" />
     <Compile Include="ConnectSQL\Modify.cs" />
     <Compile Include="ConnectSQL\SQLcmd.cs" />
@@ -110,17 +111,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
-    <Compile Include="ChuyenDoiSQLThoiGian.cs" />
     <Compile Include="TaiKhoan.cs" />
-=======
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Test.Designer.cs">
       <DependentUpon>Test.cs</DependentUpon>
     </Compile>
->>>>>>> a5ffcb07a8408cc433ecb8148a1aa36fb0ca6497
     <EmbeddedResource Include="Forms\FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>

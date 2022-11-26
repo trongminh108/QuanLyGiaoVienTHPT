@@ -78,7 +78,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
             DialogResult traloi = MessageBox.Show("Bạn có muốn đăng xuất không?", "Thông báo", MessageBoxButtons.YesNo);
-            if(traloi == DialogResult.Yes)
+            if (traloi == DialogResult.Yes)
             {
                 this.Hide();
                 FormDangNhap fdn = new FormDangNhap();

@@ -4,14 +4,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
 
 namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
 {
     internal class Connection
     {
         private static string stringConnection =
-            "Data Source=TRONGMINH;Initial Catalog=QLGV;Integrated Security=True";
+            "Data Source = MSI;Initial Catalog=QLGV;Integrated Security=True";
         public static SqlConnection getConnection()
         {
             return new SqlConnection(stringConnection);

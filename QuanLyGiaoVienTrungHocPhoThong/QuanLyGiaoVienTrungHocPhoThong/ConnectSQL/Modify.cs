@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;// tai khoan
+using System.Data.SqlClient;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,9 +15,8 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
         SqlCommand command;
         DataTable dataTable = new DataTable();
 
-        public Modify() 
-        {
-        }
+        public Modify() { }
+
         SqlCommand sqlCommand; // đùng để truy vấn các câu lệnh insert, update, delet,...
         SqlDataReader dataReader; // dùng để đọc dử liệu trong bảng
 
@@ -39,7 +37,8 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
 
             }
             return taiKhoans;
-        }       
+        }
+
 
         public void Command(string query)
         {
