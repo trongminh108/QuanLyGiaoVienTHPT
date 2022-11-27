@@ -16,6 +16,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         public FormDangNhap()
         {
             InitializeComponent();
+            ReadData();
         }
 
         private void lblQuenMK_Click(object sender, EventArgs e)
@@ -41,7 +42,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 string query = "Select * from Taikhoan where TenTaikhoan='" + tentk + "'and MatKhau='" + matkhau + "'";
                 if (modify.TaiKhoans(query).Count != 0)
                 {
-                    MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    SaveData();
                     this.Hide();
                     FormMain fmn = new FormMain();
                     fmn.ShowDialog();
@@ -51,6 +52,40 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 {
                     MessageBox.Show("Tên tài khoản hoặc mật khẩu không đúng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+        }
+        private void ReadData()
+        {
+            if (Properties.Settings.Default.TaiKhoan != string.Empty)
+            {
+                if (Properties.Settings.Default.GhiNho == "true")
+                {
+                    txtTK.Text = Properties.Settings.Default.TaiKhoan;
+                    txtMK.Text = Properties.Settings.Default.MatKhau;
+                    chkGhiNho.Checked = true;
+                }
+                else
+                {
+                    txtTK.Focus();
+                }
+            }
+        }
+
+        private void SaveData()
+        {
+            if (chkGhiNho.Checked)
+            {
+                Properties.Settings.Default.TaiKhoan = this.txtTK.Text;
+                Properties.Settings.Default.MatKhau = this.txtMK.Text;
+                Properties.Settings.Default.GhiNho = "true";
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.TaiKhoan = this.txtTK.Text;
+                Properties.Settings.Default.MatKhau = "";
+                Properties.Settings.Default.GhiNho = "false";
+                Properties.Settings.Default.Save();
             }
         }
     }

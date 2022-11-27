@@ -30,8 +30,8 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 string query = "Select * from TaiKhoan where Email = '" + email + "'";
                 if (modify.TaiKhoans(query).Count != 0)
                 {
-                    MessageBox.Show("Bạn đã đăng nhập Email thành công");
                     FormDoiMatKhau dmk = new FormDoiMatKhau();
+                    this.Hide();
                     dmk.ShowDialog();
                 }
                 else

@@ -33,10 +33,10 @@
             this.lblQuenMK = new System.Windows.Forms.Label();
             this.txtMK = new System.Windows.Forms.TextBox();
             this.txtTK = new System.Windows.Forms.TextBox();
-            this.radGhiNho = new System.Windows.Forms.RadioButton();
             this.btnDangNhap = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.chkGhiNho = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -92,21 +92,6 @@
             this.txtTK.Size = new System.Drawing.Size(280, 32);
             this.txtTK.TabIndex = 17;
             // 
-            // radGhiNho
-            // 
-            this.radGhiNho.AutoSize = true;
-            this.radGhiNho.BackColor = System.Drawing.Color.Transparent;
-            this.radGhiNho.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radGhiNho.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.radGhiNho.Location = new System.Drawing.Point(136, 320);
-            this.radGhiNho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radGhiNho.Name = "radGhiNho";
-            this.radGhiNho.Size = new System.Drawing.Size(94, 26);
-            this.radGhiNho.TabIndex = 22;
-            this.radGhiNho.TabStop = true;
-            this.radGhiNho.Text = "Ghi nhớ";
-            this.radGhiNho.UseVisualStyleBackColor = false;
-            // 
             // btnDangNhap
             // 
             this.btnDangNhap.BackColor = System.Drawing.Color.MediumBlue;
@@ -148,6 +133,19 @@
             this.pictureBox3.TabIndex = 25;
             this.pictureBox3.TabStop = false;
             // 
+            // chkGhiNho
+            // 
+            this.chkGhiNho.AutoSize = true;
+            this.chkGhiNho.BackColor = System.Drawing.Color.Transparent;
+            this.chkGhiNho.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkGhiNho.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.chkGhiNho.Location = new System.Drawing.Point(136, 324);
+            this.chkGhiNho.Name = "chkGhiNho";
+            this.chkGhiNho.Size = new System.Drawing.Size(98, 26);
+            this.chkGhiNho.TabIndex = 28;
+            this.chkGhiNho.Text = "Ghi nhớ";
+            this.chkGhiNho.UseVisualStyleBackColor = false;
+            // 
             // FormDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -156,11 +154,11 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(473, 516);
+            this.Controls.Add(this.chkGhiNho);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.lblQuenMK);
-            this.Controls.Add(this.radGhiNho);
             this.Controls.Add(this.txtMK);
             this.Controls.Add(this.txtTK);
             this.Controls.Add(this.pictureBox1);
@@ -181,9 +179,9 @@
         private System.Windows.Forms.Label lblQuenMK;
         private System.Windows.Forms.TextBox txtMK;
         private System.Windows.Forms.TextBox txtTK;
-        private System.Windows.Forms.RadioButton radGhiNho;
         private Customdesign.RoundedButton btnDangNhap;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.CheckBox chkGhiNho;
     }
 }

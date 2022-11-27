@@ -103,6 +103,7 @@
             this.btnDoiMK.Text = "Đổi mật khẩu";
             this.btnDoiMK.TextColor = System.Drawing.Color.Snow;
             this.btnDoiMK.UseVisualStyleBackColor = false;
+            this.btnDoiMK.Click += new System.EventHandler(this.btnDoiMK_Click);
             // 
             // FormDoiMatKhau
             // 
