@@ -17,7 +17,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         {
             InitializeComponent();
         }
-        SqlConnection cn = new SqlConnection("Data Source = MSI; Initial Catalog = QLGV; Integrated Security = True");
+        SqlConnection cn = ConnectSQL.Connection.getConnection();
         private void btnDoiMK_Click(object sender, EventArgs e)
         {
             string mkm, nlmk;
@@ -36,12 +36,12 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                     }
                     else
                     {
-                        SqlDataAdapter da1 = new SqlDataAdapter("update Taikhoan set Matkhau = N'" + txtMKmoi.Text + "'", cn);
+                        SqlDataAdapter da1 = new SqlDataAdapter("update Taikhoan set Matkhau = N'" + mkm + "'", cn);
                         DataTable dt1 = new DataTable();
                         da1.Fill(dt1);
                         MessageBox.Show("Đổi mật khẩu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
-                    this.Close();
                 }
                 else
                 {
