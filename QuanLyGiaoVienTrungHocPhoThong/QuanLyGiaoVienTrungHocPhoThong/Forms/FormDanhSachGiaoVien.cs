@@ -13,11 +13,15 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 {
     public partial class FormDanhSachGiaoVien : Form
     {
-        public FormDanhSachGiaoVien()
+        private Panel panelDesktopPane;
+        private Label title;
+        public FormDanhSachGiaoVien(Panel panel, Label title)
         {
             InitializeComponent();
             dgvDSGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDSGV.ReadOnly = true;
+            this.panelDesktopPane = panel;
+            this.title = title;
         }
 
         public string ConvertDate(string date)
@@ -34,7 +38,6 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 "FORMAT (namsinh, 'dd/MM/yyyy') as date, " +
                 "mamon, gioitinh, luong, matruongbm, sdt, email FROM giaovien";
             Modify modify = new Modify();
-            DataTable dt = modify.getDataTable(query);
             dgvDSGV.DataSource = modify.getDataTable(query);
             int numCol = dgvDSGV.ColumnCount;
             string[] dsgv = {"Mã GV", "Họ và tên", "Năm sinh",
@@ -48,6 +51,23 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         private void FormDanhSachGiaoVien_Load(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void dgvDSGV_DoubleClick(object sender, EventArgs e)
+        {
+            int i = dgvDSGV.SelectedRows[0].Index;
+            if (i >= 0 && i < dgvDSGV.RowCount-1)
+            {
+                FormSuaThongTinGiaoVien childForm = new FormSuaThongTinGiaoVien(i, title);
+                childForm.TopLevel = false;
+                childForm.FormBorderStyle = FormBorderStyle.None;
+                childForm.Dock = DockStyle.Fill;
+                panelDesktopPane.Controls.Add(childForm);
+                panelDesktopPane.Tag = childForm;
+                childForm.BringToFront();
+                childForm.Show();
+                this.Close();
+            }
         }
     }
 }

@@ -38,7 +38,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         // Sự kiện
         private void btnDSGV_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormDanhSachGiaoVien());
+            OpenChildForm(new FormDanhSachGiaoVien(panelDesktopPane, lblTitle));
             lblTitle.Text = btnDSGV.Text;
         }
 
@@ -48,9 +48,9 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             lblTitle.Text = btnThem.Text;
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
+        public void btnSua_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormSuaThongTinGiaoVien());
+            OpenChildForm(new FormSuaThongTinGiaoVien(0, lblTitle));
             lblTitle.Text = btnSua.Text;
         }
 

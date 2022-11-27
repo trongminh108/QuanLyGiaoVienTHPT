@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
 {
-    internal class Modify
+    class Modify
     {
         public static string insert = "INSERT INTO {0} VALUES ({1})";
         public static string select = "SELECT * FROM {0}";
@@ -17,7 +17,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
 
         public Modify() { }
 
-        SqlCommand sqlCommand; // đùng để truy vấn các câu lệnh insert, update, delet,...
+        SqlCommand sqlCommand; // đùng để truy vấn các câu lệnh insert, update, delete,...
         SqlDataReader dataReader; // dùng để đọc dử liệu trong bảng
 
         public List<TaiKhoan> TaiKhoans(string query)

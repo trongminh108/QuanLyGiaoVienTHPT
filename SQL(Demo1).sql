@@ -1,15 +1,8 @@
 ﻿CREATE DATABASE QLGV
 go
 
--- Bang Tai Khoan
-CREATE TABLE TaiKhoan
-(
-	TenTaiKhoan char(20),
-	MatKhau char (20),
-	email varchar(50),
-
-	primary key (TenTaiKhoan)
-)
+USE QLGV
+go
 
 -- Bang 1: Giao Vien
 CREATE TABLE GiaoVien
@@ -74,13 +67,24 @@ CREATE TABLE GiangDay
 	primary key (MaGV, MaLop)
 )
 
+-- Bang 7:
+CREATE TABLE TaiKhoan (
+    TenTaiKhoan VARCHAR (20)    NOT NULL,
+    MatKhau     VARCHAR (20)    NOT NULL,
+    email       VARCHAR (50) NOT NULL,
+    PRIMARY KEY CLUSTERED (TenTaiKhoan ASC)
+);
+
+
+
 INSERT INTO BoMon VALUES 
 ('MAT', 'Toán'),
 	('PHY', 'Lý'),
 	('CHE', 'Hóa'),
-	('LEC', 'Văn'),
+	('LEC', N'Văn'),
 	('ENG', 'Anh')
 
+-- Thêm giáo viên
 INSERT INTO GiaoVien 
 	VALUES('M001', 'Luu Minh Trong', '08/01/2002','MAT', 'Nam', '1000', null, '0772104719', 'lmtrong.ctc2020@gmail.com');
 
@@ -89,6 +93,10 @@ INSERT INTO GiaoVien
 
 INSERT INTO GiaoVien 
 	VALUES('L002', 'Luu Kim Minh', '12/12/2002','LEC', N'Nữ', '1000', null, '0682108619', 'lmtrong.ctc2020@gmail.com');
+
+-- Thêm tài khoản admin
+INSERT INTO TaiKhoan VALUES
+	('admin', '123', 'admin@gmail.com');
 
 SELECT * FROM GiaoVien
 
