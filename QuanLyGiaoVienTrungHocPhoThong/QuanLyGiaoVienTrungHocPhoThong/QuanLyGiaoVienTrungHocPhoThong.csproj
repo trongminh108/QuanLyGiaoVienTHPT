@@ -56,6 +56,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DSGiaoVien.cs" />
+    <Compile Include="Forms\FormBoMon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormBoMon.Designer.cs">
+      <DependentUpon>FormBoMon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     <Compile Include="Test.Designer.cs">
       <DependentUpon>Test.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\FormBoMon.resx">
+      <DependentUpon>FormBoMon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyGiaoVienTrungHocPhoThong.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -60,10 +61,10 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             lblTitle.Text = btnThongTinGV.Text;
         }
 
-        private void btnThongKe_Click(object sender, EventArgs e)
+        private void btnBoMon_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormThongKe());
-            lblTitle.Text = btnThongKe.Text;
+            OpenChildForm(new FormBoMon());
+            lblTitle.Text = btnBoMon.Text;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -84,6 +85,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 FormDangNhap fdn = new FormDangNhap();
                 fdn.ShowDialog();
                 this.Close();
+
             }
         }
     }

@@ -50,7 +50,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         {
             OpenFileDialog openFile = new OpenFileDialog();
             openFile.Title = "Thêm ảnh thẻ";
-            openFile.Filter = "JPG|*.jpg|All File|*.*";
+            openFile.Filter = "JPG|*.jpg|All File (*.*)|*.*";
             if (openFile.ShowDialog() == DialogResult.OK)
             {
                 picHinhThe.SizeMode = PictureBoxSizeMode.StretchImage;

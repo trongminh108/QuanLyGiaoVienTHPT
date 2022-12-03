@@ -18,10 +18,37 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         public FormDanhSachGiaoVien(Panel panel, Label title)
         {
             InitializeComponent();
+
             dgvDSGV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDSGV.ReadOnly = true;
             this.panelDesktopPane = panel;
             this.title = title;
+
+            dgvDSGV.MouseUp += DgvDSGV_MouseUp;
+        }
+
+        private void DgvDSGV_MouseUp(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                int i = dgvDSGV.SelectedRows[0].Index;
+                if (i >= 0 && i < dgvDSGV.RowCount - 1)
+                {
+                    FormSuaThongTinGiaoVien childForm = new FormSuaThongTinGiaoVien(i, title);
+                    childForm.TopLevel = false;
+                    childForm.FormBorderStyle = FormBorderStyle.None;
+                    childForm.Dock = DockStyle.Fill;
+                    panelDesktopPane.Controls.Add(childForm);
+                    panelDesktopPane.Tag = childForm;
+                    childForm.BringToFront();
+                    childForm.Show();
+                    this.Close();
+                }
+            }
+            else if(e.Button == MouseButtons.Left)
+            {
+                
+            }
         }
 
         public string ConvertDate(string date)
@@ -51,23 +78,6 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         private void FormDanhSachGiaoVien_Load(object sender, EventArgs e)
         {
             LoadData();
-        }
-
-        private void dgvDSGV_DoubleClick(object sender, EventArgs e)
-        {
-            int i = dgvDSGV.SelectedRows[0].Index;
-            if (i >= 0 && i < dgvDSGV.RowCount-1)
-            {
-                FormSuaThongTinGiaoVien childForm = new FormSuaThongTinGiaoVien(i, title);
-                childForm.TopLevel = false;
-                childForm.FormBorderStyle = FormBorderStyle.None;
-                childForm.Dock = DockStyle.Fill;
-                panelDesktopPane.Controls.Add(childForm);
-                panelDesktopPane.Tag = childForm;
-                childForm.BringToFront();
-                childForm.Show();
-                this.Close();
-            }
         }
     }
 }
