@@ -29,7 +29,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 
         private void DgvDSGV_MouseUp(object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Right)
+            if(e.Button == MouseButtons.Left)
             {
                 int i = dgvDSGV.SelectedRows[0].Index;
                 if (i >= 0 && i < dgvDSGV.RowCount - 1)
@@ -45,7 +45,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                     this.Close();
                 }
             }
-            else if(e.Button == MouseButtons.Left)
+            else if(e.Button == MouseButtons.Right)
             {
                 
             }
@@ -61,14 +61,15 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 
         private void LoadData()
         {
-            string query = "SELECT magv, hoten, " +
-                "FORMAT (namsinh, 'dd/MM/yyyy') as date, " +
-                "mamon, gioitinh, luong, matruongbm, sdt, email FROM giaovien";
+            string query = "SELECT magiaovien, hoten, mabomon, " +
+                "loaigiaovien, cmnd_cccd, FORMAT (ngaysinh, 'dd/MM/yyyy')," + 
+                "gioitinh, sdt, email, luong FROM GiaoVien";
+            
             Modify modify = new Modify();
             dgvDSGV.DataSource = modify.getDataTable(query);
             int numCol = dgvDSGV.ColumnCount;
-            string[] dsgv = {"Mã GV", "Họ và tên", "Năm sinh",
-            "Mã bộ môn", "Giới tính", "Lương", "Mã TBM", "SĐT", "Email"};
+            string[] dsgv = {"Mã GV", "Họ và tên", "Mã bộ môn", "Loại giáo viên",
+                "CMND/CCCD", "Ngày sinh", "Giới tính", "SĐT", "Email", "Lương" };
             for (int i = 0; i < numCol; i++)
             {
                 dgvDSGV.Columns[i].HeaderText = dsgv[i];

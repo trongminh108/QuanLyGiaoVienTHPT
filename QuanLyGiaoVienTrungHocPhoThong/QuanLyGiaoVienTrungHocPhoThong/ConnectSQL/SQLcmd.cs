@@ -16,9 +16,8 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
         private string select = "SELECT * FROM {0}";
         private string update = "UPDATE {0} SET {1} WHERE {2}";
         private string delete = "DELETE FROM {0} WHERE {1}";
-        public static string[] columnsGV = { "magv", "hoten", "namsinh", 
-            "mamon", "gioitinh", "luong", 
-            "matruongbomon", "sdt", "email" };
+        public static string[] columnsGV = { "magiaovien", "hoten", "mabomon", "loaigiaovien", "cmnd_cccd", 
+            "ngaysinh", "gioitinh", "sdt", "email", "luong" };
 
         Modify modify;
         public SQLcmd()
