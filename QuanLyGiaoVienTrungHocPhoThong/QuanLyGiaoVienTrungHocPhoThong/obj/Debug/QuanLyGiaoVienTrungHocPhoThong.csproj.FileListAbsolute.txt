@@ -46,7 +46,6 @@ D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGi
 D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.Forms2.FormQuenMatKhau.resources
 D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.Forms2.FormSuaThongTinGiaoVien.resources
 D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.Forms2.FormThemThongTinGiaoVien.resources
-D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.Forms2.btnTimKiem.resources
 D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.Properties.Resources.resources
 D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.csproj.GenerateResource.cache
 D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.csproj.CoreCompileInputs.cache
@@ -115,3 +114,5 @@ E:\C#C#C#\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungH
 E:\C#C#C#\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.exe
 E:\C#C#C#\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.pdb
 E:\C#C#C#\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.Forms.FormBoMon.resources
+D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.Forms.FormBoMon.resources
+D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.Forms2.FormThongTin.resources

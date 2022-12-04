@@ -51,13 +51,13 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 
         public void btnSua_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormSuaThongTinGiaoVien(0, lblTitle));
+            OpenChildForm(new FormSuaThongTinGiaoVien(0));
             lblTitle.Text = btnSua.Text;
         }
 
         private void btnThongTinGV_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new btnTimKiem());
+            OpenChildForm(new FormThongTin(0));
             lblTitle.Text = btnThongTinGV.Text;
         }
 
@@ -74,6 +74,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 FormConHienTai.Close();
             }
             lblTitle.Text = "Trường THPT Long Xuyên";
+            MessageBox.Show(this.Width + ", " + this.Height);
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)

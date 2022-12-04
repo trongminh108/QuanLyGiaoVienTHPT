@@ -14,6 +14,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
         private List<string> col;
         private string insert = "INSERT INTO {0} VALUES ({1})";
         private string select = "SELECT * FROM {0}";
+        private string find = "SELECT * FROM {0} WHERE {1}";
         private string update = "UPDATE {0} SET {1} WHERE {2}";
         private string delete = "DELETE FROM {0} WHERE {1}";
         public static string[] columnsGV = { "magiaovien", "hoten", "mabomon", "loaigiaovien", "cmnd_cccd", 
@@ -25,7 +26,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
             col = new List<string>();
             modify = new Modify();
         }
-
+        
         private string getValues()
         {
             string res = "";
@@ -36,22 +37,21 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
             return res;
         }
 
+        public string getUpdateValues(string tableName)
+        {
+            string res = "";
+            string[] columns = getColumnsNames(tableName);
+            string set = "{0} = N'{1}'";
+            for (int i = 0; i < columns.Length - 1; i++)
+                res += string.Format(set, columns[i], col[i]) + ",";
+            if (col.Count > 0)
+                res += string.Format(set, columns[columns.Length - 1], col[columns.Length - 1]);
+            return res;
+        }
+
         public void Add(string s)
         {
             col.Add(s);
-        }
-
-        private void Add(GiaoVien gv)
-        {
-            col.Add(gv.MaGV);
-            col.Add(gv.HoTen);
-            col.Add(gv.NamSinh);
-            col.Add(gv.MaMon);
-            col.Add(gv.GioiTinh);
-            col.Add(gv.Luong);
-            col.Add(gv.MaTruongBM);
-            col.Add(gv.Sdt);
-            col.Add(gv.Email);
         }
 
         public void Insert_Command(string tableName)
@@ -61,9 +61,9 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
             modify.Command(query);
         }
 
-        public void Delete_Command(string key)
+        public void Delete_Command(string tableName, string key)
         {
-            string query = string.Format(delete, key);
+            string query = string.Format(delete, tableName, key);
             modify.Command(query);
         }
 
@@ -90,23 +90,28 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
             return res;
         }
 
-        public string getUpdateValues(string tableName)
-        {
-            string res = "";
-            string[] columns = getColumnsNames(tableName);
-            string set = "{0} = N'{1}'";
-            for (int i = 0; i < columns.Length - 1; i++)
-                res += string.Format(set, columns[i], col[i]) + ",";
-            if (col.Count > 0)
-                res += string.Format(set, columns[columns.Length-1], col[columns.Length - 1]);
-            return res;
-        }
-
         public void Update_Command(string tableName, string key)
         {
             string values = getUpdateValues(tableName);
-            string query = string.Format(update, tableName, values, string.Format("magv='{0}'", key));
+            string condition = string.Format("{0}='{1}'", getColumnsNames(tableName)[0], key);
+            string query = string.Format(update, tableName, values, condition);
             modify.Command(query);
+        }
+
+        public DataTable Find_Command(string tableName, string key)
+        {
+            string condition = string.Format("{0}='{1}'", getColumnsNames(tableName)[0], key);
+            string query = string.Format(find, tableName, condition);
+            modify.Command(query);
+            try
+            {
+                return modify.getDataTable(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return (new DataTable());
+            }
         }
 
     }

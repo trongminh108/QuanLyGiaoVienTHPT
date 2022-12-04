@@ -23,7 +23,7 @@ CREATE TABLE GiaoVien
 CREATE TABLE BoMon
 (
 	MaBoMon char(3) NOT NULL,
-	TenBoMon varchar(20),
+	TenBoMon nvarchar(20),
 	MaTruongBoMon char(4)
 )
 
@@ -126,7 +126,6 @@ INSERT INTO TaiKhoan VALUES
 GO
 
 --SELECT * FROM GiaoVien
-
 --SELECT * FROM BoMon
 
 

@@ -14,26 +14,36 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
     public partial class FormThemThongTinGiaoVien : Form
     {
         private DataTable dataBoMon;
+        private DataTable dataHang;
         public FormThemThongTinGiaoVien()
         {
             InitializeComponent();
+        }
+
+        private void FormThemThongTinGiaoVien_Load(object sender, EventArgs e)
+        {
             txtMaLop.Enabled = false;
             txtNgayNhanLop.Enabled = false;
             rbtnKhong.Checked = true;
             rbtnNam.Checked = true;
+            rbtnTBMkhong.Checked = true;
 
-            dtpNamSinh.Format = DateTimePickerFormat.Custom;  
-            dtpNamSinh.CustomFormat = "dd/MM/yyyy";
-            
-            LoadComboBoxBoMon();
+            dtpNgaySinh.Format = DateTimePickerFormat.Custom;
+            dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
+
+            dataBoMon = LoadComboBox("bomon", cbBoMon, 1);
             cbBoMon.SelectedIndex = 0;
+
+            dataHang = LoadComboBox("loaigiaovien", cbHang, 0);
+            cbHang.SelectedIndex = 0;
         }
 
-        private void LoadComboBoxBoMon()
+        private DataTable LoadComboBox(string tableName, ComboBox cb, int k)
         {
-            dataBoMon = (new SQLcmd()).Select_Command("bomon");
-            for (int i = 0; i < dataBoMon.Rows.Count; i++)
-                cbBoMon.Items.Add(dataBoMon.Rows[i].Field<string>(1));
+            DataTable data = (new SQLcmd()).Select_Command(tableName);
+            for (int i = 0; i < data.Rows.Count; i++)
+                cb.Items.Add(data.Rows[i].Field<string>(k));
+            return data;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -50,17 +60,12 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         {
             OpenFileDialog openFile = new OpenFileDialog();
             openFile.Title = "Thêm ảnh thẻ";
-            openFile.Filter = "JPG|*.jpg|All File (*.*)|*.*";
+            openFile.Filter = "PNG|*.png|JPG|*.jpg|All File (*.*)|*.*";
             if (openFile.ShowDialog() == DialogResult.OK)
             {
-                picHinhThe.SizeMode = PictureBoxSizeMode.StretchImage;
+                picHinhThe.SizeMode = PictureBoxSizeMode.Zoom;
                 picHinhThe.Image = Image.FromFile(openFile.FileName);
             }
-        }
-
-        private string getValue(string s, string c)
-        {
-            return string.Format("'{0}'", s) + c;
         }
 
         public string ConvertDate(string date)
@@ -70,22 +75,24 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             res = arr[1] + "/" + arr[0] + "/" + arr[2];
             return res;
         }
-        private void btnLuu_Click(object sender, EventArgs e)
+        private void btnThem_Click(object sender, EventArgs e)
         {
             SQLcmd addGV = new SQLcmd();
             addGV.Add(txtMaGV.Text);
             addGV.Add(txtHoten.Text);
-            addGV.Add(ConvertDate(dtpNamSinh.Text));
             addGV.Add(dataBoMon.Rows[cbBoMon.SelectedIndex].Field<string>(0));
+            addGV.Add(cbHang.Text);
+            addGV.Add(txtCMND.Text);
+            addGV.Add(ConvertDate(dtpNgaySinh.Text));
             if (rbtnNam.Checked)
                 addGV.Add("Nam");
             else
                 addGV.Add("Nữ");
-            float hsl = float.Parse(txtHeSoLuong.Text);
-            addGV.Add((int)(hsl * 1490) + "");
-            addGV.Add("null");
+            
             addGV.Add(txtSDT.Text);
             addGV.Add(txtEmail.Text);
+            float hsl = float.Parse(txtHeSoLuong.Text);
+            addGV.Add((int)(hsl * 1490) + "");
             try
             {
                 addGV.Insert_Command("giaovien");
@@ -107,6 +114,10 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         {
             txtMaLop.Enabled = false;
             txtNgayNhanLop.Enabled = false;
-        }
+        }        
+
+        
+
+        
     }
 }

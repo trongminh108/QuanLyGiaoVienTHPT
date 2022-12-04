@@ -39,7 +39,6 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
             return taiKhoans;
         }
 
-
         public void Command(string query)
         {
             using (SqlConnection connect = Connection.getConnection())

@@ -10,7 +10,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
     internal class Connection
     {
         private static string stringConnection =
-            "Data Source=MSI;Initial Catalog=QLGV;Integrated Security=True";
+            "Data Source=TRONGMINH;Initial Catalog=QLGV;Integrated Security=True";
         public static SqlConnection getConnection()
         {
             return new SqlConnection(stringConnection);

@@ -29,26 +29,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 
         private void DgvDSGV_MouseUp(object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Left)
-            {
-                int i = dgvDSGV.SelectedRows[0].Index;
-                if (i >= 0 && i < dgvDSGV.RowCount - 1)
-                {
-                    FormSuaThongTinGiaoVien childForm = new FormSuaThongTinGiaoVien(i, title);
-                    childForm.TopLevel = false;
-                    childForm.FormBorderStyle = FormBorderStyle.None;
-                    childForm.Dock = DockStyle.Fill;
-                    panelDesktopPane.Controls.Add(childForm);
-                    panelDesktopPane.Tag = childForm;
-                    childForm.BringToFront();
-                    childForm.Show();
-                    this.Close();
-                }
-            }
-            else if(e.Button == MouseButtons.Right)
-            {
-                
-            }
+            
         }
 
         public string ConvertDate(string date)
@@ -64,12 +45,13 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             string query = "SELECT magiaovien, hoten, mabomon, " +
                 "loaigiaovien, cmnd_cccd, FORMAT (ngaysinh, 'dd/MM/yyyy')," + 
                 "gioitinh, sdt, email, luong FROM GiaoVien";
-            
+
             Modify modify = new Modify();
             dgvDSGV.DataSource = modify.getDataTable(query);
             int numCol = dgvDSGV.ColumnCount;
-            string[] dsgv = {"Mã GV", "Họ và tên", "Mã bộ môn", "Loại giáo viên",
-                "CMND/CCCD", "Ngày sinh", "Giới tính", "SĐT", "Email", "Lương" };
+            string[] dsgv = {"Mã GV", "Họ Tên", "Mã BM", "Hạng GV", "CMND", 
+                "Ngày Sinh", "Giới Tính", "SDT", "Email", "Lương"};
+            
             for (int i = 0; i < numCol; i++)
             {
                 dgvDSGV.Columns[i].HeaderText = dsgv[i];
@@ -79,6 +61,37 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         private void FormDanhSachGiaoVien_Load(object sender, EventArgs e)
         {
             LoadData();
+            foreach (DataGridViewColumn c in dgvDSGV.Columns)
+            {
+                c.DefaultCellStyle.Font = new Font("Times New Romain", 12.25F, GraphicsUnit.Pixel);
+            }
+        }
+
+        private void dgvDSGV_DoubleClick(object sender, EventArgs e)
+        {
+            int i = dgvDSGV.SelectedRows[0].Index;
+            if (i >= 0 && i < dgvDSGV.RowCount - 1)
+            {
+                FormSuaThongTinGiaoVien childForm = new FormSuaThongTinGiaoVien(i, title);
+                childForm.TopLevel = false;
+                childForm.FormBorderStyle = FormBorderStyle.None;
+                childForm.Dock = DockStyle.Fill;
+                panelDesktopPane.Controls.Add(childForm);
+                panelDesktopPane.Tag = childForm;
+                childForm.BringToFront();
+                childForm.Show();
+                this.Close();
+            }
+        }
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
