@@ -20,11 +20,6 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             this.idx = idx;
         }
 
-        private void btnTimKiem_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void FormThongTin_Load(object sender, EventArgs e)
         {
             DataRow dataRow = (new SQLcmd()).Select_Command("giaovien").Rows[idx];
@@ -47,7 +42,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 
             string luong = dataRow[9].ToString();
             float hsl;
-            if (luong != "null")
+            if (luong != "")
                 hsl = float.Parse(luong) / 1490;
             else
                 hsl = (float)3.48;
