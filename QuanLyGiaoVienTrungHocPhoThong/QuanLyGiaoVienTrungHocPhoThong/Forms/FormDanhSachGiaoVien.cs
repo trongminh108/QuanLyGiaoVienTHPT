@@ -23,15 +23,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             dgvDSGV.ReadOnly = true;
             this.panelDesktopPane = panel;
             this.title = title;
-
-            dgvDSGV.MouseUp += DgvDSGV_MouseUp;
         }
-
-        private void DgvDSGV_MouseUp(object sender, MouseEventArgs e)
-        {
-            
-        }
-
         public string ConvertDate(string date)
         {
             string res = "";
@@ -39,7 +31,11 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             res = arr[1] + "/" + arr[0] + "/" + arr[2];
             return res;
         }
-
+        public void LoadDataByKeywords()
+        {
+            Modify modify = new Modify();
+            dgvDSGV.DataSource = modify.getDataTable("SELECT * from GiaoVien where HoTen like '%" + txtTimKiem.Text + "%' ");
+        }
         private void LoadData()
         {
             string query = "SELECT magiaovien, hoten, mabomon, " +
@@ -91,7 +87,14 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-
+            if (txtTimKiem.Text.Trim() == "")
+            {
+                MessageBox.Show("Bạn chưa nhập ký tự!", "Thông báo");
+            }
+            else
+            {
+                LoadDataByKeywords();
+            }
         }
     }
 }

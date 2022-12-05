@@ -1,0 +1,12 @@
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT TOP (1000) [MaGiaoVien]
+      ,[HoTen]
+      ,[MaBoMon]
+      ,[LoaiGiaoVien]
+      ,[CMND_CCCD]
+      ,[NgaySinh]
+      ,[GioiTinh]
+      ,[SDT]
+      ,[Email]
+      ,[Luong]
+  FROM [QLGV].[dbo].[GiaoVien]
