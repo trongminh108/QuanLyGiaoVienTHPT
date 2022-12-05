@@ -50,6 +50,9 @@
             this.lbl = new System.Windows.Forms.Label();
             this.txtThongTinGV = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblCMND = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblSDT = new System.Windows.Forms.Label();
             this.lblGioiTinh = new System.Windows.Forms.Label();
@@ -71,9 +74,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.picHinhThe = new System.Windows.Forms.PictureBox();
             this.btnTK = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
-            this.lblCMND = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
             this.gpbThongTin2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -322,11 +322,11 @@
             // txtThongTinGV
             // 
             this.txtThongTinGV.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtThongTinGV.Location = new System.Drawing.Point(545, 373);
-            this.txtThongTinGV.Multiline = true;
+            this.txtThongTinGV.Location = new System.Drawing.Point(559, 380);
             this.txtThongTinGV.Name = "txtThongTinGV";
-            this.txtThongTinGV.Size = new System.Drawing.Size(214, 41);
+            this.txtThongTinGV.Size = new System.Drawing.Size(214, 26);
             this.txtThongTinGV.TabIndex = 77;
+            this.txtThongTinGV.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtThongTinGV_KeyDown);
             // 
             // groupBox1
             // 
@@ -359,6 +359,41 @@
             this.groupBox1.TabIndex = 88;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin giáo viên";
+            // 
+            // lblCMND
+            // 
+            this.lblCMND.AutoSize = true;
+            this.lblCMND.BackColor = System.Drawing.Color.Transparent;
+            this.lblCMND.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCMND.Location = new System.Drawing.Point(230, 117);
+            this.lblCMND.Name = "lblCMND";
+            this.lblCMND.Size = new System.Drawing.Size(40, 22);
+            this.lblCMND.TabIndex = 102;
+            this.lblCMND.Text = "text";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.BackColor = System.Drawing.Color.Transparent;
+            this.label25.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label25.Location = new System.Drawing.Point(178, 120);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(250, 21);
+            this.label25.TabIndex = 101;
+            this.label25.Text = "________________________";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.BackColor = System.Drawing.Color.Transparent;
+            this.label26.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label26.Location = new System.Drawing.Point(33, 120);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(126, 21);
+            this.label26.TabIndex = 100;
+            this.label26.Text = "CMND/CCCD:";
             // 
             // lblEmail
             // 
@@ -609,41 +644,7 @@
             this.btnTK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnTK.TextColor = System.Drawing.Color.White;
             this.btnTK.UseVisualStyleBackColor = false;
-            // 
-            // lblCMND
-            // 
-            this.lblCMND.AutoSize = true;
-            this.lblCMND.BackColor = System.Drawing.Color.Transparent;
-            this.lblCMND.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCMND.Location = new System.Drawing.Point(230, 117);
-            this.lblCMND.Name = "lblCMND";
-            this.lblCMND.Size = new System.Drawing.Size(40, 22);
-            this.lblCMND.TabIndex = 102;
-            this.lblCMND.Text = "text";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.BackColor = System.Drawing.Color.Transparent;
-            this.label25.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label25.Location = new System.Drawing.Point(178, 120);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(250, 21);
-            this.label25.TabIndex = 101;
-            this.label25.Text = "________________________";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.Color.Transparent;
-            this.label26.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label26.Location = new System.Drawing.Point(33, 120);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(126, 21);
-            this.label26.TabIndex = 100;
-            this.label26.Text = "CMND/CCCD:";
+            this.btnTK.Click += new System.EventHandler(this.btnTK_Click);
             // 
             // FormThongTin
             // 

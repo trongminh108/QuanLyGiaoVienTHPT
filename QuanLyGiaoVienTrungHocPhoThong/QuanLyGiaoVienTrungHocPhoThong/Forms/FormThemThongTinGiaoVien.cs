@@ -1,4 +1,5 @@
 ﻿/**/using QuanLyGiaoVienTrungHocPhoThong.ConnectSQL;
+using QuanLyGiaoVienTrungHocPhoThong.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 
         private void FormThemThongTinGiaoVien_Load(object sender, EventArgs e)
         {
+            txtMaGV.Focus();
             txtMaLop.Enabled = false;
             txtNgayNhanLop.Enabled = false;
             rbtnKhong.Checked = true;
@@ -91,12 +93,17 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             
             addGV.Add(txtSDT.Text);
             addGV.Add(txtEmail.Text);
-            float hsl = float.Parse(txtHeSoLuong.Text);
+            float hsl;
+            bool isNum = float.TryParse(txtHeSoLuong.Text, out hsl);
+            if (!isNum)
+                hsl = 1;
             addGV.Add((int)(hsl * 1490) + "");
             try
             {
                 addGV.Insert_Command("giaovien");
-                MessageBox.Show("Insert successful!");
+                MessageForm msgF = new MessageForm("Thêm thành công!", "Thêm giáo viên");
+                msgF.ShowDialog();
+                //MessageBox.Show("Insert successful!");
             }
             catch (Exception ex)
             {

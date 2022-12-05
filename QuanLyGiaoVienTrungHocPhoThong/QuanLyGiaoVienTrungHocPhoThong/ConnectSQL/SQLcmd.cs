@@ -72,7 +72,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
             string query = string.Format(select, tableName);
             try
             {
-                return modify.getDataTable(query);
+                return (new Modify()).getDataTable(query);
             }
             catch (Exception ex)
             {
@@ -98,19 +98,22 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
             modify.Command(query);
         }
 
-        public DataTable Find_Command(string tableName, string key)
+        public DataRow Find_Command(string tableName, string key)
         {
-            string condition = string.Format("{0}='{1}'", getColumnsNames(tableName)[0], key);
-            string query = string.Format(find, tableName, condition);
-            modify.Command(query);
             try
             {
-                return modify.getDataTable(query);
+                DataTable dt = Select_Command(tableName);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                    if (dt.Rows[i][0].ToString() == key)
+                    {
+                        return dt.Rows[i];
+                    }
+                return null;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return (new DataTable());
+                return null;
             }
         }
 

@@ -116,3 +116,4 @@ E:\C#C#C#\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungH
 E:\C#C#C#\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.Forms.FormBoMon.resources
 D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.Forms.FormBoMon.resources
 D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.Forms2.FormThongTin.resources
+D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.Forms.MessageForm.resources

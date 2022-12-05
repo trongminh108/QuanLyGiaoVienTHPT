@@ -128,4 +128,6 @@ GO
 --SELECT * FROM GiaoVien
 --SELECT * FROM BoMon
 
+SELECT * FROM GiaoVien WHERE MaGiaoVien='E145'
+
 
