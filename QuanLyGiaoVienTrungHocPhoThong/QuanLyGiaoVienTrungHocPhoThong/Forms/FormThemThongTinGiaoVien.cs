@@ -16,6 +16,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
     {
         private DataTable dataBoMon;
         private DataTable dataHang;
+
         public FormThemThongTinGiaoVien()
         {
             InitializeComponent();
@@ -77,6 +78,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             res = arr[1] + "/" + arr[0] + "/" + arr[2];
             return res;
         }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             SQLcmd addGV = new SQLcmd();
@@ -90,7 +92,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 addGV.Add("Nam");
             else
                 addGV.Add("Nữ");
-            
+
             addGV.Add(txtSDT.Text);
             addGV.Add(txtEmail.Text);
             float hsl;
@@ -100,6 +102,12 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             addGV.Add((int)(hsl * 1490) + "");
             try
             {
+                SQLcmd addTK = new SQLcmd();
+                addTK.Add(txtEmail.Text);
+                addTK.Add(txtMaGV.Text);
+                addTK.Add(txtCMND.Text);
+                addTK.Insert_Command("taikhoan");
+
                 addGV.Insert_Command("giaovien");
                 MessageForm msgF = new MessageForm("Thêm thành công!", "Thêm giáo viên");
                 msgF.ShowDialog();
@@ -121,10 +129,6 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         {
             txtMaLop.Enabled = false;
             txtNgayNhanLop.Enabled = false;
-        }        
-
-        
-
-        
+        }
     }
 }

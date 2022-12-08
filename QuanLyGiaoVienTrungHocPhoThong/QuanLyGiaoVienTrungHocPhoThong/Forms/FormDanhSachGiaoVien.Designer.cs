@@ -38,13 +38,13 @@
             // txtTimKiem
             // 
             this.txtTimKiem.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimKiem.Location = new System.Drawing.Point(14, 26);
-            this.txtTimKiem.Multiline = true;
+            this.txtTimKiem.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimKiem.Location = new System.Drawing.Point(14, 32);
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(391, 47);
+            this.txtTimKiem.Size = new System.Drawing.Size(391, 35);
             this.txtTimKiem.TabIndex = 16;
             this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
+            this.txtTimKiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTimKiem_KeyDown);
             // 
             // dgvDSGV
             // 
@@ -81,7 +81,7 @@
             // 
             // FormDanhSachGiaoVien
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 531);
             this.Controls.Add(this.dgvDSGV);

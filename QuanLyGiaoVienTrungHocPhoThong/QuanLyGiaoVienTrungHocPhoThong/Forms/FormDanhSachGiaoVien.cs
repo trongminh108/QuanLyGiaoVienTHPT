@@ -15,6 +15,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
     {
         private Panel panelDesktopPane;
         private Label title;
+
         public FormDanhSachGiaoVien(Panel panel, Label title)
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             this.panelDesktopPane = panel;
             this.title = title;
         }
+
         public string ConvertDate(string date)
         {
             string res = "";
@@ -31,23 +33,26 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             res = arr[1] + "/" + arr[0] + "/" + arr[2];
             return res;
         }
+
         public void LoadDataByKeywords()
         {
             Modify modify = new Modify();
-            dgvDSGV.DataSource = modify.getDataTable("SELECT * from GiaoVien where HoTen like '%" + txtTimKiem.Text + "%' ");
+            string query = string.Format(@"SELECT * FROM GiaoVien WHERE hoten like N'%{0}%'", txtTimKiem.Text);
+            dgvDSGV.DataSource = modify.getDataTable(query);
         }
+
         private void LoadData()
         {
             string query = "SELECT magiaovien, hoten, mabomon, " +
-                "loaigiaovien, cmnd_cccd, FORMAT (ngaysinh, 'dd/MM/yyyy')," + 
+                "loaigiaovien, cmnd_cccd, FORMAT (ngaysinh, 'dd/MM/yyyy') as NgaySinh," +
                 "gioitinh, sdt, email, luong FROM GiaoVien";
 
             Modify modify = new Modify();
             dgvDSGV.DataSource = modify.getDataTable(query);
             int numCol = dgvDSGV.ColumnCount;
-            string[] dsgv = {"Mã GV", "Họ Tên", "Mã BM", "Hạng GV", "CMND", 
+            string[] dsgv = {"Mã GV", "Họ Tên GV", "Mã BM", "Hạng GV", "CMND",
                 "Ngày Sinh", "Giới Tính", "SDT", "Email", "Lương"};
-            
+
             for (int i = 0; i < numCol; i++)
             {
                 dgvDSGV.Columns[i].HeaderText = dsgv[i];
@@ -82,7 +87,8 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
-
+            if (txtTimKiem.Text == "")
+                dgvDSGV.DataSource = (new SQLcmd()).Select_Command("giaovien");
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -93,7 +99,16 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             }
             else
             {
+                dgvDSGV.DataSource = (new SQLcmd()).Select_Command("giaovien");
                 LoadDataByKeywords();
+            }
+        }
+
+        private void txtTimKiem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && txtTimKiem.Text.Trim() != "")
+            {
+                btnTimKiem_Click(btnTimKiem, new EventArgs());
             }
         }
     }
