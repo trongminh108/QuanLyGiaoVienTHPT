@@ -109,7 +109,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 addTK.Insert_Command("taikhoan");
 
                 addGV.Insert_Command("giaovien");
-                MessageForm msgF = new MessageForm("Thêm thành công!", "Thêm giáo viên");
+                MessageForm msgF = new MessageForm("Thêm thành công!", "Thêm giáo viên", MessageForm.typeOK);
                 msgF.ShowDialog();
                 //MessageBox.Show("Insert successful!");
             }

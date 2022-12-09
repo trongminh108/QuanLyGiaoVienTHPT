@@ -1,4 +1,5 @@
-﻿using QuanLyGiaoVienTrungHocPhoThong.Forms;
+﻿using QuanLyGiaoVienTrungHocPhoThong.Class;
+using QuanLyGiaoVienTrungHocPhoThong.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,12 +18,15 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         public FormMain()
         {
             InitializeComponent();
+            ChangeForm.pnChange = panelDesktopPane;
         }
+
         //Field
         private Form FormConHienTai;
+
         private void OpenChildForm(Form childForm)
         {
-            if(FormConHienTai != null)
+            if (FormConHienTai != null)
             {
                 FormConHienTai.Close();
             }
@@ -39,11 +43,11 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         // Sự kiện
         private void btnDSGV_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormDanhSachGiaoVien(panelDesktopPane, lblTitle));
+            OpenChildForm(new FormDanhSachGiaoVien(lblTitle));
             lblTitle.Text = btnDSGV.Text;
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+        public void btnThem_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormThemThongTinGiaoVien());
             lblTitle.Text = btnThem.Text;
@@ -74,7 +78,6 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 FormConHienTai.Close();
             }
             lblTitle.Text = "Trường THPT Long Xuyên";
-            MessageBox.Show(this.Width + ", " + this.Height);
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
@@ -86,8 +89,19 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 FormDangNhap fdn = new FormDangNhap();
                 fdn.ShowDialog();
                 this.Close();
-
             }
+        }
+
+        private void FormMain_Resize(object sender, EventArgs e)
+        {
+            Size FormSize = new Size(1280, 720);
+            if (this.Width < FormSize.Width)
+                this.Width = FormSize.Width;
+            if (this.Height < FormSize.Height)
+                this.Height = FormSize.Height;
+            panelTitleBar.Width = this.Width - panelMenu.Width;
+            lblTitle.Width = panelTitleBar.Width;
+            panelMenu.Height = this.Height;
         }
     }
 }

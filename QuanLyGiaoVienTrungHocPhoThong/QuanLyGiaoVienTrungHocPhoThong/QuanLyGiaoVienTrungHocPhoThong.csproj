@@ -47,8 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChuyenDoiSQLThoiGian.cs" />
-    <Compile Include="Class\GiaoVien.cs" />
-    <Compile Include="Class\LoadData.cs" />
+    <Compile Include="Class\ChangeForm.cs" />
     <Compile Include="ConnectSQL\Connection.cs" />
     <Compile Include="ConnectSQL\Modify.cs" />
     <Compile Include="ConnectSQL\SQLcmd.cs" />
@@ -203,8 +202,6 @@
     <Content Include="Resources\logoAGU.jpg" />
     <None Include="Resources\return %281%29.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Database\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

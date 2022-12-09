@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,28 +13,30 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
     internal class SQLcmd
     {
         private List<string> col;
-        private string insert = "INSERT INTO {0} VALUES ({1})";
-        private string select = "SELECT * FROM {0}";
-        private string find = "SELECT * FROM {0} WHERE {1}";
-        private string update = "UPDATE {0} SET {1} WHERE {2}";
-        private string delete = "DELETE FROM {0} WHERE {1}";
-        public static string[] columnsGV = { "magiaovien", "hoten", "mabomon", "loaigiaovien", "cmnd_cccd", 
+        private string insert = @"INSERT INTO {0} VALUES ({1})";
+        private string select = @"SELECT * FROM {0}";
+        private string find = @"SELECT * FROM {0} WHERE {1}";
+        private string update = @"UPDATE {0} SET {1} WHERE {2}";
+        private string delete = @"DELETE FROM {0} WHERE {1}";
+
+        public static string[] columnsGV = { "magiaovien", "hoten", "mabomon", "loaigiaovien", "cmnd_cccd",
             "ngaysinh", "gioitinh", "sdt", "email", "luong" };
 
-        Modify modify;
+        private Modify modify;
+
         public SQLcmd()
         {
             col = new List<string>();
             modify = new Modify();
         }
-        
+
         private string getValues()
         {
             string res = "";
-            for (int i = 0; i < col.Count-1; i++)
+            for (int i = 0; i < col.Count - 1; i++)
                 res += string.Format("N'{0}',", col[i].ToString());
             if (col.Count > 0)
-                res += string.Format("N'{0}'", col[col.Count-1].ToString());
+                res += string.Format("N'{0}'", col[col.Count - 1].ToString());
             return res;
         }
 
@@ -63,8 +66,15 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
 
         public void Delete_Command(string tableName, string key)
         {
-            string query = string.Format(delete, tableName, key);
-            modify.Command(query);
+            string condition = string.Format("{0}='{1}'", getColumnsNames(tableName)[0], key);
+            string query = string.Format(delete, tableName, condition);
+            using (SqlConnection connect = Connection.getConnection())
+            {
+                connect.Open();
+                SqlCommand command = new SqlCommand(query, connect);
+                command.ExecuteNonQuery();
+                connect.Close();
+            }
         }
 
         public DataTable Select_Command(string tableName)
@@ -116,6 +126,5 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
                 return null;
             }
         }
-
     }
 }

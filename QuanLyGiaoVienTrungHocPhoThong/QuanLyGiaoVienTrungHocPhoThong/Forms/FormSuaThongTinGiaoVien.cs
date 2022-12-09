@@ -1,4 +1,5 @@
 ﻿using QuanLyGiaoVienTrungHocPhoThong.ConnectSQL;
+using QuanLyGiaoVienTrungHocPhoThong.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,13 +18,14 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         private DataTable dataHang;
         private int idx;
         private string key;
-        public FormSuaThongTinGiaoVien(int i, Label title=null)
+
+        public FormSuaThongTinGiaoVien(int i, Label title = null)
         {
             InitializeComponent();
 
             dtpNgaySinh.Format = DateTimePickerFormat.Custom;
             dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
-            
+
             dataBoMon = LoadComboBox("bomon", cbBoMon, 1);
 
             dataHang = LoadComboBox("loaigiaovien", cbHang, 0);
@@ -79,24 +81,21 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 rbtnNam.Checked = true;
             else
                 rbtnNu.Checked = true;
-            
+
             txtSDT.Text = dataRow[cols[7]].ToString();
             txtEmail.Text = dataRow[cols[8]].ToString();
 
-            
             string luong = dataRow[cols[9]].ToString();
             float hsl;
             if (luong != "")
                 hsl = float.Parse(luong) / 1490;
-            else 
-                hsl = (float) 2.48;
+            else
+                hsl = (float)2.48;
             txtHeSoLuong.Text = hsl.ToString();
-
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-
             SQLcmd editGV = new SQLcmd();
             editGV.Add(txtMaGV.Text);
             editGV.Add(txtHoten.Text);
@@ -104,12 +103,12 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             editGV.Add(cbHang.Text);
             editGV.Add(txtCMND.Text);
             editGV.Add(ConvertDate(dtpNgaySinh.Text));
-            
+
             if (rbtnNam.Checked)
                 editGV.Add("Nam");
             else
                 editGV.Add("Nữ");
-            
+
             editGV.Add(txtSDT.Text);
             editGV.Add(txtEmail.Text);
             float hsl = float.Parse(txtHeSoLuong.Text);
@@ -118,11 +117,13 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             try
             {
                 editGV.Update_Command("giaovien", key);
-                MessageBox.Show("Edit successful!");
+                MessageForm msgForm = new MessageForm("Sửa Giáo Viên thành công!", "Sửa Giáo Viên", "OK");
+                msgForm.ShowDialog();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageForm msgForm = new MessageForm("Sửa Giáo Viên thất bại!\n" + ex.Message, "Sửa Giáo Viên", "OK");
+                msgForm.ShowDialog();
             }
         }
 
