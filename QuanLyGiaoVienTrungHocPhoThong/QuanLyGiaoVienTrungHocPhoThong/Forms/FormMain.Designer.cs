@@ -243,6 +243,7 @@
             // 
             // panelDesktopPane
             // 
+            this.panelDesktopPane.BackColor = System.Drawing.SystemColors.Control;
             this.panelDesktopPane.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelDesktopPane.BackgroundImage")));
             this.panelDesktopPane.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panelDesktopPane.Location = new System.Drawing.Point(250, 110);

@@ -1,4 +1,5 @@
-﻿using QuanLyGiaoVienTrungHocPhoThong.ConnectSQL;
+﻿using QuanLyGiaoVienTrungHocPhoThong.Class;
+using QuanLyGiaoVienTrungHocPhoThong.ConnectSQL;
 using QuanLyGiaoVienTrungHocPhoThong.Forms;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
     {
         private DataTable dataBoMon;
         private DataTable dataHang;
+        private DataRow dataRow;
         private int idx;
         private string key;
 
@@ -33,6 +35,9 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             this.idx = i;
             if (title != null)
                 title.Text = "Sửa thông tin giáo viên";
+
+            dataRow = (new SQLcmd()).Select_Command("giaovien").Rows[idx];
+            txtMaGV.Focus();
         }
 
         private DataTable LoadComboBox(string tableName, ComboBox cb, int k)
@@ -62,36 +67,58 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 
         private void FormSuaThongTinGiaoVien_Load(object sender, EventArgs e)
         {
-            DataRow dataRow = (new SQLcmd()).Select_Command("giaovien").Rows[idx];
-            string[] cols = SQLcmd.columnsGV;
-            this.key = dataRow[cols[0]].ToString();
-            txtMaGV.Text = dataRow[cols[0]].ToString();
-            txtHoten.Text = dataRow[cols[1]].ToString();
+            this.key = dataRow[0].ToString();
+            txtMaGV.Text = dataRow[0].ToString();
+            txtHoten.Text = dataRow[1].ToString();
 
-            string maBM = dataRow[cols[2]].ToString();
+            string maBM = dataRow[2].ToString();
             cbBoMon.SelectedIndex = getIndex(maBM, dataBoMon);
 
-            cbHang.SelectedIndex = getIndex(dataRow[cols[3]].ToString(), dataHang);
+            cbHang.SelectedIndex = getIndex(dataRow[3].ToString(), dataHang);
 
-            txtCMND.Text = dataRow[cols[4]].ToString();
+            txtCMND.Text = dataRow[4].ToString();
 
-            dtpNgaySinh.Value = DateTime.Parse(dataRow[cols[5]].ToString());
+            dtpNgaySinh.Value = DateTime.Parse(dataRow[5].ToString());
 
-            if (dataRow[cols[6]].ToString().Equals("Nam"))
+            if (dataRow[6].ToString().Equals("Nam"))
                 rbtnNam.Checked = true;
             else
                 rbtnNu.Checked = true;
 
-            txtSDT.Text = dataRow[cols[7]].ToString();
-            txtEmail.Text = dataRow[cols[8]].ToString();
+            txtSDT.Text = dataRow[7].ToString();
+            txtEmail.Text = dataRow[8].ToString();
 
-            string luong = dataRow[cols[9]].ToString();
+            string luong = dataRow[9].ToString();
             float hsl;
             if (luong != "")
                 hsl = float.Parse(luong) / 1490;
             else
                 hsl = (float)2.48;
             txtHeSoLuong.Text = hsl.ToString();
+
+            DataRow rowBM = (new SQLcmd()).Find_Command("bomon", maBM);
+            if (rowBM[2].ToString() == txtMaGV.Text)
+                rbtnTBMco.Checked = true;
+            else
+                rbtnTBMkhong.Checked = true;
+            DataRow row = (new SQLcmd()).Find_Command("hinhanh", dataRow[0].ToString());
+            if (row != null)
+                picHinhThe.Image = LoadImages.ConvertByteArrayToImage((byte[])row[1]);
+        }
+
+        private void SuaTruongBoMon()
+        {
+            SQLcmd editBM = new SQLcmd();
+            string maBM = dataRow["mabomon"].ToString();
+            editBM.Add(maBM);
+            editBM.Add(cbBoMon.Text);
+            if (rbtnTBMco.Checked)
+            {
+                editBM.Add(txtMaGV.Text);
+            }
+            else
+                editBM.Add("null");
+            editBM.Update_Command("bomon", maBM);
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -117,6 +144,11 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             try
             {
                 editGV.Update_Command("giaovien", key);
+                SuaTruongBoMon();
+                if (picHinhThe.Image != null)
+                {
+                    (new SQLcmd()).Update_Image(txtMaGV.Text, picHinhThe.Image, "hinhanh");
+                }
                 MessageForm msgForm = new MessageForm("Sửa Giáo Viên thành công!", "Sửa Giáo Viên", "OK");
                 msgForm.ShowDialog();
             }

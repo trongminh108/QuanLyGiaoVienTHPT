@@ -102,6 +102,8 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             panelTitleBar.Width = this.Width - panelMenu.Width;
             lblTitle.Width = panelTitleBar.Width;
             panelMenu.Height = this.Height;
+            panelDesktopPane.Width = this.Width - panelMenu.Width;
+            panelDesktopPane.Height = this.Height - panelTitleBar.Height;
         }
     }
 }

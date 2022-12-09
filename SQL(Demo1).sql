@@ -50,7 +50,14 @@ CREATE TABLE GiangDay
 	NgayNhanLop date
 )
 
--- Bang 6:
+-- Bang 6: Hinh Anh
+CREATE TABLE HinhAnh
+(
+	MaGiaoVien char(4) NOT NULL,
+	AnhThe image
+);
+
+-- Bang 7: Tai Khoan
 CREATE TABLE TaiKhoan (
     email       varchar (50) NOT NULL,
     TenTaiKhoan varchar (20)    NOT NULL,
@@ -64,6 +71,7 @@ ALTER TABLE BoMon ADD CONSTRAINT pk_BoMon PRIMARY KEY (MaBoMon);
 ALTER TABLE LoaiGiaoVien ADD CONSTRAINT pk_LoaiGiaoVien PRIMARY KEY (LoaiGiaoVien);
 ALTER TABLE Lop ADD CONSTRAINT pk_Lop PRIMARY KEY (MaLop);
 ALTER TABLE GiangDay ADD CONSTRAINT pk_GiangDay PRIMARY KEY (MaGiaoVien, MaLop);
+ALTER TABLE HinhAnh ADD CONSTRAINT pk_HinhAnh PRIMARY KEY (MaGiaoVien);
 ALTER TABLE TaiKhoan ADD CONSTRAINT pk_TaiKhoan PRIMARY KEY (email);
 GO
 
@@ -132,5 +140,8 @@ GO
 --SELECT * FROM GiaoVien
 --SELECT * FROM BoMon
 --SELECT *FROM taikhoan
+--SELECT * FROM hinhanh
+
+
 
 

@@ -1,4 +1,5 @@
-﻿using QuanLyGiaoVienTrungHocPhoThong.ConnectSQL;
+﻿using QuanLyGiaoVienTrungHocPhoThong.Class;
+using QuanLyGiaoVienTrungHocPhoThong.ConnectSQL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
     {
         private int idx;
         private DataRow dataRow;
+
         public FormThongTin(int idx)
         {
             InitializeComponent();
@@ -52,7 +54,6 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             DataRow boMon = (new SQLcmd()).Find_Command("bomon", dataRow[2].ToString());
             lblBoMon.Text = boMon[1].ToString();
 
-
             lblHangGiaoVien.Text = dataRow[3].ToString();
 
             lblCMND.Text = dataRow[4].ToString();
@@ -70,6 +71,9 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             else
                 hsl = (float)3.48;
             lblHSL.Text = hsl.ToString();
+            DataRow row = (new SQLcmd()).Find_Command("hinhanh", dataRow[0].ToString());
+            if (row != null)
+                picHinhThe.Image = LoadImages.ConvertByteArrayToImage((byte[])row[1]);
         }
 
         private void btnTK_Click(object sender, EventArgs e)
@@ -94,7 +98,6 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 {
                     DeleteAll();
                 }
-
             }
         }
 

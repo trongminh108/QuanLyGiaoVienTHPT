@@ -104,8 +104,11 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 {
                     string key = dgvDSGV.Rows[i].Cells[0].Value.ToString();
                     (new SQLcmd()).Delete_Command("giaovien", key);
+                    (new SQLcmd()).Delete_Command("taikhoan", dgvDSGV.Rows[i].Cells["email"].Value.ToString());
+                    (new SQLcmd()).Delete_Command("hinhanh", key);
                     MessageForm msgFormDel = new MessageForm("Xóa thành công Giáo Viên: " + dgvDSGV.Rows[i].Cells[1].Value.ToString(), "Thông tin", "OK");
                     msgFormDel.ShowDialog();
+                    LoadData();
                 }
             }
             else

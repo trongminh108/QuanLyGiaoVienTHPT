@@ -332,6 +332,7 @@
             this.picHinhThe.Location = new System.Drawing.Point(31, 29);
             this.picHinhThe.Name = "picHinhThe";
             this.picHinhThe.Size = new System.Drawing.Size(143, 193);
+            this.picHinhThe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHinhThe.TabIndex = 39;
             this.picHinhThe.TabStop = false;
             // 

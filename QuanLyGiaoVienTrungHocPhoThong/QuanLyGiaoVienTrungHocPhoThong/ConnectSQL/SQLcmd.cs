@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,6 +65,42 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
             modify.Command(query);
         }
 
+        public void Insert_Image(string magv, Image img, string tableName)
+        {
+            using (SqlConnection conn = Connection.getConnection())
+            {
+                conn.Open();
+                string query = @"INSERT INTO " + tableName + " VALUES (@magiaovien, @hinhanh)";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@magiaovien", magv);
+                cmd.Parameters.AddWithValue("@hinhanh", LoadImages.ConvertImageToByes(img));
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+        }
+
+        public void Update_Image(string magv, Image img, string tableName)
+        {
+            using (SqlConnection conn = Connection.getConnection())
+            {
+                DataRow row = Find_Command(tableName, magv);
+                if (row != null)
+                {
+                    conn.Open();
+                    string query = @"UPDATE " + tableName + " SET anhthe=@hinhanh WHERE magiaovien=@magv";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@hinhanh", LoadImages.ConvertImageToByes(img));
+                    cmd.Parameters.AddWithValue("@magv", magv);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+                else
+                    Insert_Image(magv, img, tableName);
+            }
+        }
+
         public void Delete_Command(string tableName, string key)
         {
             string condition = string.Format("{0}='{1}'", getColumnsNames(tableName)[0], key);
@@ -80,6 +117,19 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConnectSQL
         public DataTable Select_Command(string tableName)
         {
             string query = string.Format(select, tableName);
+            try
+            {
+                return (new Modify()).getDataTable(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return (new DataTable());
+            }
+        }
+
+        public DataTable Select_Command(string query, string tableName)
+        {
             try
             {
                 return (new Modify()).getDataTable(query);

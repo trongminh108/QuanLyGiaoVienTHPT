@@ -1,4 +1,5 @@
-﻿/**/using QuanLyGiaoVienTrungHocPhoThong.ConnectSQL;
+﻿/**/using QuanLyGiaoVienTrungHocPhoThong.Class;
+using QuanLyGiaoVienTrungHocPhoThong.ConnectSQL;
 using QuanLyGiaoVienTrungHocPhoThong.Forms;
 using System;
 using System.Collections.Generic;
@@ -108,14 +109,19 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 addTK.Add(txtCMND.Text);
                 addTK.Insert_Command("taikhoan");
 
+                if (picHinhThe.Image != null)
+                {
+                    (new SQLcmd()).Insert_Image(txtMaGV.Text, picHinhThe.Image, "hinhanh");
+                }
+
                 addGV.Insert_Command("giaovien");
                 MessageForm msgF = new MessageForm("Thêm thành công!", "Thêm giáo viên", MessageForm.typeOK);
                 msgF.ShowDialog();
-                //MessageBox.Show("Insert successful!");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageForm msgF = new MessageForm("Thêm không thành công!\n" + ex.Message, "Thêm giáo viên", MessageForm.typeOK);
+                msgF.ShowDialog();
             }
         }
 
