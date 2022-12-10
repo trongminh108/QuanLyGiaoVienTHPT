@@ -91,6 +91,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         {
             ChangeForm.OpenForm(new FormThemThongTinGiaoVien());
             this.Close();
+
         }
 
         private void btnXoaGV_Click(object sender, EventArgs e)
