@@ -17,6 +17,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
     {
         private DataTable dataBoMon;
         private DataTable dataHang;
+        private DataTable dataLop;
 
         public FormThemThongTinGiaoVien()
         {
@@ -26,8 +27,8 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         private void FormThemThongTinGiaoVien_Load(object sender, EventArgs e)
         {
             txtMaGV.Focus();
-            txtMaLop.Enabled = false;
-            txtNgayNhanLop.Enabled = false;
+            cbMaLop.Enabled = false;
+            dtpNgayNhanLop.Enabled = false;
             rbtnKhong.Checked = true;
             rbtnNam.Checked = true;
             rbtnTBMkhong.Checked = true;
@@ -35,19 +36,14 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             dtpNgaySinh.Format = DateTimePickerFormat.Custom;
             dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
 
-            dataBoMon = LoadComboBox("bomon", cbBoMon, 1);
+            dataBoMon = LoadData.LoadComboBox("bomon", cbBoMon, 1);
             cbBoMon.SelectedIndex = 0;
 
-            dataHang = LoadComboBox("loaigiaovien", cbHang, 0);
+            dataHang = LoadData.LoadComboBox("loaigiaovien", cbHang, 0);
             cbHang.SelectedIndex = 0;
-        }
 
-        private DataTable LoadComboBox(string tableName, ComboBox cb, int k)
-        {
-            DataTable data = (new SQLcmd()).Select_Command(tableName);
-            for (int i = 0; i < data.Rows.Count; i++)
-                cb.Items.Add(data.Rows[i].Field<string>(k));
-            return data;
+            dataLop = LoadData.LoadComboBox("lop", cbMaLop, 0);
+            cbMaLop.SelectedIndex = 0;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -74,47 +70,65 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 
         public string ConvertDate(string date)
         {
-            string res = "";
             string[] arr = date.Split('/');
-            res = arr[1] + "/" + arr[0] + "/" + arr[2];
+            string res = arr[1] + "/" + arr[0] + "/" + arr[2];
             return res;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            SQLcmd addGV = new SQLcmd();
-            addGV.Add(txtMaGV.Text);
-            addGV.Add(txtHoten.Text);
-            addGV.Add(dataBoMon.Rows[cbBoMon.SelectedIndex].Field<string>(0));
-            addGV.Add(cbHang.Text);
-            addGV.Add(txtCMND.Text);
-            addGV.Add(ConvertDate(dtpNgaySinh.Text));
-            if (rbtnNam.Checked)
-                addGV.Add("Nam");
-            else
-                addGV.Add("Nữ");
-
-            addGV.Add(txtSDT.Text);
-            addGV.Add(txtEmail.Text);
-            float hsl;
-            bool isNum = float.TryParse(txtHeSoLuong.Text, out hsl);
-            if (!isNum)
-                hsl = 1;
-            addGV.Add((int)(hsl * 1490) + "");
             try
             {
+                //Thêm tài khoản cho giáo viên
                 SQLcmd addTK = new SQLcmd();
                 addTK.Add(txtEmail.Text);
                 addTK.Add(txtMaGV.Text);
                 addTK.Add(txtCMND.Text);
                 addTK.Insert_Command("taikhoan");
 
+                //Thêm giáo viên
+                SQLcmd addGV = new SQLcmd();
+                addGV.Add(txtMaGV.Text);
+                addGV.Add(txtHoten.Text);
+                addGV.Add(dataBoMon.Rows[cbBoMon.SelectedIndex].Field<string>(0));
+                addGV.Add(cbHang.Text);
+                addGV.Add(txtCMND.Text);
+                addGV.Add(ConvertDate(dtpNgaySinh.Text));
+                if (rbtnNam.Checked)
+                    addGV.Add("Nam");
+                else
+                    addGV.Add("Nữ");
+
+                addGV.Add(txtSDT.Text);
+                addGV.Add(txtEmail.Text);
+                float hsl;
+                bool isNum = float.TryParse(txtHeSoLuong.Text, out hsl);
+                if (!isNum)
+                    hsl = 1;
+                addGV.Add((int)(hsl * 1490000) + "");
+                addGV.Insert_Command("giaovien");
+
+                //Thêm ảnh thẻ cho giáo viên
                 if (picHinhThe.Image != null)
                 {
                     (new SQLcmd()).Insert_Image(txtMaGV.Text, picHinhThe.Image, "hinhanh");
                 }
 
-                addGV.Insert_Command("giaovien");
+                //Nếu giáo viên có chủ nhiệm sẽ thêm dữ liệu vào bảng giảng dạy
+                if (rbtnCo.Checked)
+                {
+                    SQLcmd addGiangDay = new SQLcmd();
+                    addGiangDay.Add(txtMaGV.Text);
+                    addGiangDay.Add(cbMaLop.Text);
+                    addGiangDay.Add(ConvertDate(dtpNgaySinh.Text));
+                    addGiangDay.Insert_Command("giangday");
+
+                    // Thêm thông tin giáo viên
+                    SQLcmd addLop = new SQLcmd();
+                    addLop.Add(cbMaLop.Text);
+                    addLop.Add(txtMaGV.Text);
+                    addLop.Update_Command("lop", cbMaLop.Text);
+                }
                 MessageForm msgF = new MessageForm("Thêm thành công!", "Thêm giáo viên", MessageForm.typeOK);
                 msgF.ShowDialog();
             }
@@ -127,14 +141,14 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 
         private void rbtnCo_CheckedChanged(object sender, EventArgs e)
         {
-            txtMaLop.Enabled = true;
-            txtNgayNhanLop.Enabled = true;
+            cbMaLop.Enabled = true;
+            dtpNgayNhanLop.Enabled = true;
         }
 
         private void rbtnKhong_CheckedChanged(object sender, EventArgs e)
         {
-            txtMaLop.Enabled = false;
-            txtNgayNhanLop.Enabled = false;
+            cbMaLop.Enabled = false;
+            dtpNgayNhanLop.Enabled = false;
         }
     }
 }

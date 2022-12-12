@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\ChangeForm.cs" />
+    <Compile Include="Class\LoadData.cs" />
     <Compile Include="Class\LoadImages.cs" />
     <Compile Include="ConnectSQL\Connection.cs" />
     <Compile Include="ConnectSQL\Modify.cs" />

@@ -37,11 +37,11 @@
             this.rbtnTBMco = new System.Windows.Forms.RadioButton();
             this.cbHang = new System.Windows.Forms.ComboBox();
             this.gpbThongTin2 = new System.Windows.Forms.GroupBox();
+            this.dtpNgayNhanLop = new System.Windows.Forms.DateTimePicker();
+            this.cbMaLop = new System.Windows.Forms.ComboBox();
             this.rbtnKhong = new System.Windows.Forms.RadioButton();
             this.rbtnCo = new System.Windows.Forms.RadioButton();
-            this.txtNgayNhanLop = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtMaLop = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtHeSoLuong = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -157,12 +157,12 @@
             // 
             // gpbThongTin2
             // 
+            this.gpbThongTin2.Controls.Add(this.dtpNgayNhanLop);
+            this.gpbThongTin2.Controls.Add(this.cbMaLop);
             this.gpbThongTin2.Controls.Add(this.cbHang);
             this.gpbThongTin2.Controls.Add(this.rbtnKhong);
             this.gpbThongTin2.Controls.Add(this.rbtnCo);
-            this.gpbThongTin2.Controls.Add(this.txtNgayNhanLop);
             this.gpbThongTin2.Controls.Add(this.label11);
-            this.gpbThongTin2.Controls.Add(this.txtMaLop);
             this.gpbThongTin2.Controls.Add(this.label10);
             this.gpbThongTin2.Controls.Add(this.txtHeSoLuong);
             this.gpbThongTin2.Controls.Add(this.label9);
@@ -176,6 +176,25 @@
             this.gpbThongTin2.TabStop = false;
             this.gpbThongTin2.Text = "Điền thông tin giáo viên";
             // 
+            // dtpNgayNhanLop
+            // 
+            this.dtpNgayNhanLop.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgayNhanLop.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgayNhanLop.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayNhanLop.Location = new System.Drawing.Point(176, 229);
+            this.dtpNgayNhanLop.Name = "dtpNgayNhanLop";
+            this.dtpNgayNhanLop.Size = new System.Drawing.Size(238, 32);
+            this.dtpNgayNhanLop.TabIndex = 78;
+            // 
+            // cbMaLop
+            // 
+            this.cbMaLop.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMaLop.FormattingEnabled = true;
+            this.cbMaLop.Location = new System.Drawing.Point(176, 186);
+            this.cbMaLop.Name = "cbMaLop";
+            this.cbMaLop.Size = new System.Drawing.Size(238, 31);
+            this.cbMaLop.TabIndex = 73;
+            // 
             // rbtnKhong
             // 
             this.rbtnKhong.AutoSize = true;
@@ -188,6 +207,7 @@
             this.rbtnKhong.TabStop = true;
             this.rbtnKhong.Text = "Không";
             this.rbtnKhong.UseVisualStyleBackColor = false;
+            this.rbtnKhong.CheckedChanged += new System.EventHandler(this.rbtnKhong_CheckedChanged);
             // 
             // rbtnCo
             // 
@@ -201,17 +221,7 @@
             this.rbtnCo.TabStop = true;
             this.rbtnCo.Text = "Có";
             this.rbtnCo.UseVisualStyleBackColor = false;
-            // 
-            // txtNgayNhanLop
-            // 
-            this.txtNgayNhanLop.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNgayNhanLop.CausesValidation = false;
-            this.txtNgayNhanLop.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNgayNhanLop.Location = new System.Drawing.Point(176, 226);
-            this.txtNgayNhanLop.Multiline = true;
-            this.txtNgayNhanLop.Name = "txtNgayNhanLop";
-            this.txtNgayNhanLop.Size = new System.Drawing.Size(238, 33);
-            this.txtNgayNhanLop.TabIndex = 5;
+            this.rbtnCo.CheckedChanged += new System.EventHandler(this.rbtnCo_CheckedChanged);
             // 
             // label11
             // 
@@ -224,17 +234,6 @@
             this.label11.Size = new System.Drawing.Size(124, 21);
             this.label11.TabIndex = 68;
             this.label11.Text = "Hạng giáo viên:";
-            // 
-            // txtMaLop
-            // 
-            this.txtMaLop.BackColor = System.Drawing.SystemColors.Window;
-            this.txtMaLop.CausesValidation = false;
-            this.txtMaLop.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaLop.Location = new System.Drawing.Point(176, 181);
-            this.txtMaLop.Multiline = true;
-            this.txtMaLop.Name = "txtMaLop";
-            this.txtMaLop.Size = new System.Drawing.Size(238, 33);
-            this.txtMaLop.TabIndex = 4;
             // 
             // label10
             // 
@@ -579,9 +578,7 @@
         private System.Windows.Forms.GroupBox gpbThongTin2;
         private System.Windows.Forms.RadioButton rbtnKhong;
         private System.Windows.Forms.RadioButton rbtnCo;
-        private System.Windows.Forms.TextBox txtNgayNhanLop;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtMaLop;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtHeSoLuong;
         private System.Windows.Forms.Label label9;
@@ -604,5 +601,7 @@
         private System.Windows.Forms.TextBox txtMaGV;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dtpNgayNhanLop;
+        private System.Windows.Forms.ComboBox cbMaLop;
     }
 }

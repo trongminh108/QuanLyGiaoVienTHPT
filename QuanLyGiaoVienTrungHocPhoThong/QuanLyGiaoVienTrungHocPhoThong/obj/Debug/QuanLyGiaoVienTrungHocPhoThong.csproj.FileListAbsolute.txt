@@ -51,7 +51,6 @@ D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGi
 D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.csproj.CoreCompileInputs.cache
 D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.exe
 D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.pdb
-D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.Test.resources
 C:\Users\ADMIN\Downloads\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\bin\Debug\QuanLyGiaoVienTrungHocPhoThong.exe.config
 C:\Users\ADMIN\Downloads\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\bin\Debug\QuanLyGiaoVienTrungHocPhoThong.exe
 C:\Users\ADMIN\Downloads\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\bin\Debug\QuanLyGiaoVienTrungHocPhoThong.pdb
@@ -92,7 +91,6 @@ E:\New folder (2)\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVi
 E:\New folder (2)\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.csproj.CoreCompileInputs.cache
 E:\New folder (2)\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.exe
 E:\New folder (2)\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.pdb
-D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.Forms2.FormThongKe.resources
 E:\C#C#C#\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\bin\Debug\QuanLyGiaoVienTrungHocPhoThong.exe.config
 E:\C#C#C#\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\bin\Debug\QuanLyGiaoVienTrungHocPhoThong.exe
 E:\C#C#C#\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\bin\Debug\QuanLyGiaoVienTrungHocPhoThong.pdb

@@ -17,7 +17,9 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
     {
         private DataTable dataBoMon;
         private DataTable dataHang;
+        private DataTable dataMaLop;
         private DataRow dataRow;
+
         private int idx;
         private string key;
 
@@ -28,9 +30,12 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             dtpNgaySinh.Format = DateTimePickerFormat.Custom;
             dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
 
-            dataBoMon = LoadComboBox("bomon", cbBoMon, 1);
+            dataBoMon = LoadData.LoadComboBox("bomon", cbBoMon, 1);
 
-            dataHang = LoadComboBox("loaigiaovien", cbHang, 0);
+            dataHang = LoadData.LoadComboBox("loaigiaovien", cbHang, 0);
+
+            dataMaLop = LoadData.LoadComboBox("lop", cbMaLop, 0);
+            cbMaLop.SelectedIndex = 0;
 
             this.idx = i;
             if (title != null)
@@ -38,14 +43,6 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 
             dataRow = (new SQLcmd()).Select_Command("giaovien").Rows[idx];
             txtMaGV.Focus();
-        }
-
-        private DataTable LoadComboBox(string tableName, ComboBox cb, int k)
-        {
-            DataTable data = (new SQLcmd()).Select_Command(tableName);
-            for (int i = 0; i < data.Rows.Count; i++)
-                cb.Items.Add(data.Rows[i].Field<string>(k));
-            return data;
         }
 
         public string ConvertDate(string date)
@@ -91,7 +88,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             string luong = dataRow[9].ToString();
             float hsl;
             if (luong != "")
-                hsl = float.Parse(luong) / 1490;
+                hsl = float.Parse(luong) / 1490000;
             else
                 hsl = (float)2.48;
             txtHeSoLuong.Text = hsl.ToString();
@@ -104,47 +101,121 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             DataRow row = (new SQLcmd()).Find_Command("hinhanh", dataRow[0].ToString());
             if (row != null)
                 picHinhThe.Image = LoadImages.ConvertByteArrayToImage((byte[])row[1]);
+
+            // Nếu giáo viên là chủ nhiệm
+            DataRow rowChuNhiem = (new SQLcmd()).Find_Command("giangday", dataRow[0].ToString());
+            DataRow rowLop = null;
+            if (rowChuNhiem != null)
+                rowLop = (new SQLcmd()).Find_Command("lop", rowChuNhiem["malop"].ToString());
+            if (rowChuNhiem != null && rowLop != null)
+            {
+                rbtnCo.Checked = true;
+                cbMaLop.Text = rowChuNhiem[1].ToString();
+                dtpNgayNhanLop.Value = DateTime.Parse(ConvertDate(rowChuNhiem[2].ToString()));
+            }
+            else
+            {
+                rbtnKhong.Checked = true;
+                cbMaLop.Enabled = false;
+                dtpNgayNhanLop.Enabled = false;
+                if (rowChuNhiem != null)
+                    dtpNgayNhanLop.Value = DateTime.Parse(ConvertDate(rowChuNhiem["ngaynhanlop"].ToString()));
+            }
         }
 
         private void SuaTruongBoMon()
         {
             SQLcmd editBM = new SQLcmd();
             string maBM = dataRow["mabomon"].ToString();
+            string maTruongBoMon = dataBoMon.Rows[idx]["matruongbomon"].ToString();
             editBM.Add(maBM);
             editBM.Add(cbBoMon.Text);
             if (rbtnTBMco.Checked)
             {
-                editBM.Add(txtMaGV.Text);
+                if (maBM != dataBoMon.Rows[idx]["mabomon"].ToString())
+                {
+                    editBM.Add(txtMaGV.Text);
+                    editBM.Update_Command("bomon", maBM);
+                }
             }
-            else
+            else if (rbtnTBMkhong.Checked && maTruongBoMon == "")
+            {
                 editBM.Add("null");
-            editBM.Update_Command("bomon", maBM);
+                editBM.Update_Command("bomon", maBM);
+            }
+        }
+
+        private void SuaChuNhiem()
+        {
+            if (rbtnCo.Checked)
+            {
+                // Nếu lớp X đã có chủ nhiệm
+                DataRow rowLop = (new SQLcmd()).Find_Command("lop", cbMaLop.Text);
+                if (rowLop[1].ToString() != "")
+                {
+                    MessageForm msg = new MessageForm(@"Lớp này đang có chủ nhiệm\n
+                Bạn có muốn thay đổi không?", "Thông báo", MessageForm.typeYesNo);
+                    msg.ShowDialog();
+                    if (msg.getAnswer() == DialogResult.Yes)
+                    {
+                        (new SQLcmd()).Delete_Command("giangday", rowLop["machunhiem"].ToString());
+                        SQLcmd xoaLop = new SQLcmd();
+                        xoaLop.Add(cbMaLop.Text);
+                        xoaLop.Add(txtMaGV.Text);
+                        xoaLop.Update_Command("lop", cbMaLop.Text);
+                    }
+                    else
+                        return;
+                }
+
+                DataRow rowChuNhiem = (new SQLcmd()).Find_Command("giangday", dataRow[0].ToString());
+                SQLcmd editChuNhiem = new SQLcmd();
+                editChuNhiem.Add(txtMaGV.Text);
+                editChuNhiem.Add(cbMaLop.Text);
+                editChuNhiem.Add(ConvertDate(dtpNgayNhanLop.Text));
+                if (rowChuNhiem != null)
+                {
+                    // Nếu giáo viên hiện tại đang là chủ nhiệm
+                    editChuNhiem.Update_Command("giangday", rowChuNhiem[0].ToString());
+                }
+                else
+                {
+                    //Nếu giáo viên không đang là chủ nhiệm
+                    editChuNhiem.Insert_Command("giangday");
+                }
+                return;
+            }
+            SQLcmd xoaGiangDay = new SQLcmd();
+            xoaGiangDay.Delete_Command("giangday", dataRow[0].ToString());
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            SQLcmd editGV = new SQLcmd();
-            editGV.Add(txtMaGV.Text);
-            editGV.Add(txtHoten.Text);
-            editGV.Add(dataBoMon.Rows[cbBoMon.SelectedIndex].Field<string>(0));
-            editGV.Add(cbHang.Text);
-            editGV.Add(txtCMND.Text);
-            editGV.Add(ConvertDate(dtpNgaySinh.Text));
-
-            if (rbtnNam.Checked)
-                editGV.Add("Nam");
-            else
-                editGV.Add("Nữ");
-
-            editGV.Add(txtSDT.Text);
-            editGV.Add(txtEmail.Text);
-            float hsl = float.Parse(txtHeSoLuong.Text);
-            editGV.Add((int)(hsl * 1490) + "");
-
             try
             {
+                SQLcmd editGV = new SQLcmd();
+                editGV.Add(txtMaGV.Text);
+                editGV.Add(txtHoten.Text);
+                editGV.Add(dataBoMon.Rows[cbBoMon.SelectedIndex].Field<string>(0));
+                editGV.Add(cbHang.Text);
+                editGV.Add(txtCMND.Text);
+                editGV.Add(ConvertDate(dtpNgaySinh.Text));
+
+                if (rbtnNam.Checked)
+                    editGV.Add("Nam");
+                else
+                    editGV.Add("Nữ");
+
+                editGV.Add(txtSDT.Text);
+                editGV.Add(txtEmail.Text);
+                float hsl = float.Parse(txtHeSoLuong.Text);
+                editGV.Add((int)(hsl * 1490000) + "");
+
                 editGV.Update_Command("giaovien", key);
-                SuaTruongBoMon();
+                if (rbtnTBMco.Checked)
+                    SuaTruongBoMon();
+                SuaChuNhiem();
+
                 if (picHinhThe.Image != null)
                 {
                     (new SQLcmd()).Update_Image(txtMaGV.Text, picHinhThe.Image, "hinhanh");
@@ -169,6 +240,25 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 picHinhThe.SizeMode = PictureBoxSizeMode.Zoom;
                 picHinhThe.Image = Image.FromFile(openFile.FileName);
             }
+        }
+
+        private void CheckChuNhiem()
+        {
+            if (rbtnCo.Checked)
+            {
+                cbMaLop.Enabled = true;
+                dtpNgayNhanLop.Enabled = true;
+            }
+        }
+
+        private void rbtnCo_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckChuNhiem();
+        }
+
+        private void rbtnKhong_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckChuNhiem();
         }
     }
 }

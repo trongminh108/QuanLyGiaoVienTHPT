@@ -91,7 +91,6 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         {
             ChangeForm.OpenForm(new FormThemThongTinGiaoVien());
             this.Close();
-
         }
 
         private void btnXoaGV_Click(object sender, EventArgs e)
@@ -103,13 +102,26 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 msgForm.ShowDialog();
                 if (msgForm.getAnswer() == DialogResult.Yes)
                 {
-                    string key = dgvDSGV.Rows[i].Cells[0].Value.ToString();
-                    (new SQLcmd()).Delete_Command("giaovien", key);
-                    (new SQLcmd()).Delete_Command("taikhoan", dgvDSGV.Rows[i].Cells["email"].Value.ToString());
-                    (new SQLcmd()).Delete_Command("hinhanh", key);
-                    MessageForm msgFormDel = new MessageForm("Xóa thành công Giáo Viên: " + dgvDSGV.Rows[i].Cells[1].Value.ToString(), "Thông tin", "OK");
-                    msgFormDel.ShowDialog();
-                    LoadData();
+                    try
+                    {
+                        string key = dgvDSGV.Rows[i].Cells[0].Value.ToString();
+                        (new SQLcmd()).Delete_Command("giaovien", key);
+                        (new SQLcmd()).Delete_Command("taikhoan", dgvDSGV.Rows[i].Cells["email"].Value.ToString());
+                        (new SQLcmd()).Delete_Command("hinhanh", key);
+                        MessageForm msgFormDel = new MessageForm("Xóa thành công Giáo Viên: " + dgvDSGV.Rows[i].Cells[1].Value.ToString(), "Thông tin", "OK");
+                        msgFormDel.ShowDialog();
+                        LoadData();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageForm msgFormDel = new MessageForm("Xóa thất bại Giáo Viên: " + dgvDSGV.Rows[i].Cells[1].Value.ToString() + "!\n do giáo viên này đang là chủ nhiệm, bạn có muốn tiếp tục xóa không?", "Thông tin", MessageForm.typeYesNo);
+                        msgFormDel.ShowDialog();
+                        if (msgFormDel.getAnswer() == DialogResult.Yes)
+                        {
+                            ChangeForm.OpenForm(new FormSuaThongTinGiaoVien(i, title));
+                            this.Close();
+                        }
+                    }
                 }
             }
             else

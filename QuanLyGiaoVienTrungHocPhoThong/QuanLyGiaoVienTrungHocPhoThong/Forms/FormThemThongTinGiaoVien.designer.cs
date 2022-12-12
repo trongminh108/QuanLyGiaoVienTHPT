@@ -47,9 +47,7 @@
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.rbtnKhong = new System.Windows.Forms.RadioButton();
             this.rbtnCo = new System.Windows.Forms.RadioButton();
-            this.txtNgayNhanLop = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtMaLop = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtHeSoLuong = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -57,16 +55,18 @@
             this.label7 = new System.Windows.Forms.Label();
             this.gpbThongTin2 = new System.Windows.Forms.GroupBox();
             this.cbHang = new System.Windows.Forms.ComboBox();
+            this.gpbThongTin3 = new System.Windows.Forms.GroupBox();
+            this.rbtnTBMkhong = new System.Windows.Forms.RadioButton();
+            this.rbtnTBMco = new System.Windows.Forms.RadioButton();
+            this.cbBoMon = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.picHinhThe = new System.Windows.Forms.PictureBox();
+            this.cbMaLop = new System.Windows.Forms.ComboBox();
+            this.dtpNgayNhanLop = new System.Windows.Forms.DateTimePicker();
             this.btnXoa = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
             this.btnThem = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
             this.btnThemHinhThe = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
-            this.gpbThongTin3 = new System.Windows.Forms.GroupBox();
-            this.cbBoMon = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.rbtnTBMkhong = new System.Windows.Forms.RadioButton();
-            this.rbtnTBMco = new System.Windows.Forms.RadioButton();
-            this.label15 = new System.Windows.Forms.Label();
-            this.picHinhThe = new System.Windows.Forms.PictureBox();
             this.gpbThongTin1.SuspendLayout();
             this.gpbThongTin2.SuspendLayout();
             this.gpbThongTin3.SuspendLayout();
@@ -293,17 +293,6 @@
             this.rbtnCo.UseVisualStyleBackColor = false;
             this.rbtnCo.CheckedChanged += new System.EventHandler(this.rbtnCo_CheckedChanged);
             // 
-            // txtNgayNhanLop
-            // 
-            this.txtNgayNhanLop.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNgayNhanLop.CausesValidation = false;
-            this.txtNgayNhanLop.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNgayNhanLop.Location = new System.Drawing.Point(176, 226);
-            this.txtNgayNhanLop.Multiline = true;
-            this.txtNgayNhanLop.Name = "txtNgayNhanLop";
-            this.txtNgayNhanLop.Size = new System.Drawing.Size(238, 33);
-            this.txtNgayNhanLop.TabIndex = 5;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -315,17 +304,6 @@
             this.label11.Size = new System.Drawing.Size(124, 21);
             this.label11.TabIndex = 68;
             this.label11.Text = "Hạng giáo viên:";
-            // 
-            // txtMaLop
-            // 
-            this.txtMaLop.BackColor = System.Drawing.SystemColors.Window;
-            this.txtMaLop.CausesValidation = false;
-            this.txtMaLop.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaLop.Location = new System.Drawing.Point(176, 181);
-            this.txtMaLop.Multiline = true;
-            this.txtMaLop.Name = "txtMaLop";
-            this.txtMaLop.Size = new System.Drawing.Size(238, 33);
-            this.txtMaLop.TabIndex = 4;
             // 
             // label10
             // 
@@ -388,12 +366,12 @@
             // 
             // gpbThongTin2
             // 
+            this.gpbThongTin2.Controls.Add(this.dtpNgayNhanLop);
+            this.gpbThongTin2.Controls.Add(this.cbMaLop);
             this.gpbThongTin2.Controls.Add(this.cbHang);
             this.gpbThongTin2.Controls.Add(this.rbtnKhong);
             this.gpbThongTin2.Controls.Add(this.rbtnCo);
-            this.gpbThongTin2.Controls.Add(this.txtNgayNhanLop);
             this.gpbThongTin2.Controls.Add(this.label11);
-            this.gpbThongTin2.Controls.Add(this.txtMaLop);
             this.gpbThongTin2.Controls.Add(this.label10);
             this.gpbThongTin2.Controls.Add(this.txtHeSoLuong);
             this.gpbThongTin2.Controls.Add(this.label9);
@@ -415,6 +393,108 @@
             this.cbHang.Name = "cbHang";
             this.cbHang.Size = new System.Drawing.Size(238, 31);
             this.cbHang.TabIndex = 0;
+            // 
+            // gpbThongTin3
+            // 
+            this.gpbThongTin3.Controls.Add(this.rbtnTBMkhong);
+            this.gpbThongTin3.Controls.Add(this.rbtnTBMco);
+            this.gpbThongTin3.Controls.Add(this.cbBoMon);
+            this.gpbThongTin3.Controls.Add(this.label15);
+            this.gpbThongTin3.Controls.Add(this.label14);
+            this.gpbThongTin3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpbThongTin3.Location = new System.Drawing.Point(562, 391);
+            this.gpbThongTin3.Name = "gpbThongTin3";
+            this.gpbThongTin3.Size = new System.Drawing.Size(420, 133);
+            this.gpbThongTin3.TabIndex = 1;
+            this.gpbThongTin3.TabStop = false;
+            this.gpbThongTin3.Text = "Bộ môn giảng dạy";
+            // 
+            // rbtnTBMkhong
+            // 
+            this.rbtnTBMkhong.AutoSize = true;
+            this.rbtnTBMkhong.BackColor = System.Drawing.Color.Transparent;
+            this.rbtnTBMkhong.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnTBMkhong.Location = new System.Drawing.Point(295, 94);
+            this.rbtnTBMkhong.Name = "rbtnTBMkhong";
+            this.rbtnTBMkhong.Size = new System.Drawing.Size(78, 25);
+            this.rbtnTBMkhong.TabIndex = 2;
+            this.rbtnTBMkhong.TabStop = true;
+            this.rbtnTBMkhong.Text = "Không";
+            this.rbtnTBMkhong.UseVisualStyleBackColor = false;
+            // 
+            // rbtnTBMco
+            // 
+            this.rbtnTBMco.AutoSize = true;
+            this.rbtnTBMco.BackColor = System.Drawing.Color.Transparent;
+            this.rbtnTBMco.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnTBMco.Location = new System.Drawing.Point(202, 94);
+            this.rbtnTBMco.Name = "rbtnTBMco";
+            this.rbtnTBMco.Size = new System.Drawing.Size(51, 25);
+            this.rbtnTBMco.TabIndex = 1;
+            this.rbtnTBMco.TabStop = true;
+            this.rbtnTBMco.Text = "Có";
+            this.rbtnTBMco.UseVisualStyleBackColor = false;
+            // 
+            // cbBoMon
+            // 
+            this.cbBoMon.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbBoMon.FormattingEnabled = true;
+            this.cbBoMon.Location = new System.Drawing.Point(176, 39);
+            this.cbBoMon.Name = "cbBoMon";
+            this.cbBoMon.Size = new System.Drawing.Size(238, 31);
+            this.cbBoMon.TabIndex = 0;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label15.Location = new System.Drawing.Point(8, 97);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(132, 21);
+            this.label15.TabIndex = 79;
+            this.label15.Text = "Trưởng bộ môn:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label14.Location = new System.Drawing.Point(8, 44);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(74, 21);
+            this.label14.TabIndex = 67;
+            this.label14.Text = "Bộ môn:";
+            // 
+            // picHinhThe
+            // 
+            this.picHinhThe.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.picHinhThe.Location = new System.Drawing.Point(49, 26);
+            this.picHinhThe.Name = "picHinhThe";
+            this.picHinhThe.Size = new System.Drawing.Size(143, 193);
+            this.picHinhThe.TabIndex = 39;
+            this.picHinhThe.TabStop = false;
+            // 
+            // cbMaLop
+            // 
+            this.cbMaLop.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMaLop.FormattingEnabled = true;
+            this.cbMaLop.Location = new System.Drawing.Point(176, 186);
+            this.cbMaLop.Name = "cbMaLop";
+            this.cbMaLop.Size = new System.Drawing.Size(238, 29);
+            this.cbMaLop.TabIndex = 73;
+            // 
+            // dtpNgayNhanLop
+            // 
+            this.dtpNgayNhanLop.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgayNhanLop.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgayNhanLop.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayNhanLop.Location = new System.Drawing.Point(176, 231);
+            this.dtpNgayNhanLop.Name = "dtpNgayNhanLop";
+            this.dtpNgayNhanLop.Size = new System.Drawing.Size(238, 29);
+            this.dtpNgayNhanLop.TabIndex = 74;
             // 
             // btnXoa
             // 
@@ -481,89 +561,6 @@
             this.btnThemHinhThe.UseVisualStyleBackColor = false;
             this.btnThemHinhThe.Click += new System.EventHandler(this.btnThemHinhThe_Click);
             // 
-            // gpbThongTin3
-            // 
-            this.gpbThongTin3.Controls.Add(this.rbtnTBMkhong);
-            this.gpbThongTin3.Controls.Add(this.rbtnTBMco);
-            this.gpbThongTin3.Controls.Add(this.cbBoMon);
-            this.gpbThongTin3.Controls.Add(this.label15);
-            this.gpbThongTin3.Controls.Add(this.label14);
-            this.gpbThongTin3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpbThongTin3.Location = new System.Drawing.Point(562, 391);
-            this.gpbThongTin3.Name = "gpbThongTin3";
-            this.gpbThongTin3.Size = new System.Drawing.Size(420, 133);
-            this.gpbThongTin3.TabIndex = 1;
-            this.gpbThongTin3.TabStop = false;
-            this.gpbThongTin3.Text = "Bộ môn giảng dạy";
-            // 
-            // cbBoMon
-            // 
-            this.cbBoMon.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbBoMon.FormattingEnabled = true;
-            this.cbBoMon.Location = new System.Drawing.Point(176, 39);
-            this.cbBoMon.Name = "cbBoMon";
-            this.cbBoMon.Size = new System.Drawing.Size(238, 31);
-            this.cbBoMon.TabIndex = 0;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label14.Location = new System.Drawing.Point(8, 44);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(74, 21);
-            this.label14.TabIndex = 67;
-            this.label14.Text = "Bộ môn:";
-            // 
-            // rbtnTBMkhong
-            // 
-            this.rbtnTBMkhong.AutoSize = true;
-            this.rbtnTBMkhong.BackColor = System.Drawing.Color.Transparent;
-            this.rbtnTBMkhong.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnTBMkhong.Location = new System.Drawing.Point(295, 94);
-            this.rbtnTBMkhong.Name = "rbtnTBMkhong";
-            this.rbtnTBMkhong.Size = new System.Drawing.Size(78, 25);
-            this.rbtnTBMkhong.TabIndex = 2;
-            this.rbtnTBMkhong.TabStop = true;
-            this.rbtnTBMkhong.Text = "Không";
-            this.rbtnTBMkhong.UseVisualStyleBackColor = false;
-            // 
-            // rbtnTBMco
-            // 
-            this.rbtnTBMco.AutoSize = true;
-            this.rbtnTBMco.BackColor = System.Drawing.Color.Transparent;
-            this.rbtnTBMco.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnTBMco.Location = new System.Drawing.Point(202, 94);
-            this.rbtnTBMco.Name = "rbtnTBMco";
-            this.rbtnTBMco.Size = new System.Drawing.Size(51, 25);
-            this.rbtnTBMco.TabIndex = 1;
-            this.rbtnTBMco.TabStop = true;
-            this.rbtnTBMco.Text = "Có";
-            this.rbtnTBMco.UseVisualStyleBackColor = false;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(8, 97);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(132, 21);
-            this.label15.TabIndex = 79;
-            this.label15.Text = "Trưởng bộ môn:";
-            // 
-            // picHinhThe
-            // 
-            this.picHinhThe.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.picHinhThe.Location = new System.Drawing.Point(49, 26);
-            this.picHinhThe.Name = "picHinhThe";
-            this.picHinhThe.Size = new System.Drawing.Size(143, 193);
-            this.picHinhThe.TabIndex = 39;
-            this.picHinhThe.TabStop = false;
-            // 
             // FormThemThongTinGiaoVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -610,9 +607,7 @@
         private System.Windows.Forms.GroupBox gpbThongTin1;
         private System.Windows.Forms.RadioButton rbtnKhong;
         private System.Windows.Forms.RadioButton rbtnCo;
-        private System.Windows.Forms.TextBox txtNgayNhanLop;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtMaLop;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtHeSoLuong;
         private System.Windows.Forms.Label label9;
@@ -631,5 +626,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.PictureBox picHinhThe;
+        private System.Windows.Forms.DateTimePicker dtpNgayNhanLop;
+        private System.Windows.Forms.ComboBox cbMaLop;
     }
 }

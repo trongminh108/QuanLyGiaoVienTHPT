@@ -132,15 +132,19 @@ GO
 
 -- Thêm giáo viên
 INSERT INTO GiaoVien VALUES
-	('M001', N'Lưu Minh Trọng', 'MAT', N'Hạng 3', '352715948', '01/08/2002', 'Nam', '0772104719', 'lmtrong.ctc2020@gmail.com', null),
-	('C002', N'Lê Quốc Toàn', 'CHE', N'Hạng 1', '123456789', '12/18/2002', 'Nam', '0123987654', 'lqtoan.ctc2020@gmail.com', null),
-	('L002', N'Lê Minh Thông', 'LIT', N'Hạng 2', '954678213',  '12/13/2002', 'Nam', '0123987654', 'lmthong.ctc2020@gmail.com', null);
+	('M001', N'Lưu Minh Trọng', 'MAT', N'Hạng 3', '352715948', '01/08/2002', 'Nam', '0772104719', 'lmtrong.ctc2020@gmail.com', '3486600'),
+	('C002', N'Lê Quốc Toàn', 'CHE', N'Hạng 1', '123456789', '12/18/2002', 'Nam', '0123987654', 'lqtoan.ctc2020@gmail.com', '5960000'),
+	('L002', N'Lê Minh Thông', 'LIT', N'Hạng 2', '954678213',  '12/13/2002', 'Nam', '0123987654', 'lmthong.ctc2020@gmail.com', '6556000');
 GO
 
 --SELECT * FROM GiaoVien
 --SELECT * FROM BoMon
 --SELECT *FROM taikhoan
 --SELECT * FROM hinhanh
+--SELECT * FROM LOP
+--SELECT * FROM GIANGDAY
+
+
 
 
 

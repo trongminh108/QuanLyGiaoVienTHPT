@@ -46,9 +46,10 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(165, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(124, 10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 150);
+            this.pictureBox1.Size = new System.Drawing.Size(112, 122);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -59,9 +60,10 @@
             this.lblQuenMK.BackColor = System.Drawing.Color.Transparent;
             this.lblQuenMK.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuenMK.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblQuenMK.Location = new System.Drawing.Point(274, 324);
+            this.lblQuenMK.Location = new System.Drawing.Point(206, 263);
+            this.lblQuenMK.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQuenMK.Name = "lblQuenMK";
-            this.lblQuenMK.Size = new System.Drawing.Size(142, 22);
+            this.lblQuenMK.Size = new System.Drawing.Size(116, 19);
             this.lblQuenMK.TabIndex = 20;
             this.lblQuenMK.Text = "Quên mật khẩu?";
             this.lblQuenMK.Click += new System.EventHandler(this.lblQuenMK_Click);
@@ -70,12 +72,12 @@
             // 
             this.txtMK.BackColor = System.Drawing.SystemColors.Window;
             this.txtMK.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMK.Location = new System.Drawing.Point(136, 272);
-            this.txtMK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMK.Location = new System.Drawing.Point(102, 221);
+            this.txtMK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMK.Multiline = true;
             this.txtMK.Name = "txtMK";
             this.txtMK.PasswordChar = '*';
-            this.txtMK.Size = new System.Drawing.Size(280, 32);
+            this.txtMK.Size = new System.Drawing.Size(211, 27);
             this.txtMK.TabIndex = 21;
             this.txtMK.Tag = "";
             this.txtMK.WordWrap = false;
@@ -85,11 +87,11 @@
             this.txtTK.BackColor = System.Drawing.SystemColors.Window;
             this.txtTK.CausesValidation = false;
             this.txtTK.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTK.Location = new System.Drawing.Point(136, 213);
-            this.txtTK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTK.Location = new System.Drawing.Point(102, 173);
+            this.txtTK.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTK.Multiline = true;
             this.txtTK.Name = "txtTK";
-            this.txtTK.Size = new System.Drawing.Size(280, 32);
+            this.txtTK.Size = new System.Drawing.Size(211, 27);
             this.txtTK.TabIndex = 17;
             // 
             // btnDangNhap
@@ -103,10 +105,9 @@
             this.btnDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDangNhap.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangNhap.ForeColor = System.Drawing.Color.Snow;
-            this.btnDangNhap.Location = new System.Drawing.Point(136, 378);
-            this.btnDangNhap.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDangNhap.Location = new System.Drawing.Point(102, 307);
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(234, 60);
+            this.btnDangNhap.Size = new System.Drawing.Size(176, 49);
             this.btnDangNhap.TabIndex = 23;
             this.btnDangNhap.Text = "Đăng nhập";
             this.btnDangNhap.TextColor = System.Drawing.Color.Snow;
@@ -117,9 +118,10 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(58, 195);
+            this.pictureBox2.Location = new System.Drawing.Point(44, 158);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(58, 63);
+            this.pictureBox2.Size = new System.Drawing.Size(44, 51);
             this.pictureBox2.TabIndex = 24;
             this.pictureBox2.TabStop = false;
             // 
@@ -127,9 +129,10 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(58, 254);
+            this.pictureBox3.Location = new System.Drawing.Point(44, 206);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(58, 66);
+            this.pictureBox3.Size = new System.Drawing.Size(44, 54);
             this.pictureBox3.TabIndex = 25;
             this.pictureBox3.TabStop = false;
             // 
@@ -139,21 +142,22 @@
             this.chkGhiNho.BackColor = System.Drawing.Color.Transparent;
             this.chkGhiNho.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkGhiNho.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.chkGhiNho.Location = new System.Drawing.Point(136, 324);
+            this.chkGhiNho.Location = new System.Drawing.Point(102, 263);
+            this.chkGhiNho.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkGhiNho.Name = "chkGhiNho";
-            this.chkGhiNho.Size = new System.Drawing.Size(98, 26);
+            this.chkGhiNho.Size = new System.Drawing.Size(81, 23);
             this.chkGhiNho.TabIndex = 28;
             this.chkGhiNho.Text = "Ghi nhớ";
             this.chkGhiNho.UseVisualStyleBackColor = false;
             // 
             // FormDangNhap
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(473, 516);
+            this.ClientSize = new System.Drawing.Size(355, 419);
             this.Controls.Add(this.chkGhiNho);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -163,7 +167,9 @@
             this.Controls.Add(this.txtTK);
             this.Controls.Add(this.pictureBox1);
             this.ForeColor = System.Drawing.Color.YellowGreen;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormDangNhap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

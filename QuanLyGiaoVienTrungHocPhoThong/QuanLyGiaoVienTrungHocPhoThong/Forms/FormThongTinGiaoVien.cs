@@ -67,7 +67,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             string luong = dataRow[9].ToString();
             float hsl;
             if (luong != "")
-                hsl = float.Parse(luong) / 1490;
+                hsl = float.Parse(luong) / 1490000;
             else
                 hsl = (float)3.48;
             lblHSL.Text = hsl.ToString();

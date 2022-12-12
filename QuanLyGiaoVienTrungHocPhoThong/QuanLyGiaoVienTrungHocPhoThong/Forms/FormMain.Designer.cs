@@ -265,6 +265,7 @@
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý giáo viên Trung học phổ thông";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Resize += new System.EventHandler(this.FormMain_Resize);
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
