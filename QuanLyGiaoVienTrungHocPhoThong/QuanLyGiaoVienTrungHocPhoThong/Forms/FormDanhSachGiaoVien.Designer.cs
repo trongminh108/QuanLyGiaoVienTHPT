@@ -159,6 +159,7 @@
             this.Name = "FormDanhSachGiaoVien";
             this.Text = "Danh sách giáo viên";
             this.Load += new System.EventHandler(this.FormDanhSachGiaoVien_Load);
+            this.Resize += new System.EventHandler(this.FormDanhSachGiaoVien_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

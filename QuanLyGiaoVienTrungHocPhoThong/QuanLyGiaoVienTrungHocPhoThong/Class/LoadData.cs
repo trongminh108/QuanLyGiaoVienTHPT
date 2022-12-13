@@ -15,7 +15,9 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Class
         {
             DataTable data = (new SQLcmd()).Select_Command(tableName);
             for (int i = 0; i < data.Rows.Count; i++)
+            {
                 cb.Items.Add(data.Rows[i].Field<string>(k));
+            }
             return data;
         }
     }

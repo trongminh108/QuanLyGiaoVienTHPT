@@ -161,5 +161,11 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 this.Close();
             }
         }
+
+        private void FormDanhSachGiaoVien_Resize(object sender, EventArgs e)
+        {
+            dgvDSGV.Width = this.Width - 50;
+            dgvDSGV.Height = this.Height - 50 - dgvDSGV.Location.Y;
+        }
     }
 }

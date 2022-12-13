@@ -53,11 +53,11 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             return res;
         }
 
-        public int getIndex(string key, DataTable data)
+        public int getIndex(string key, DataTable data, int k = 0)
         {
             int n = data.Rows.Count;
             for (int i = 0; i < n; i++)
-                if (key.Equals(data.Rows[i].Field<string>(0)))
+                if (key.Equals(data.Rows[i].Field<string>(k)))
                     return i;
             return -1;
         }
@@ -104,14 +104,11 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 
             // Nếu giáo viên là chủ nhiệm
             DataRow rowChuNhiem = (new SQLcmd()).Find_Command("giangday", dataRow[0].ToString());
-            DataRow rowLop = null;
             if (rowChuNhiem != null)
-                rowLop = (new SQLcmd()).Find_Command("lop", rowChuNhiem["malop"].ToString());
-            if (rowChuNhiem != null && rowLop != null)
             {
                 rbtnCo.Checked = true;
                 cbMaLop.Text = rowChuNhiem[1].ToString();
-                dtpNgayNhanLop.Value = DateTime.Parse(ConvertDate(rowChuNhiem[2].ToString()));
+                dtpNgayNhanLop.Value = DateTime.Parse(rowChuNhiem[2].ToString());
             }
             else
             {
@@ -125,23 +122,29 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 
         private void SuaTruongBoMon()
         {
-            SQLcmd editBM = new SQLcmd();
-            string maBM = dataRow["mabomon"].ToString();
-            string maTruongBoMon = dataBoMon.Rows[idx]["matruongbomon"].ToString();
-            editBM.Add(maBM);
-            editBM.Add(cbBoMon.Text);
             if (rbtnTBMco.Checked)
             {
-                if (maBM != dataBoMon.Rows[idx]["mabomon"].ToString())
+                SQLcmd editBM = new SQLcmd();
+                string maBM = dataBoMon.Rows
+                    [getIndex(cbBoMon.Text, dataBoMon, 1)]["mabomon"].ToString();
+                editBM.Add(maBM);
+                editBM.Add(cbBoMon.Text);
+                editBM.Add(txtMaGV.Text);
+                editBM.Update_Command("bomon", maBM);
+            }
+            else
+            {
+                DataRow rowBoMon = (new SQLcmd()).Find_Command("bomon", dataRow["mabomon"].ToString());
+                if (rowBoMon != null)
                 {
-                    editBM.Add(txtMaGV.Text);
+                    SQLcmd editBM = new SQLcmd();
+                    string maBM = dataBoMon.Rows
+                        [getIndex(cbBoMon.Text, dataBoMon, 1)]["mabomon"].ToString();
+                    editBM.Add(maBM);
+                    editBM.Add(cbBoMon.Text);
+                    editBM.Add("null");
                     editBM.Update_Command("bomon", maBM);
                 }
-            }
-            else if (rbtnTBMkhong.Checked && maTruongBoMon == "")
-            {
-                editBM.Add("null");
-                editBM.Update_Command("bomon", maBM);
             }
         }
 
@@ -151,23 +154,19 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             {
                 // Nếu lớp X đã có chủ nhiệm
                 DataRow rowLop = (new SQLcmd()).Find_Command("lop", cbMaLop.Text);
-                if (rowLop[1].ToString() != "")
+                if (rowLop[1].ToString() != "" && rowLop[1].ToString() != dataRow[0].ToString())
                 {
-                    MessageForm msg = new MessageForm(@"Lớp này đang có chủ nhiệm\n
-                Bạn có muốn thay đổi không?", "Thông báo", MessageForm.typeYesNo);
+                    MessageForm msg = new MessageForm("Lớp này đang có chủ nhiệm\r\nBạn có muốn thay đổi không?", "Thông báo", MessageForm.typeYesNo);
                     msg.ShowDialog();
                     if (msg.getAnswer() == DialogResult.Yes)
                     {
+                        //Xóa giảng dạy
                         (new SQLcmd()).Delete_Command("giangday", rowLop["machunhiem"].ToString());
-                        SQLcmd xoaLop = new SQLcmd();
-                        xoaLop.Add(cbMaLop.Text);
-                        xoaLop.Add(txtMaGV.Text);
-                        xoaLop.Update_Command("lop", cbMaLop.Text);
                     }
                     else
                         return;
                 }
-
+                //Nếu lớp X chưa có chủ nhiệm
                 DataRow rowChuNhiem = (new SQLcmd()).Find_Command("giangday", dataRow[0].ToString());
                 SQLcmd editChuNhiem = new SQLcmd();
                 editChuNhiem.Add(txtMaGV.Text);
@@ -183,6 +182,10 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                     //Nếu giáo viên không đang là chủ nhiệm
                     editChuNhiem.Insert_Command("giangday");
                 }
+                SQLcmd suaLop = new SQLcmd();
+                suaLop.Add(cbMaLop.Text);
+                suaLop.Add(txtMaGV.Text);
+                suaLop.Update_Command("lop", cbMaLop.Text);
                 return;
             }
             SQLcmd xoaGiangDay = new SQLcmd();
@@ -212,8 +215,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 editGV.Add((int)(hsl * 1490000) + "");
 
                 editGV.Update_Command("giaovien", key);
-                if (rbtnTBMco.Checked)
-                    SuaTruongBoMon();
+                SuaTruongBoMon();
                 SuaChuNhiem();
 
                 if (picHinhThe.Image != null)

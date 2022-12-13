@@ -74,6 +74,18 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             DataRow row = (new SQLcmd()).Find_Command("hinhanh", dataRow[0].ToString());
             if (row != null)
                 picHinhThe.Image = LoadImages.ConvertByteArrayToImage((byte[])row[1]);
+
+            DataRow rowGiangDay = (new SQLcmd()).Find_Command("giangday", dataRow[0].ToString());
+            if (rowGiangDay != null)
+            {
+                lblChuNhiem.Text = "Có";
+                lblMaLop.Text = rowGiangDay["malop"].ToString();
+                lblNgayNhanLop.Text = DateTime.Parse(rowGiangDay["ngaynhanlop"] + "").ToShortDateString();
+            }
+            else
+            {
+                lblChuNhiem.Text = "Không";
+            }
         }
 
         private void btnTK_Click(object sender, EventArgs e)
