@@ -11,7 +11,7 @@ CREATE TABLE GiaoVien
 	HoTen nvarchar(30),
 	MaBoMon char(3),
 	LoaiGiaoVien nvarchar(10),
-	CMND_CCCD nvarchar(12),
+	CMND_CCCD nvarchar(12) UNIQUE,
 	NgaySinh date,
 	GioiTinh nvarchar(3),
 	SDT char(10),
@@ -23,7 +23,7 @@ CREATE TABLE GiaoVien
 CREATE TABLE BoMon
 (
 	MaBoMon char(3) NOT NULL,
-	TenBoMon nvarchar(20),
+	TenBoMon nvarchar(20) NOT NULL,
 	MaTruongBoMon char(4)
 )
 

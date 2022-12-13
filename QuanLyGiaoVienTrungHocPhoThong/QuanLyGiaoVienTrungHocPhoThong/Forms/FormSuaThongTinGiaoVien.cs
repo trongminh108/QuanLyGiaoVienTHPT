@@ -18,6 +18,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         private DataTable dataBoMon;
         private DataTable dataHang;
         private DataTable dataMaLop;
+        private DataTable dataGiaoVien;
         private DataRow dataRow;
 
         private int idx;
@@ -43,6 +44,9 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 
             dataRow = (new SQLcmd()).Select_Command("giaovien").Rows[idx];
             txtMaGV.Focus();
+
+            dataGiaoVien = Class.LoadData.LoadComboBox("giaovien", cbGiaoVien, 0);
+            cbGiaoVien.SelectedIndex = idx;
         }
 
         public string ConvertDate(string date)
@@ -261,6 +265,16 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         private void rbtnKhong_CheckedChanged(object sender, EventArgs e)
         {
             CheckChuNhiem();
+        }
+
+        private void cbGiaoVien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int i = cbGiaoVien.SelectedIndex;
+            if (i >= 0)
+            {
+                dataRow = (new SQLcmd()).Select_Command("giaovien").Rows[i];
+                FormSuaThongTinGiaoVien_Load(this, new EventArgs());
+            }
         }
     }
 }

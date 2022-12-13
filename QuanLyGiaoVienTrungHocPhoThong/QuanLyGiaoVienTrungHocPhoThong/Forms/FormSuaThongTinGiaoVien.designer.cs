@@ -66,6 +66,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnLuu = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
             this.btnThemHinhThe = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
+            this.label24 = new System.Windows.Forms.Label();
+            this.cbGiaoVien = new System.Windows.Forms.ComboBox();
             this.gpbThongTin3.SuspendLayout();
             this.gpbThongTin2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHinhThe)).BeginInit();
@@ -509,7 +511,7 @@
             this.btnLuu.ForeColor = System.Drawing.Color.White;
             this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
             this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLuu.Location = new System.Drawing.Point(373, 109);
+            this.btnLuu.Location = new System.Drawing.Point(375, 84);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(139, 69);
             this.btnLuu.TabIndex = 12;
@@ -530,7 +532,7 @@
             this.btnThemHinhThe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemHinhThe.ForeColor = System.Drawing.Color.White;
             this.btnThemHinhThe.Image = ((System.Drawing.Image)(resources.GetObject("btnThemHinhThe.Image")));
-            this.btnThemHinhThe.Location = new System.Drawing.Point(207, 145);
+            this.btnThemHinhThe.Location = new System.Drawing.Point(185, 120);
             this.btnThemHinhThe.Name = "btnThemHinhThe";
             this.btnThemHinhThe.Size = new System.Drawing.Size(55, 55);
             this.btnThemHinhThe.TabIndex = 11;
@@ -538,11 +540,33 @@
             this.btnThemHinhThe.UseVisualStyleBackColor = false;
             this.btnThemHinhThe.Click += new System.EventHandler(this.btnThemHinhThe_Click);
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.BackColor = System.Drawing.Color.Transparent;
+            this.label24.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(181, 201);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(137, 22);
+            this.label24.TabIndex = 105;
+            this.label24.Text = "Chọn giáo viên:";
+            // 
+            // cbGiaoVien
+            // 
+            this.cbGiaoVien.FormattingEnabled = true;
+            this.cbGiaoVien.Location = new System.Drawing.Point(324, 199);
+            this.cbGiaoVien.Name = "cbGiaoVien";
+            this.cbGiaoVien.Size = new System.Drawing.Size(214, 27);
+            this.cbGiaoVien.TabIndex = 104;
+            this.cbGiaoVien.SelectedIndexChanged += new System.EventHandler(this.cbGiaoVien_SelectedIndexChanged);
+            // 
             // FormSuaThongTinGiaoVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 531);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.cbGiaoVien);
             this.Controls.Add(this.picHinhThe);
             this.Controls.Add(this.gpbThongTin3);
             this.Controls.Add(this.btnLuu);
@@ -561,6 +585,7 @@
             this.gpbThongTin1.ResumeLayout(false);
             this.gpbThongTin1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -603,5 +628,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtpNgayNhanLop;
         private System.Windows.Forms.ComboBox cbMaLop;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.ComboBox cbGiaoVien;
     }
 }

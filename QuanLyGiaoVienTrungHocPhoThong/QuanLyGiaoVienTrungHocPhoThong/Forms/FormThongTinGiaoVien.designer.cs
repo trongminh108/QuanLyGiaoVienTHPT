@@ -73,6 +73,8 @@
             this.label18 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.picHinhThe = new System.Windows.Forms.PictureBox();
+            this.cbGiaoVien = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.btnTK = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
             this.gpbThongTin2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -624,6 +626,26 @@
             this.picHinhThe.TabIndex = 39;
             this.picHinhThe.TabStop = false;
             // 
+            // cbGiaoVien
+            // 
+            this.cbGiaoVien.FormattingEnabled = true;
+            this.cbGiaoVien.Location = new System.Drawing.Point(729, 447);
+            this.cbGiaoVien.Name = "cbGiaoVien";
+            this.cbGiaoVien.Size = new System.Drawing.Size(214, 27);
+            this.cbGiaoVien.TabIndex = 89;
+            this.cbGiaoVien.SelectedIndexChanged += new System.EventHandler(this.cbGiaoVien_SelectedIndexChanged);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.BackColor = System.Drawing.Color.Transparent;
+            this.label24.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(555, 449);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(137, 22);
+            this.label24.TabIndex = 103;
+            this.label24.Text = "Chọn giáo viên:";
+            // 
             // btnTK
             // 
             this.btnTK.BackColor = System.Drawing.Color.MediumBlue;
@@ -652,6 +674,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 531);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.cbGiaoVien);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnTK);
@@ -719,5 +743,7 @@
         private System.Windows.Forms.Label lblCMND;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.ComboBox cbGiaoVien;
+        private System.Windows.Forms.Label label24;
     }
 }

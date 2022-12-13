@@ -36,18 +36,22 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         private void LoadData()
         {
             Modify modify = new Modify();
-            string query = "SELECT magiaovien, hoten, mabomon, " +
-            "loaigiaovien, cmnd_cccd, FORMAT (ngaysinh, 'dd/MM/yyyy') as NgaySinh," +
-            "gioitinh, sdt, email, luong FROM GiaoVien";
-            string[] dsgv = {"Mã GV", "Họ Tên GV", "Mã BM", "Hạng GV", "CMND",
-                "Ngày Sinh", "Giới Tính", "SDT", "Email", "Lương"};
+            string query = "SELECT gv.magiaovien, gv.hoten, bm.tenbomon," +
+            "gv.loaigiaovien, FORMAT (gv.ngaysinh, 'dd/MM/yyyy') as NgaySinh," +
+            "sdt, email, luong FROM GiaoVien gv, BoMon bm " +
+            "WHERE gv.mabomon = bm.mabomon";
 
+            string[] dsgv = {"Mã GV", "Họ Tên GV", "Bộ Môn", "Hạng GV", "Ngày Sinh",
+                "SĐT", "Email", "Lương"};
+
+            double[] ratio = { 0.1, 0.18, 0.1, 0.1, 0.1, 0.1, 0.2, 0.1 };
             dgvDSGV.DataSource = modify.getDataTable(query);
+            int width = dgvDSGV.Width;
             int numCol = dgvDSGV.ColumnCount;
-
             for (int i = 0; i < numCol; i++)
             {
                 dgvDSGV.Columns[i].HeaderText = dsgv[i];
+                dgvDSGV.Columns[i].Width = (int)(ratio[i] * width);
             }
         }
 
@@ -166,6 +170,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         {
             dgvDSGV.Width = this.Width - 50;
             dgvDSGV.Height = this.Height - 50 - dgvDSGV.Location.Y;
+            FormDanhSachGiaoVien_Load(sender, new EventArgs());
         }
     }
 }

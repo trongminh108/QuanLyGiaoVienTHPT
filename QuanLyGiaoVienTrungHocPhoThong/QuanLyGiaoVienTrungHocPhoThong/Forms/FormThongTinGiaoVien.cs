@@ -16,6 +16,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
     {
         private int idx;
         private DataRow dataRow;
+        private DataTable dataGiaoVien;
 
         public FormThongTin(int idx)
         {
@@ -27,6 +28,8 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         {
             DeleteAll();
             txtThongTinGV.Focus();
+            dataGiaoVien = Class.LoadData.LoadComboBox("giaovien", cbGiaoVien, 0);
+            cbGiaoVien.SelectedIndex = 0;
         }
 
         private void DeleteAll()
@@ -44,6 +47,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             lblChuNhiem.Text = "";
             lblMaLop.Text = "";
             lblNgayNhanLop.Text = "";
+            picHinhThe.Image = null;
         }
 
         private void LoadData()
@@ -74,6 +78,8 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             DataRow row = (new SQLcmd()).Find_Command("hinhanh", dataRow[0].ToString());
             if (row != null)
                 picHinhThe.Image = LoadImages.ConvertByteArrayToImage((byte[])row[1]);
+            else
+                picHinhThe.Image = null;
 
             DataRow rowGiangDay = (new SQLcmd()).Find_Command("giangday", dataRow[0].ToString());
             if (rowGiangDay != null)
@@ -119,6 +125,16 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             {
                 btnTK_Click(btnTK, new EventArgs());
                 txtThongTinGV.Text = "";
+            }
+        }
+
+        private void cbGiaoVien_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbGiaoVien.SelectedIndex >= 0)
+            {
+                dataRow = (new SQLcmd()).Find_Command("giaovien", cbGiaoVien.Text);
+                LoadData();
+                txtThongTinGV.ResetText();
             }
         }
     }
