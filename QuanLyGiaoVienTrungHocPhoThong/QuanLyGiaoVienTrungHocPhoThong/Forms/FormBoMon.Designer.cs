@@ -34,16 +34,16 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtBoMon = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvBoMon = new System.Windows.Forms.DataGridView();
-            this.btnThemBoMon = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
-            this.btnCapNhatBoMon = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
+            this.cbMaTruongBoMon = new System.Windows.Forms.ComboBox();
             this.btnXoaBoMon = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
-            this.txtBoMon = new System.Windows.Forms.TextBox();
-            this.txtMaTruongBoMon = new System.Windows.Forms.TextBox();
+            this.btnCapNhatBoMon = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
+            this.btnThemBoMon = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBoMon)).BeginInit();
@@ -84,7 +84,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtMaTruongBoMon);
+            this.groupBox1.Controls.Add(this.cbMaTruongBoMon);
             this.groupBox1.Controls.Add(this.txtBoMon);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtMaBoMon);
@@ -97,6 +97,15 @@
             this.groupBox1.TabIndex = 73;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "BỘ MÔN";
+            // 
+            // txtBoMon
+            // 
+            this.txtBoMon.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtBoMon.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoMon.Location = new System.Drawing.Point(221, 104);
+            this.txtBoMon.Name = "txtBoMon";
+            this.txtBoMon.Size = new System.Drawing.Size(238, 32);
+            this.txtBoMon.TabIndex = 73;
             // 
             // label2
             // 
@@ -143,45 +152,14 @@
             this.dgvBoMon.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvBoMon_KeyDown);
             this.dgvBoMon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvBoMon_MouseDoubleClick);
             // 
-            // btnThemBoMon
+            // cbMaTruongBoMon
             // 
-            this.btnThemBoMon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnThemBoMon.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnThemBoMon.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnThemBoMon.BorderRadius = 20;
-            this.btnThemBoMon.BorderSize = 0;
-            this.btnThemBoMon.FlatAppearance.BorderSize = 0;
-            this.btnThemBoMon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThemBoMon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemBoMon.ForeColor = System.Drawing.Color.White;
-            this.btnThemBoMon.Location = new System.Drawing.Point(12, 479);
-            this.btnThemBoMon.Name = "btnThemBoMon";
-            this.btnThemBoMon.Size = new System.Drawing.Size(150, 40);
-            this.btnThemBoMon.TabIndex = 77;
-            this.btnThemBoMon.Text = "Thêm Bộ Môn";
-            this.btnThemBoMon.TextColor = System.Drawing.Color.White;
-            this.btnThemBoMon.UseVisualStyleBackColor = false;
-            this.btnThemBoMon.Click += new System.EventHandler(this.btnThemBoMon_Click);
-            // 
-            // btnCapNhatBoMon
-            // 
-            this.btnCapNhatBoMon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnCapNhatBoMon.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnCapNhatBoMon.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCapNhatBoMon.BorderRadius = 20;
-            this.btnCapNhatBoMon.BorderSize = 0;
-            this.btnCapNhatBoMon.FlatAppearance.BorderSize = 0;
-            this.btnCapNhatBoMon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCapNhatBoMon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCapNhatBoMon.ForeColor = System.Drawing.Color.White;
-            this.btnCapNhatBoMon.Location = new System.Drawing.Point(182, 479);
-            this.btnCapNhatBoMon.Name = "btnCapNhatBoMon";
-            this.btnCapNhatBoMon.Size = new System.Drawing.Size(150, 40);
-            this.btnCapNhatBoMon.TabIndex = 78;
-            this.btnCapNhatBoMon.Text = "Cập Nhật BM";
-            this.btnCapNhatBoMon.TextColor = System.Drawing.Color.White;
-            this.btnCapNhatBoMon.UseVisualStyleBackColor = false;
-            this.btnCapNhatBoMon.Click += new System.EventHandler(this.btnCapNhatBoMon_Click);
+            this.cbMaTruongBoMon.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMaTruongBoMon.FormattingEnabled = true;
+            this.cbMaTruongBoMon.Location = new System.Drawing.Point(221, 170);
+            this.cbMaTruongBoMon.Name = "cbMaTruongBoMon";
+            this.cbMaTruongBoMon.Size = new System.Drawing.Size(238, 31);
+            this.cbMaTruongBoMon.TabIndex = 74;
             // 
             // btnXoaBoMon
             // 
@@ -203,23 +181,45 @@
             this.btnXoaBoMon.UseVisualStyleBackColor = false;
             this.btnXoaBoMon.Click += new System.EventHandler(this.btnXoaBoMon_Click);
             // 
-            // txtBoMon
+            // btnCapNhatBoMon
             // 
-            this.txtBoMon.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtBoMon.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoMon.Location = new System.Drawing.Point(221, 104);
-            this.txtBoMon.Name = "txtBoMon";
-            this.txtBoMon.Size = new System.Drawing.Size(238, 32);
-            this.txtBoMon.TabIndex = 73;
+            this.btnCapNhatBoMon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnCapNhatBoMon.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnCapNhatBoMon.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCapNhatBoMon.BorderRadius = 20;
+            this.btnCapNhatBoMon.BorderSize = 0;
+            this.btnCapNhatBoMon.FlatAppearance.BorderSize = 0;
+            this.btnCapNhatBoMon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCapNhatBoMon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapNhatBoMon.ForeColor = System.Drawing.Color.White;
+            this.btnCapNhatBoMon.Location = new System.Drawing.Point(182, 479);
+            this.btnCapNhatBoMon.Name = "btnCapNhatBoMon";
+            this.btnCapNhatBoMon.Size = new System.Drawing.Size(150, 40);
+            this.btnCapNhatBoMon.TabIndex = 78;
+            this.btnCapNhatBoMon.Text = "Cập Nhật BM";
+            this.btnCapNhatBoMon.TextColor = System.Drawing.Color.White;
+            this.btnCapNhatBoMon.UseVisualStyleBackColor = false;
+            this.btnCapNhatBoMon.Click += new System.EventHandler(this.btnCapNhatBoMon_Click);
             // 
-            // txtMaTruongBoMon
+            // btnThemBoMon
             // 
-            this.txtMaTruongBoMon.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtMaTruongBoMon.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaTruongBoMon.Location = new System.Drawing.Point(221, 170);
-            this.txtMaTruongBoMon.Name = "txtMaTruongBoMon";
-            this.txtMaTruongBoMon.Size = new System.Drawing.Size(238, 32);
-            this.txtMaTruongBoMon.TabIndex = 74;
+            this.btnThemBoMon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnThemBoMon.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnThemBoMon.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnThemBoMon.BorderRadius = 20;
+            this.btnThemBoMon.BorderSize = 0;
+            this.btnThemBoMon.FlatAppearance.BorderSize = 0;
+            this.btnThemBoMon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThemBoMon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemBoMon.ForeColor = System.Drawing.Color.White;
+            this.btnThemBoMon.Location = new System.Drawing.Point(12, 479);
+            this.btnThemBoMon.Name = "btnThemBoMon";
+            this.btnThemBoMon.Size = new System.Drawing.Size(150, 40);
+            this.btnThemBoMon.TabIndex = 77;
+            this.btnThemBoMon.Text = "Thêm Bộ Môn";
+            this.btnThemBoMon.TextColor = System.Drawing.Color.White;
+            this.btnThemBoMon.UseVisualStyleBackColor = false;
+            this.btnThemBoMon.Click += new System.EventHandler(this.btnThemBoMon_Click);
             // 
             // FormBoMon
             // 
@@ -258,7 +258,7 @@
         private Customdesign.RoundedButton btnThemBoMon;
         private Customdesign.RoundedButton btnCapNhatBoMon;
         private Customdesign.RoundedButton btnXoaBoMon;
-        private System.Windows.Forms.TextBox txtMaTruongBoMon;
         private System.Windows.Forms.TextBox txtBoMon;
+        private System.Windows.Forms.ComboBox cbMaTruongBoMon;
     }
 }

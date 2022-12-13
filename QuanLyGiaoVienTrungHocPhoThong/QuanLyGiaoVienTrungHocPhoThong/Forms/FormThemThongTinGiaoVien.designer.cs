@@ -54,6 +54,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.gpbThongTin2 = new System.Windows.Forms.GroupBox();
+            this.dtpNgayNhanLop = new System.Windows.Forms.DateTimePicker();
+            this.cbMaLop = new System.Windows.Forms.ComboBox();
             this.cbHang = new System.Windows.Forms.ComboBox();
             this.gpbThongTin3 = new System.Windows.Forms.GroupBox();
             this.rbtnTBMkhong = new System.Windows.Forms.RadioButton();
@@ -62,8 +64,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.picHinhThe = new System.Windows.Forms.PictureBox();
-            this.cbMaLop = new System.Windows.Forms.ComboBox();
-            this.dtpNgayNhanLop = new System.Windows.Forms.DateTimePicker();
             this.btnXoa = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
             this.btnThem = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
             this.btnThemHinhThe = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
@@ -102,7 +102,7 @@
             this.rbtnNam.AutoSize = true;
             this.rbtnNam.BackColor = System.Drawing.Color.Transparent;
             this.rbtnNam.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnNam.Location = new System.Drawing.Point(202, 235);
+            this.rbtnNam.Location = new System.Drawing.Point(196, 235);
             this.rbtnNam.Name = "rbtnNam";
             this.rbtnNam.Size = new System.Drawing.Size(63, 25);
             this.rbtnNam.TabIndex = 4;
@@ -259,7 +259,9 @@
             // 
             // dtpNgaySinh
             // 
+            this.dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
             this.dtpNgaySinh.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpNgaySinh.Location = new System.Drawing.Point(151, 186);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(238, 32);
@@ -385,6 +387,25 @@
             this.gpbThongTin2.TabStop = false;
             this.gpbThongTin2.Text = "Điền thông tin giáo viên";
             // 
+            // dtpNgayNhanLop
+            // 
+            this.dtpNgayNhanLop.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgayNhanLop.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgayNhanLop.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayNhanLop.Location = new System.Drawing.Point(176, 231);
+            this.dtpNgayNhanLop.Name = "dtpNgayNhanLop";
+            this.dtpNgayNhanLop.Size = new System.Drawing.Size(238, 29);
+            this.dtpNgayNhanLop.TabIndex = 74;
+            // 
+            // cbMaLop
+            // 
+            this.cbMaLop.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMaLop.FormattingEnabled = true;
+            this.cbMaLop.Location = new System.Drawing.Point(176, 186);
+            this.cbMaLop.Name = "cbMaLop";
+            this.cbMaLop.Size = new System.Drawing.Size(238, 29);
+            this.cbMaLop.TabIndex = 73;
+            // 
             // cbHang
             // 
             this.cbHang.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -439,10 +460,11 @@
             // 
             this.cbBoMon.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBoMon.FormattingEnabled = true;
-            this.cbBoMon.Location = new System.Drawing.Point(176, 39);
+            this.cbBoMon.Location = new System.Drawing.Point(151, 39);
             this.cbBoMon.Name = "cbBoMon";
             this.cbBoMon.Size = new System.Drawing.Size(238, 31);
             this.cbBoMon.TabIndex = 0;
+            this.cbBoMon.SelectedIndexChanged += new System.EventHandler(this.cbBoMon_SelectedIndexChanged);
             // 
             // label15
             // 
@@ -476,25 +498,6 @@
             this.picHinhThe.Size = new System.Drawing.Size(143, 193);
             this.picHinhThe.TabIndex = 39;
             this.picHinhThe.TabStop = false;
-            // 
-            // cbMaLop
-            // 
-            this.cbMaLop.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMaLop.FormattingEnabled = true;
-            this.cbMaLop.Location = new System.Drawing.Point(176, 186);
-            this.cbMaLop.Name = "cbMaLop";
-            this.cbMaLop.Size = new System.Drawing.Size(238, 29);
-            this.cbMaLop.TabIndex = 73;
-            // 
-            // dtpNgayNhanLop
-            // 
-            this.dtpNgayNhanLop.CustomFormat = "dd/MM/yyyy";
-            this.dtpNgayNhanLop.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgayNhanLop.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayNhanLop.Location = new System.Drawing.Point(176, 231);
-            this.dtpNgayNhanLop.Name = "dtpNgayNhanLop";
-            this.dtpNgayNhanLop.Size = new System.Drawing.Size(238, 29);
-            this.dtpNgayNhanLop.TabIndex = 74;
             // 
             // btnXoa
             // 

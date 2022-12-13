@@ -1,5 +1,6 @@
 ﻿using QuanLyGiaoVienTrungHocPhoThong.Class;
 using QuanLyGiaoVienTrungHocPhoThong.ConnectSQL;
+using QuanLyGiaoVienTrungHocPhoThong.ConstraintCheck;
 using QuanLyGiaoVienTrungHocPhoThong.Forms;
 using System;
 using System.Collections.Generic;
@@ -28,9 +29,6 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         {
             InitializeComponent();
 
-            dtpNgaySinh.Format = DateTimePickerFormat.Custom;
-            dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
-
             dataBoMon = LoadData.LoadComboBox("bomon", cbBoMon, 1);
 
             dataHang = LoadData.LoadComboBox("loaigiaovien", cbHang, 0);
@@ -57,15 +55,6 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             return res;
         }
 
-        public int getIndex(string key, DataTable data, int k = 0)
-        {
-            int n = data.Rows.Count;
-            for (int i = 0; i < n; i++)
-                if (key.Equals(data.Rows[i].Field<string>(k)))
-                    return i;
-            return -1;
-        }
-
         private void FormSuaThongTinGiaoVien_Load(object sender, EventArgs e)
         {
             this.key = dataRow[0].ToString();
@@ -73,9 +62,9 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             txtHoten.Text = dataRow[1].ToString();
 
             string maBM = dataRow[2].ToString();
-            cbBoMon.SelectedIndex = getIndex(maBM, dataBoMon);
+            cbBoMon.SelectedIndex = Class.LoadData.GetIndex(maBM, dataBoMon);
 
-            cbHang.SelectedIndex = getIndex(dataRow[3].ToString(), dataHang);
+            cbHang.SelectedIndex = Class.LoadData.GetIndex(dataRow[3].ToString(), dataHang);
 
             txtCMND.Text = dataRow[4].ToString();
 
@@ -105,6 +94,8 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             DataRow row = (new SQLcmd()).Find_Command("hinhanh", dataRow[0].ToString());
             if (row != null)
                 picHinhThe.Image = LoadImages.ConvertByteArrayToImage((byte[])row[1]);
+            else
+                picHinhThe.Image = null;
 
             // Nếu giáo viên là chủ nhiệm
             DataRow rowChuNhiem = (new SQLcmd()).Find_Command("giangday", dataRow[0].ToString());
@@ -130,7 +121,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             {
                 SQLcmd editBM = new SQLcmd();
                 string maBM = dataBoMon.Rows
-                    [getIndex(cbBoMon.Text, dataBoMon, 1)]["mabomon"].ToString();
+                    [Class.LoadData.GetIndex(cbBoMon.Text, dataBoMon, 1)]["mabomon"].ToString();
                 editBM.Add(maBM);
                 editBM.Add(cbBoMon.Text);
                 editBM.Add(txtMaGV.Text);
@@ -143,7 +134,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 {
                     SQLcmd editBM = new SQLcmd();
                     string maBM = dataBoMon.Rows
-                        [getIndex(cbBoMon.Text, dataBoMon, 1)]["mabomon"].ToString();
+                        [Class.LoadData.GetIndex(cbBoMon.Text, dataBoMon, 1)]["mabomon"].ToString();
                     editBM.Add(maBM);
                     editBM.Add(cbBoMon.Text);
                     editBM.Add("null");
@@ -160,7 +151,8 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 DataRow rowLop = (new SQLcmd()).Find_Command("lop", cbMaLop.Text);
                 if (rowLop[1].ToString() != "" && rowLop[1].ToString() != dataRow[0].ToString())
                 {
-                    MessageForm msg = new MessageForm("Lớp này đang có chủ nhiệm\r\nBạn có muốn thay đổi không?", "Thông báo", MessageForm.typeYesNo);
+                    MessageForm msg = new MessageForm("Lớp này đang có chủ nhiệm\r" +
+                        "Bạn có muốn thay đổi không?", "Thông báo", MessageForm.typeYesNo, MessageForm.Question);
                     msg.ShowDialog();
                     if (msg.getAnswer() == DialogResult.Yes)
                     {
@@ -200,10 +192,32 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         {
             try
             {
+                string maBM = dataBoMon.Rows[cbBoMon.SelectedIndex]["mabomon"].ToString();
+                if (!KiemTraThongTin.KiemTraMaGV(txtMaGV.Text, maBM))
+                    throw new Exception("Mã giáo viên không hợp lệ, vui lòng nhập lại!\r" +
+                        "Mã GV phải bao gồm 1 ký tự và 3 chữ số!\r" +
+                        "Mã của giáo viên " + cbBoMon.Text +
+                        " phải có kí tự đầu phải là: " + maBM[0]);
+                if (!KiemTraThongTin.KiemTraSDT(txtSDT.Text))
+                    throw new Exception("Số điện thoại không hợp lệ, vui lòng nhập lại!");
+                if (!KiemTraThongTin.KiemTraEmail(txtEmail.Text))
+                    throw new Exception("Email không hợp lệ, vui lòng nhập lại!");
+                if (!KiemTraThongTin.KiemTraCMND_CCCD(txtCMND.Text))
+                    throw new Exception("CMND/CCCD không hợp lệ, vui lòng nhập lại!\r" +
+                        "CMND/CCCD phải là dãy số dài 9/12 chữ số");
+
+                //Sửa tài khoản cho giáo viên
+                SQLcmd addTK = new SQLcmd();
+                addTK.Add(txtEmail.Text);
+                addTK.Add(txtMaGV.Text);
+                addTK.Add(txtCMND.Text);
+                addTK.Update_Command("taikhoan", dataRow[0].ToString());
+
+                //Sửa giáo viên
                 SQLcmd editGV = new SQLcmd();
                 editGV.Add(txtMaGV.Text);
                 editGV.Add(txtHoten.Text);
-                editGV.Add(dataBoMon.Rows[cbBoMon.SelectedIndex].Field<string>(0));
+                editGV.Add(dataBoMon.Rows[cbBoMon.SelectedIndex][0].ToString());
                 editGV.Add(cbHang.Text);
                 editGV.Add(txtCMND.Text);
                 editGV.Add(ConvertDate(dtpNgaySinh.Text));
@@ -217,7 +231,6 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 editGV.Add(txtEmail.Text);
                 float hsl = float.Parse(txtHeSoLuong.Text);
                 editGV.Add((int)(hsl * 1490000) + "");
-
                 editGV.Update_Command("giaovien", key);
                 SuaTruongBoMon();
                 SuaChuNhiem();
@@ -226,12 +239,12 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 {
                     (new SQLcmd()).Update_Image(txtMaGV.Text, picHinhThe.Image, "hinhanh");
                 }
-                MessageForm msgForm = new MessageForm("Sửa Giáo Viên thành công!", "Sửa Giáo Viên", "OK");
+                MessageForm msgForm = new MessageForm("Sửa Giáo Viên thành công!", "Sửa Giáo Viên", "OK", MessageForm.Infor);
                 msgForm.ShowDialog();
             }
             catch (Exception ex)
             {
-                MessageForm msgForm = new MessageForm("Sửa Giáo Viên thất bại!\n" + ex.Message, "Sửa Giáo Viên", "OK");
+                MessageForm msgForm = new MessageForm("Sửa Giáo Viên thất bại!\n" + ex.Message, "Sửa Giáo Viên", "OK", MessageForm.Error);
                 msgForm.ShowDialog();
             }
         }
@@ -274,6 +287,21 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             {
                 dataRow = (new SQLcmd()).Select_Command("giaovien").Rows[i];
                 FormSuaThongTinGiaoVien_Load(this, new EventArgs());
+            }
+        }
+
+        private void cbBoMon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int i = cbBoMon.SelectedIndex;
+            if (i >= 0)
+            {
+                if (txtMaGV.Text == "")
+                    txtMaGV.Text = dataBoMon.Rows[i][0].ToString()[0] + "";
+                else
+                {
+                    string tmp = txtMaGV.Text;
+                    txtMaGV.Text = dataBoMon.Rows[i][0].ToString()[0] + tmp.Substring(1);
+                }
             }
         }
     }

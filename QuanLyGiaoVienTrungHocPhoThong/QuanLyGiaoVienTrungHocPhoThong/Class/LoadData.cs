@@ -20,5 +20,15 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Class
             }
             return data;
         }
+
+        //Phương thức trả về vị trí của dòng key tại cột k của dataTable
+        public static int GetIndex(string key, DataTable data, int k = 0)
+        {
+            int n = data.Rows.Count;
+            for (int i = 0; i < n; i++)
+                if (key.Equals(data.Rows[i].Field<string>(k)))
+                    return i;
+            return -1;
+        }
     }
 }

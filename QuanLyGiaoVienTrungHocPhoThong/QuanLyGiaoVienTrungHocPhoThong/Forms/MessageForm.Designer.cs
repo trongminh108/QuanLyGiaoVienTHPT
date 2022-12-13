@@ -30,11 +30,11 @@
         {
             this.btnOK = new System.Windows.Forms.Button();
             this.lblMessage = new System.Windows.Forms.Label();
-            this.pbIcon = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnYes = new System.Windows.Forms.Button();
             this.btnNo = new System.Windows.Forms.Button();
+            this.pbIcon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,20 +52,12 @@
             // lblMessage
             // 
             this.lblMessage.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMessage.Location = new System.Drawing.Point(151, 63);
+            this.lblMessage.Location = new System.Drawing.Point(188, 73);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(410, 160);
+            this.lblMessage.Size = new System.Drawing.Size(399, 150);
             this.lblMessage.TabIndex = 2;
-            this.lblMessage.Text = "label1";
+            this.lblMessage.Text = "text";
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // pbIcon
-            // 
-            this.pbIcon.Location = new System.Drawing.Point(33, 92);
-            this.pbIcon.Name = "pbIcon";
-            this.pbIcon.Size = new System.Drawing.Size(100, 100);
-            this.pbIcon.TabIndex = 3;
-            this.pbIcon.TabStop = false;
             // 
             // lblTitle
             // 
@@ -76,7 +68,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(620, 35);
             this.lblTitle.TabIndex = 4;
-            this.lblTitle.Text = "label1";
+            this.lblTitle.Text = "title";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnClose
@@ -116,10 +108,20 @@
             this.btnNo.UseVisualStyleBackColor = true;
             this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
             // 
+            // pbIcon
+            // 
+            this.pbIcon.Location = new System.Drawing.Point(15, 73);
+            this.pbIcon.Name = "pbIcon";
+            this.pbIcon.Size = new System.Drawing.Size(150, 150);
+            this.pbIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbIcon.TabIndex = 3;
+            this.pbIcon.TabStop = false;
+            // 
             // MessageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(620, 300);
             this.Controls.Add(this.btnNo);
             this.Controls.Add(this.btnYes);

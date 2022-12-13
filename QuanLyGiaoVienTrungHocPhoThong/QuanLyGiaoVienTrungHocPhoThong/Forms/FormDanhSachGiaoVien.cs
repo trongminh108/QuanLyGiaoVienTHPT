@@ -102,7 +102,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             int i = dgvDSGV.SelectedRows[0].Index;
             if (i >= 0 && i < dgvDSGV.RowCount - 1)
             {
-                MessageForm msgForm = new MessageForm("Bạn chắc chắn xóa Giáo Viên này không?", "Thông tin", "YesNo");
+                MessageForm msgForm = new MessageForm("Bạn chắc chắn xóa Giáo Viên này không?", "Thông tin", "YesNo", MessageForm.Question);
                 msgForm.ShowDialog();
                 if (msgForm.getAnswer() == DialogResult.Yes)
                 {
@@ -112,13 +112,15 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                         (new SQLcmd()).Delete_Command("giaovien", key);
                         (new SQLcmd()).Delete_Command("taikhoan", dgvDSGV.Rows[i].Cells["email"].Value.ToString());
                         (new SQLcmd()).Delete_Command("hinhanh", key);
-                        MessageForm msgFormDel = new MessageForm("Xóa thành công Giáo Viên: " + dgvDSGV.Rows[i].Cells[1].Value.ToString(), "Thông tin", "OK");
+                        MessageForm msgFormDel = new MessageForm("Xóa thành công Giáo Viên: " + dgvDSGV.Rows[i].Cells[1].Value.ToString(), "Thông tin", "OK", MessageForm.Infor);
                         msgFormDel.ShowDialog();
                         LoadData();
                     }
                     catch (Exception ex)
                     {
-                        MessageForm msgFormDel = new MessageForm("Xóa thất bại Giáo Viên: " + dgvDSGV.Rows[i].Cells[1].Value.ToString() + "!\n do giáo viên này đang là chủ nhiệm, bạn có muốn tiếp tục xóa không?", "Thông tin", MessageForm.typeYesNo);
+                        MessageForm msgFormDel = new MessageForm("Xóa thất bại Giáo Viên: "
+                            + dgvDSGV.Rows[i].Cells[1].Value.ToString() + "!\n" +
+                            "do giáo viên này đang là chủ nhiệm, bạn có muốn tiếp tục xóa không?", "Thông tin", MessageForm.typeYesNo, MessageForm.Error);
                         msgFormDel.ShowDialog();
                         if (msgFormDel.getAnswer() == DialogResult.Yes)
                         {
@@ -130,7 +132,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             }
             else
             {
-                MessageForm msgForm = new MessageForm("Bạn cần chọn GV cần xóa!", "Thông tin", "OK");
+                MessageForm msgForm = new MessageForm("Bạn cần chọn GV cần xóa!", "Thông tin", "OK", MessageForm.Infor);
                 msgForm.ShowDialog();
             }
         }
@@ -145,7 +147,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             }
             else
             {
-                MessageForm msgForm = new MessageForm("Bạn cần chọn GV cần sửa!", "Thông tin", "OK");
+                MessageForm msgForm = new MessageForm("Bạn cần chọn GV cần sửa!", "Thông tin", "OK", MessageForm.Infor);
                 msgForm.ShowDialog();
             }
         }

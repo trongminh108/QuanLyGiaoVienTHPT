@@ -1,4 +1,5 @@
 ﻿using QuanLyGiaoVienTrungHocPhoThong.ConnectSQL;
+using QuanLyGiaoVienTrungHocPhoThong.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,13 +18,16 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
         {
             InitializeComponent();
         }
-        Modify modify = new Modify();
+
+        private Modify modify = new Modify();
+
         private void btnLayLaiMatKhau_Click(object sender, EventArgs e)
         {
             string email = txtEmail.Text;
             if (email.Trim() == "")
             {
-                MessageBox.Show("Nhập lại Email đã đăng ký!");
+                (new MessageForm("Nhập lại Email đã đăng ký!", "Thông báo",
+                    MessageForm.typeOK, MessageForm.Infor)).ShowDialog();
             }
             else
             {
@@ -36,7 +40,8 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 }
                 else
                 {
-                    MessageBox.Show("Email này chưa đăng ký!");
+                    (new MessageForm("Email này chưa đăng ký!", "Thông báo",
+                    MessageForm.typeOK, MessageForm.Infor)).ShowDialog();
                 }
             }
         }

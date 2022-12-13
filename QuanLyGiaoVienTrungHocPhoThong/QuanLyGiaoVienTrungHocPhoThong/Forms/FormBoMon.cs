@@ -14,11 +14,14 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms
 {
     public partial class FormBoMon : Form
     {
+        private DataTable dataGiaoVien;
+
         public FormBoMon()
         {
             InitializeComponent();
             dgvBoMon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvBoMon.ReadOnly = true;
+            dataGiaoVien = Class.LoadData.LoadComboBox("giaovien", cbMaTruongBoMon, 0);
         }
 
         public void LoadData()
@@ -48,33 +51,33 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms
                 {
                     txtMaBoMon.Text = dgvBoMon[0, i].Value.ToString();
                     txtBoMon.Text = dgvBoMon[1, i].Value.ToString();
-                    txtMaTruongBoMon.Text = dgvBoMon[2, i].Value.ToString();
+                    cbMaTruongBoMon.Text = dgvBoMon[2, i].Value.ToString();
                 }
             }
         }
 
         private void btnThemBoMon_Click(object sender, EventArgs e)
         {
-            if (txtMaBoMon.Text != "" && txtBoMon.Text != "" && txtMaTruongBoMon.Text != "")
+            if (txtMaBoMon.Text != "" && txtBoMon.Text != "" && cbMaTruongBoMon.Text != "")
             {
-                MessageForm msgInfor = new MessageForm("Bạn có muốn thêm bộ môn này không?", "Thông báo", "YesNo");
+                MessageForm msgInfor = new MessageForm("Bạn có muốn thêm bộ môn này không?", "Thông báo", "YesNo", MessageForm.Question);
                 msgInfor.ShowDialog();
                 if (msgInfor.getAnswer() == DialogResult.Yes)
                 {
                     SQLcmd addBoMon = new SQLcmd();
                     addBoMon.Add(txtMaBoMon.Text);
                     addBoMon.Add(txtBoMon.Text);
-                    addBoMon.Add(txtMaTruongBoMon.Text);
+                    addBoMon.Add(cbMaTruongBoMon.Text);
                     try
                     {
                         addBoMon.Insert_Command("bomon");
-                        MessageForm msgForm = new MessageForm("Thêm bộ môn thành công!", "Thêm bộ môn", "OK");
+                        MessageForm msgForm = new MessageForm("Thêm bộ môn thành công!", "Thêm bộ môn", "OK", MessageForm.Infor);
                         msgForm.ShowDialog();
                         LoadData();
                     }
                     catch (Exception ex)
                     {
-                        MessageForm msgForm = new MessageForm("Thêm bộ môn thất bại!\n" + ex.Message, "Thêm bộ môn", "OK");
+                        MessageForm msgForm = new MessageForm("Thêm bộ môn thất bại!\n" + ex.Message, "Thêm bộ môn", "OK", MessageForm.Error);
                         msgForm.ShowDialog();
                     }
                 }
@@ -83,9 +86,9 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms
 
         private void btnCapNhatBoMon_Click(object sender, EventArgs e)
         {
-            if (txtMaBoMon.Text != "" && txtBoMon.Text != "" && txtMaTruongBoMon.Text != "")
+            if (txtMaBoMon.Text != "" && txtBoMon.Text != "" && cbMaTruongBoMon.Text != "")
             {
-                MessageForm msgInfor = new MessageForm("Bạn có muốn sửa bộ môn này không?", "Thông báo", "YesNo");
+                MessageForm msgInfor = new MessageForm("Bạn có muốn sửa bộ môn này không?", "Thông báo", "YesNo", MessageForm.Question);
                 msgInfor.ShowDialog();
                 if (msgInfor.getAnswer() == DialogResult.Yes)
                 {
@@ -95,17 +98,17 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms
                         SQLcmd editBoMon = new SQLcmd();
                         editBoMon.Add(dgvBoMon[0, i].Value.ToString());
                         editBoMon.Add(dgvBoMon[1, i].Value.ToString());
-                        editBoMon.Add(txtMaTruongBoMon.Text);
+                        editBoMon.Add(cbMaTruongBoMon.Text);
                         try
                         {
                             editBoMon.Update_Command("bomon", dgvBoMon[0, i].Value.ToString());
-                            MessageForm msgForm = new MessageForm("Sửa bộ môn thành công!", "Sửa bộ môn", "OK");
+                            MessageForm msgForm = new MessageForm("Sửa bộ môn thành công!", "Sửa bộ môn", "OK", MessageForm.Infor);
                             msgForm.ShowDialog();
                             LoadData();
                         }
                         catch (Exception ex)
                         {
-                            MessageForm msgForm = new MessageForm("Sửa bộ môn thất bại!\n" + ex.Message, "Sửa bộ môn", "OK");
+                            MessageForm msgForm = new MessageForm("Sửa bộ môn thất bại!\n" + ex.Message, "Sửa bộ môn", "OK", MessageForm.Error);
                             msgForm.ShowDialog();
                         }
                     }
@@ -115,7 +118,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms
 
         private void btnXoaBoMon_Click(object sender, EventArgs e)
         {
-            MessageForm msgInfor = new MessageForm("Bạn có muốn xóa bộ môn này không?", "Thông báo", "YesNo");
+            MessageForm msgInfor = new MessageForm("Bạn có muốn xóa bộ môn này không?", "Thông báo", "YesNo", MessageForm.Question);
             msgInfor.ShowDialog();
             if (msgInfor.getAnswer() == DialogResult.Yes)
             {
@@ -128,7 +131,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms
                 catch (Exception ex)
                 {
                     string mess = @"Xóa bộ môn {0} thất bại do còn giáo viên dạy môn {0}";
-                    MessageForm msgForm = new MessageForm(string.Format(mess, dgvBoMon[1, i].Value), "Xóa bộ môn", "OK");
+                    MessageForm msgForm = new MessageForm(string.Format(mess, dgvBoMon[1, i].Value), "Xóa bộ môn", "OK", MessageForm.Error);
                     msgForm.ShowDialog();
                 }
             }

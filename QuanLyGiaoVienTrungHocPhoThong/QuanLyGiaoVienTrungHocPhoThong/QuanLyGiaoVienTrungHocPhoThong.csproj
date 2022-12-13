@@ -52,7 +52,7 @@
     <Compile Include="ConnectSQL\Connection.cs" />
     <Compile Include="ConnectSQL\Modify.cs" />
     <Compile Include="ConnectSQL\SQLcmd.cs" />
-    <Compile Include="ConstraintCheck\CheckInfor.cs" />
+    <Compile Include="ConstraintCheck\KiemTraThongTin.cs" />
     <Compile Include="Customdesign\RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -179,6 +179,9 @@
     <None Include="Resources\simplebutton.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\ErrorIcon.png" />
+    <Content Include="Resources\InforIcon.png" />
+    <Content Include="Resources\questionIcon.png" />
     <None Include="Resources\id-card.png" />
     <None Include="Resources\background-xanh-duong.jpg" />
     <Content Include="Resources\logoAGU.jpg" />

@@ -95,6 +95,7 @@
             this.cbBoMon.Name = "cbBoMon";
             this.cbBoMon.Size = new System.Drawing.Size(238, 31);
             this.cbBoMon.TabIndex = 0;
+            this.cbBoMon.SelectedIndexChanged += new System.EventHandler(this.cbBoMon_SelectedIndexChanged);
             // 
             // label15
             // 
@@ -321,7 +322,9 @@
             // 
             // dtpNgaySinh
             // 
+            this.dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
             this.dtpNgaySinh.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpNgaySinh.Location = new System.Drawing.Point(151, 186);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(238, 32);
