@@ -1,4 +1,5 @@
 ﻿using QuanLyGiaoVienTrungHocPhoThong.Class;
+using QuanLyGiaoVienTrungHocPhoThong.ConnectSQL;
 using QuanLyGiaoVienTrungHocPhoThong.Forms;
 using System;
 using System.Collections.Generic;
@@ -70,6 +71,11 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             OpenChildForm(new FormBoMon());
             lblTitle.Text = btnBoMon.Text;
         }
+        private void btnLop_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormLop());
+            lblTitle.Text = btnLop.Text;
+        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -80,10 +86,11 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             lblTitle.Text = "Trường THPT Long Xuyên";
         }
 
-        private void btnDangXuat_Click(object sender, EventArgs e)
+        private void btnDangXuat_Click_1(object sender, EventArgs e)
         {
-            DialogResult traloi = MessageBox.Show("Bạn có muốn đăng xuất không?", "Thông báo", MessageBoxButtons.YesNo);
-            if (traloi == DialogResult.Yes)
+            MessageForm msgDangXuat = new MessageForm("Bạn có muốn đăng xuất không?", "Thông báo", "YesNo", MessageForm.Question);
+            msgDangXuat.ShowDialog();
+            if (msgDangXuat.getAnswer() == DialogResult.Yes)
             {
                 this.Hide();
                 FormDangNhap fdn = new FormDangNhap();
@@ -92,6 +99,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             }
         }
 
+        //Size
         private void FormMain_Resize(object sender, EventArgs e)
         {
             Size FormSize = new Size(1280, 720);

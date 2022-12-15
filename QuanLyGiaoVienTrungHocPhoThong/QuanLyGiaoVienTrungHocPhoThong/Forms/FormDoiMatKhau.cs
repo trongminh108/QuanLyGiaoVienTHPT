@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyGiaoVienTrungHocPhoThong.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,27 +27,25 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             {
                 if (mkm == nlmk)
                 {
-                    if (mkm == "")
+                    if (mkm == "" || nlmk == "")
                     {
-                        MessageBox.Show("Bạn chưa nhập mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else if (nlmk == "")
-                    {
-                        MessageBox.Show("Bạn chưa nhập mật khẩu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageForm msgInfor = new MessageForm("Bạn chưa nhập mật khẩu!", "Thông báo", "OK", MessageForm.Question);
+                        msgInfor.ShowDialog();
                     }
                     else
                     {
                         SqlDataAdapter da1 = new SqlDataAdapter("update Taikhoan set Matkhau = N'" + mkm + "'", cn);
                         DataTable dt1 = new DataTable();
                         da1.Fill(dt1);
-                        MessageBox.Show("Đổi mật khẩu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageForm msgInfor = new MessageForm("Đổi mật khẩu thành công", "Thông báo", "OK", MessageForm.Question);
+                        msgInfor.ShowDialog();
                         this.Close();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Mật khẩu không chính xác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Focus();
+                    MessageForm msgInfor = new MessageForm("Mật khẩu không chính xác!", "Thông báo", "OK", MessageForm.Question);
+                    msgInfor.ShowDialog();
                 }
             }
         }

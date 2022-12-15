@@ -23,7 +23,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms
             dgvBoMon.ReadOnly = true;
             dataGiaoVien = Class.LoadData.LoadComboBox("giaovien", cbMaTruongBoMon, 0);
         }
-
+        // Load Dữ liệu
         public void LoadData()
         {
             string[] colNames = { "Mã BM", "Tên Bộ Môn", "Trưởng Bộ Môn" };
@@ -42,6 +42,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms
             LoadData();
         }
 
+        //Sự kiện
         private void dgvBoMon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)

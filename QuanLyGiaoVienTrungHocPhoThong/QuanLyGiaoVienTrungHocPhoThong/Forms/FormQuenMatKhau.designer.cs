@@ -89,6 +89,7 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label4);
             this.Name = "FormQuenMatKhau";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lấy lại mật khẩu";
             this.ResumeLayout(false);
             this.PerformLayout();

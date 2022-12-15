@@ -34,13 +34,13 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbMaTruongBoMon = new System.Windows.Forms.ComboBox();
             this.txtBoMon = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvBoMon = new System.Windows.Forms.DataGridView();
-            this.cbMaTruongBoMon = new System.Windows.Forms.ComboBox();
             this.btnXoaBoMon = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
             this.btnCapNhatBoMon = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
             this.btnThemBoMon = new QuanLyGiaoVienTrungHocPhoThong.Customdesign.RoundedButton();
@@ -55,18 +55,18 @@
             this.txtMaBoMon.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaBoMon.Location = new System.Drawing.Point(221, 38);
             this.txtMaBoMon.Name = "txtMaBoMon";
-            this.txtMaBoMon.Size = new System.Drawing.Size(238, 32);
+            this.txtMaBoMon.Size = new System.Drawing.Size(238, 38);
             this.txtMaBoMon.TabIndex = 70;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label12.Location = new System.Drawing.Point(37, 44);
+            this.label12.Location = new System.Drawing.Point(25, 44);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(101, 21);
+            this.label12.Size = new System.Drawing.Size(125, 26);
             this.label12.TabIndex = 68;
             this.label12.Text = "Mã bộ môn:";
             // 
@@ -74,11 +74,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(37, 110);
+            this.label1.Location = new System.Drawing.Point(25, 110);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 21);
+            this.label1.Size = new System.Drawing.Size(132, 26);
             this.label1.TabIndex = 69;
             this.label1.Text = "Tên bộ môn:";
             // 
@@ -98,24 +98,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "BỘ MÔN";
             // 
+            // cbMaTruongBoMon
+            // 
+            this.cbMaTruongBoMon.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbMaTruongBoMon.FormattingEnabled = true;
+            this.cbMaTruongBoMon.Location = new System.Drawing.Point(221, 170);
+            this.cbMaTruongBoMon.Name = "cbMaTruongBoMon";
+            this.cbMaTruongBoMon.Size = new System.Drawing.Size(238, 37);
+            this.cbMaTruongBoMon.TabIndex = 74;
+            // 
             // txtBoMon
             // 
             this.txtBoMon.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtBoMon.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoMon.Location = new System.Drawing.Point(221, 104);
             this.txtBoMon.Name = "txtBoMon";
-            this.txtBoMon.Size = new System.Drawing.Size(238, 32);
+            this.txtBoMon.Size = new System.Drawing.Size(238, 38);
             this.txtBoMon.TabIndex = 73;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(37, 176);
+            this.label2.Location = new System.Drawing.Point(25, 175);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 21);
+            this.label2.Size = new System.Drawing.Size(192, 26);
             this.label2.TabIndex = 72;
             this.label2.Text = "Mã trưởng bộ môn:";
             // 
@@ -135,10 +144,10 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(180, 13);
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(121, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(155, 189);
+            this.pictureBox1.Size = new System.Drawing.Size(271, 223);
             this.pictureBox1.TabIndex = 75;
             this.pictureBox1.TabStop = false;
             // 
@@ -147,19 +156,11 @@
             this.dgvBoMon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBoMon.Location = new System.Drawing.Point(523, 12);
             this.dgvBoMon.Name = "dgvBoMon";
+            this.dgvBoMon.RowHeadersWidth = 51;
             this.dgvBoMon.Size = new System.Drawing.Size(459, 507);
             this.dgvBoMon.TabIndex = 76;
             this.dgvBoMon.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvBoMon_KeyDown);
             this.dgvBoMon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvBoMon_MouseDoubleClick);
-            // 
-            // cbMaTruongBoMon
-            // 
-            this.cbMaTruongBoMon.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbMaTruongBoMon.FormattingEnabled = true;
-            this.cbMaTruongBoMon.Location = new System.Drawing.Point(221, 170);
-            this.cbMaTruongBoMon.Name = "cbMaTruongBoMon";
-            this.cbMaTruongBoMon.Size = new System.Drawing.Size(238, 31);
-            this.cbMaTruongBoMon.TabIndex = 74;
             // 
             // btnXoaBoMon
             // 
@@ -172,7 +173,7 @@
             this.btnXoaBoMon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoaBoMon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoaBoMon.ForeColor = System.Drawing.Color.White;
-            this.btnXoaBoMon.Location = new System.Drawing.Point(352, 479);
+            this.btnXoaBoMon.Location = new System.Drawing.Point(353, 469);
             this.btnXoaBoMon.Name = "btnXoaBoMon";
             this.btnXoaBoMon.Size = new System.Drawing.Size(150, 40);
             this.btnXoaBoMon.TabIndex = 79;
@@ -192,7 +193,7 @@
             this.btnCapNhatBoMon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCapNhatBoMon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCapNhatBoMon.ForeColor = System.Drawing.Color.White;
-            this.btnCapNhatBoMon.Location = new System.Drawing.Point(182, 479);
+            this.btnCapNhatBoMon.Location = new System.Drawing.Point(183, 469);
             this.btnCapNhatBoMon.Name = "btnCapNhatBoMon";
             this.btnCapNhatBoMon.Size = new System.Drawing.Size(150, 40);
             this.btnCapNhatBoMon.TabIndex = 78;
@@ -212,7 +213,7 @@
             this.btnThemBoMon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThemBoMon.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemBoMon.ForeColor = System.Drawing.Color.White;
-            this.btnThemBoMon.Location = new System.Drawing.Point(12, 479);
+            this.btnThemBoMon.Location = new System.Drawing.Point(13, 469);
             this.btnThemBoMon.Name = "btnThemBoMon";
             this.btnThemBoMon.Size = new System.Drawing.Size(150, 40);
             this.btnThemBoMon.TabIndex = 77;
@@ -223,7 +224,7 @@
             // 
             // FormBoMon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 531);
             this.Controls.Add(this.btnXoaBoMon);
