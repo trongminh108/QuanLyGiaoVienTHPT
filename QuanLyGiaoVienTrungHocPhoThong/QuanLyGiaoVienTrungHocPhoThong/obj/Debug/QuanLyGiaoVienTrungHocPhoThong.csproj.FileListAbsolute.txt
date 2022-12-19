@@ -178,3 +178,4 @@ E:\C#(4)\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHo
 E:\C#(4)\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.exe
 E:\C#(4)\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.pdb
 E:\C#(4)\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.Forms.FormLop.resources
+D:\MinhTrong's Files\University_AGU\Semester_5\Lap-Trinh-.Net\DoAn\Code\QuanLyGiaoVienTHPT\QuanLyGiaoVienTrungHocPhoThong\QuanLyGiaoVienTrungHocPhoThong\obj\Debug\QuanLyGiaoVienTrungHocPhoThong.Forms.FormLop.resources

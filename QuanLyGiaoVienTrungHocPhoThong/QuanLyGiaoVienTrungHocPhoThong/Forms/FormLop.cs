@@ -14,6 +14,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms
     public partial class FormLop : Form
     {
         private DataTable dataGiaoVien;
+
         public FormLop()
         {
             InitializeComponent();
@@ -25,8 +26,8 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms
         // Load dữ liệu
         public void LoadData()
         {
-            string[] colNames = { "Lớp", "Mã chủ nhiệm"};
-            double[] colSize = { 0.3, 0.4};
+            string[] colNames = { "Lớp", "Mã chủ nhiệm" };
+            double[] colSize = { 0.4, 0.5 };
             int width = dgvLop.Width;
             dgvLop.DataSource = (new SQLcmd()).Select_Command("lop");
             for (int i = 0; i < dgvLop.Columns.Count; i++)
@@ -63,7 +64,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms
                     catch (Exception ex)
                     {
                         MessageForm msgForm = new MessageForm("Thêm lớp thất bại!\n" + ex.Message, "Thêm lớp", "OK", MessageForm.Error);
-                       msgForm.ShowDialog();
+                        msgForm.ShowDialog();
                     }
                 }
             }
@@ -78,30 +79,43 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms
         {
             if (txtLop.Text != "" || cbMaChuNhiem.Text != "")
             {
-                MessageForm msgInfor = new MessageForm("Bạn có muốn sửa lớp này không?", "Thông báo", "YesNo", MessageForm.Question);
-                msgInfor.ShowDialog();
-                if (msgInfor.getAnswer() == DialogResult.Yes)
+                // Nếu lớp X đã có chủ nhiệm
+                DataRow rowLop = (new SQLcmd()).Find_Command("lop", txtLop.Text);
+                if (rowLop[1].ToString() != "" && rowLop[1].ToString() != cbMaChuNhiem.Text.ToString())
                 {
-                    int i = dgvLop.SelectedRows[0].Index;
-                    if (i >= 0 && i < dgvLop.RowCount - 1)
+                    MessageForm msg = new MessageForm("Lớp này đang có chủ nhiệm\r" +
+                        "Bạn có muốn thay đổi không?", "Thông báo", MessageForm.typeYesNo, MessageForm.Question);
+                    msg.ShowDialog();
+                    if (msg.getAnswer() == DialogResult.Yes)
                     {
-                        SQLcmd editLop = new SQLcmd();
-                        editLop.Add(txtLop.Text);
-                        editLop.Add(cbMaChuNhiem.Text);
-                        try
-                        {
-                            editLop.Update_Command("lop", dgvLop[0, i].Value.ToString());
-                            MessageForm msgForm = new MessageForm("Sửa lớp thành công!", "Sửa lớp", "OK", MessageForm.Infor);
-                            msgForm.ShowDialog();
-                            LoadData();
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageForm msgForm = new MessageForm("Sửa lớp thất bại!\n" + ex.Message, "Sửa lớp", "OK", MessageForm.Error);
-                            msgForm.ShowDialog();
-                        }
+                        //Xóa giảng dạy
+                        (new SQLcmd()).Delete_Command("giangday", rowLop["machunhiem"].ToString());
                     }
+                    else
+                        return;
                 }
+                //Nếu lớp X chưa có chủ nhiệm
+                DataRow rowChuNhiem = (new SQLcmd()).Find_Command("giangday", cbMaChuNhiem.Text.ToString());
+                SQLcmd editChuNhiem = new SQLcmd();
+                editChuNhiem.Add(cbMaChuNhiem.Text);
+                editChuNhiem.Add(txtLop.Text);
+                editChuNhiem.Add("09/05/2022");
+                if (rowChuNhiem != null)
+                {
+                    // Nếu giáo viên hiện tại đang là chủ nhiệm
+                    editChuNhiem.Update_Command("giangday", rowChuNhiem[0].ToString());
+                }
+                else
+                {
+                    //Nếu giáo viên không đang là chủ nhiệm
+                    editChuNhiem.Insert_Command("giangday");
+                }
+                SQLcmd suaLop = new SQLcmd();
+                suaLop.Add(txtLop.Text);
+                suaLop.Add(cbMaChuNhiem.Text);
+                suaLop.Update_Command("lop", txtLop.Text);
+                LoadData();
+                return;
             }
             else
             {
@@ -124,7 +138,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms
                 }
                 catch (Exception ex)
                 {
-                    string mess = @"Xóa lớp {0} thất bại do còn giáo viên dạy môn {0}";
+                    string mess = @"Xóa lớp {0} thất bại do còn giáo viên dạy lớp {0}";
                     MessageForm msgForm = new MessageForm(string.Format(mess, dgvLop[1, i].Value), "Xóa lớp", "OK", MessageForm.Error);
                     msgForm.ShowDialog();
                 }
@@ -133,14 +147,15 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms
 
         private void dgvLop_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-                if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
+            {
+                int i = dgvLop.SelectedRows[0].Index;
+                if (i >= 0 && i < dgvLop.RowCount - 1)
                 {
-                    int i = dgvLop.SelectedRows[0].Index;
-                    if (i >= 0 && i < dgvLop.RowCount - 1)
-                    {
-                        txtLop.Text = dgvLop[0, i].Value.ToString();
-                    }
+                    txtLop.Text = dgvLop[0, i].Value.ToString();
+                    cbMaChuNhiem.Text = dgvLop[1, i].Value.ToString();
                 }
+            }
         }
     }
 }

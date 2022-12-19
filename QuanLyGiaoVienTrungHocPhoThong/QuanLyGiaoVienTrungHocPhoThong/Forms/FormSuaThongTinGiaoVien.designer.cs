@@ -157,6 +157,7 @@
             this.cbHang.Name = "cbHang";
             this.cbHang.Size = new System.Drawing.Size(238, 31);
             this.cbHang.TabIndex = 0;
+            this.cbHang.SelectedIndexChanged += new System.EventHandler(this.cbHang_SelectedIndexChanged);
             // 
             // gpbThongTin2
             // 

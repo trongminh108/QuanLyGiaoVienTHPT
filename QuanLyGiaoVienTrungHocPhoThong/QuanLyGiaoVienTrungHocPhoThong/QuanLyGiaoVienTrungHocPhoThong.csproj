@@ -188,6 +188,7 @@
     <None Include="Resources\simplebutton.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\blackboard.png" />
     <Content Include="Resources\ErrorIcon.png" />
     <Content Include="Resources\InforIcon.png" />
     <Content Include="Resources\questionIcon.png" />

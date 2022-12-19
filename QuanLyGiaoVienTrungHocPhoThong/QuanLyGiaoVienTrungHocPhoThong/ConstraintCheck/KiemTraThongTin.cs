@@ -49,5 +49,21 @@ namespace QuanLyGiaoVienTrungHocPhoThong.ConstraintCheck
         {
             return email.EndsWith("@gmail.com");
         }
+
+        public static bool KiemTraHSL(string hsl, string hangGV)
+        {
+            float num;
+            string[] lv = { "Hạng 1", "Hạng 2", "Hạng 3" };
+            bool isNum = float.TryParse(hsl, out num);
+            if (!isNum)
+                return false;
+            if (hangGV == lv[0] && (num >= 4.4 && num <= 6.78))
+                return true;
+            if (hangGV == lv[1] && (num >= 4.0 && num <= 6.38))
+                return true;
+            if (hangGV == lv[2] && (num >= 2.34 && num <= 4.98))
+                return true;
+            return false;
+        }
     }
 }

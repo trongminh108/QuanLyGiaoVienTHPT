@@ -94,6 +94,11 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                 if (!KiemTraThongTin.KiemTraCMND_CCCD(txtCMND.Text))
                     throw new Exception("CMND/CCCD không hợp lệ, vui lòng nhập lại!\r" +
                         "CMND/CCCD phải là dãy số dài từ 9/12 chữ số");
+                if (!KiemTraThongTin.KiemTraHSL(txtHeSoLuong.Text, cbHang.Text))
+                    throw new Exception("Hệ số lương và hạng GV không hợp lệ!\r" +
+                        "GV hạng 1 có HSL từ 4.4 -> 6.78\r" +
+                        "GV hạng 2 có HSL từ 4.0 -> 6.38\r " +
+                        "GV hạng 3 có HSL từ 2.34 -> 4.38\r");
                 //Thêm tài khoản cho giáo viên
                 SQLcmd addTK = new SQLcmd();
                 addTK.Add(txtEmail.Text);
@@ -116,10 +121,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
 
                 addGV.Add(txtSDT.Text);
                 addGV.Add(txtEmail.Text);
-                float hsl;
-                bool isNum = float.TryParse(txtHeSoLuong.Text, out hsl);
-                if (!isNum)
-                    hsl = 1;
+                float hsl = float.Parse(txtHeSoLuong.Text);
                 addGV.Add((int)(hsl * 1490000) + "");
                 addGV.Insert_Command("giaovien");
 
@@ -181,6 +183,16 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
                     txtMaGV.Text = dataBoMon.Rows[i][0].ToString()[0] + tmp.Substring(1);
                 }
             }
+        }
+
+        private void cbHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbHang.SelectedIndex == 0)
+                txtHeSoLuong.Text = 4.4 + "";
+            else if (cbHang.SelectedIndex == 1)
+                txtHeSoLuong.Text = 4.0 + "";
+            else if (cbHang.SelectedIndex == 2)
+                txtHeSoLuong.Text = 2.34 + "";
         }
     }
 }
