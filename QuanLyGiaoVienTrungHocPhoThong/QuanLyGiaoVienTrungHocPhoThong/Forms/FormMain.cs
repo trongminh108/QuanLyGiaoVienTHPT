@@ -71,6 +71,7 @@ namespace QuanLyGiaoVienTrungHocPhoThong.Forms2
             OpenChildForm(new FormBoMon());
             lblTitle.Text = btnBoMon.Text;
         }
+
         private void btnLop_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormLop());
